@@ -7,17 +7,17 @@
         <img v-else src="../../static/images/tapBar/0-0.png" alt /> -->
         <span>首页</span>
       </router-link>
-      <router-link to="/personal" :class="[{'nav-li-active':nav==1},'nav-li']">
+      <router-link to="/subscribe" :class="[{'nav-li-active':nav==1},'nav-li']">
         <!-- <img v-if="nav==1" src="../../static/images/tapBar/1-1.png" alt />
         <img v-else src="../../static/images/tapBar/1-0.png" alt /> -->
         <span>预约</span>
       </router-link>
-      <router-link to="/personal" :class="[{'nav-li-active':nav==1},'nav-li']">
+      <router-link to="/personal" :class="[{'nav-li-active':nav==2},'nav-li']">
         <!-- <img v-if="nav==1" src="../../static/images/tapBar/1-1.png" alt />
         <img v-else src="../../static/images/tapBar/1-0.png" alt /> -->
         <span>服务</span>
       </router-link>
-      <router-link to="/personal" :class="[{'nav-li-active':nav==1},'nav-li']">
+      <router-link to="/personal" :class="[{'nav-li-active':nav==3},'nav-li']">
         <!-- <img v-if="nav==1" src="../../static/images/tapBar/1-1.png" alt />
         <img v-else src="../../static/images/tapBar/1-0.png" alt /> -->
         <span>我的</span>

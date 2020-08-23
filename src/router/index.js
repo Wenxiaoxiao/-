@@ -16,6 +16,16 @@ const routes = [
     },
   },
   {
+    path: '/subscribe',
+    name: 'Subscribe',
+    component: () => import('../pages/userTerminal/subscribe.vue'),
+    meta: {
+      title: '预约',
+      keepAlive: true,
+      isBack: false
+    },
+  },
+  {
     path: '/login',
     name: 'login',
     component: () => import('../pages/login.vue'),
