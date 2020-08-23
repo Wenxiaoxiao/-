@@ -7,7 +7,7 @@
         <img v-else src="../../static/images/tapBar/1.png" alt />
         <span>首页</span>
       </router-link>
-      <router-link to="/" :class="[{'nav-li-active':nav==1},'nav-li']">
+      <router-link to="/subscribe" :class="[{'nav-li-active':nav==1},'nav-li']">
         <img v-if="nav==1" src="../../static/images/tapBar/2-1.png" alt />
         <img v-else src="../../static/images/tapBar/2.png" alt />
         <span>预约</span>
