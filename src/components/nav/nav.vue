@@ -3,23 +3,23 @@
     <div class="nav-blank"></div>
     <div class="nav-box">
       <router-link to="/" :class="[{'nav-li-active':nav==0},'nav-li']">
-        <!-- <img v-if="nav==0" src="../../static/images/tapBar/0-1.png" alt />
-        <img v-else src="../../static/images/tapBar/0-0.png" alt /> -->
+        <img v-if="nav==0" src="../../static/images/tapBar/1-1.png" alt />
+        <img v-else src="../../static/images/tapBar/1.png" alt />
         <span>首页</span>
       </router-link>
-      <router-link to="/subscribe" :class="[{'nav-li-active':nav==1},'nav-li']">
-        <!-- <img v-if="nav==1" src="../../static/images/tapBar/1-1.png" alt />
-        <img v-else src="../../static/images/tapBar/1-0.png" alt /> -->
+      <router-link to="/" :class="[{'nav-li-active':nav==1},'nav-li']">
+        <img v-if="nav==1" src="../../static/images/tapBar/2-1.png" alt />
+        <img v-else src="../../static/images/tapBar/2.png" alt />
         <span>预约</span>
       </router-link>
-      <router-link to="/personal" :class="[{'nav-li-active':nav==2},'nav-li']">
-        <!-- <img v-if="nav==1" src="../../static/images/tapBar/1-1.png" alt />
-        <img v-else src="../../static/images/tapBar/1-0.png" alt /> -->
+      <router-link to="/" :class="[{'nav-li-active':nav==1},'nav-li']">
+        <img v-if="nav==1" src="../../static/images/tapBar/3-1.png" alt />
+        <img v-else src="../../static/images/tapBar/3.png" alt />
         <span>服务</span>
       </router-link>
-      <router-link to="/personal" :class="[{'nav-li-active':nav==3},'nav-li']">
-        <!-- <img v-if="nav==1" src="../../static/images/tapBar/1-1.png" alt />
-        <img v-else src="../../static/images/tapBar/1-0.png" alt /> -->
+      <router-link to="/" :class="[{'nav-li-active':nav==1},'nav-li']">
+        <img v-if="nav==1" src="../../static/images/tapBar/4-1.png" alt />
+        <img v-else src="../../static/images/tapBar/4.png" alt />
         <span>我的</span>
       </router-link>
     </div>
@@ -41,7 +41,7 @@ export default {
 <style lang="scss" scoped>
 .nav-blank {
   width: 100%;
-  height: 100px;
+  height:r(98);
 }
 .nav-box {
   position: fixed;
@@ -49,7 +49,7 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   width: 750px;
-  height: 100px;
+  height:r(98);
   z-index:1000;
   display: flex;
   flex-direction: row;
@@ -58,20 +58,19 @@ export default {
   .nav-li {
     display: inline-block;
     width: 50%;
-    height: 100px;
+    height:r(98);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #666;
-    padding-top: 2px;
     > img {
-      width: 42px;
-      margin-bottom: 3px;
+      width:r(96);
+      height:r(68);
     }
     > span {
-      font-size: 30px;
-      line-height: 40px;
+      font-size:r(20);
+      line-height:r(28);
     }
   }
   .nav-li-active {
