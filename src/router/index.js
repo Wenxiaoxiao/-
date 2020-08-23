@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Index from '../pages/index.vue'
+import Index from '../pages/userTerminal/index.vue'
 
 Vue.use(VueRouter)
 
@@ -10,7 +10,7 @@ const routes = [
     name: 'Home',
     component: Index,
     meta: {
-      title: '严选产品',
+      title: '首页',
       keepAlive: true,
       isBack: false
     },

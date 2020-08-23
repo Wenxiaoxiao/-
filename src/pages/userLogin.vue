@@ -3,14 +3,14 @@
     <!-- 顶部logo -->
     <div class="lz-logo-box">
       <div class="img-c-fff">
-         <img src="@/static/images/logo.png" alt="">
+         <!-- <img src="@/static/images/logo.png" alt=""> -->
       </div>
       <p>桐心企业保</p>
     </div>
     <!-- 登录填写 -->
     <div class="input-container">
       <div class="userNum from-input">
-        <img src="@/static/images/login/mobile.png" class="user-icon left" alt />
+        <!-- <img src="@/static/images/login/mobile.png" class="user-icon left" alt /> -->
         <input
           type="number"
           v-model="mobile"
@@ -20,7 +20,7 @@
         />
       </div>
       <div class="authCode from-input">
-        <img src="@/static/images/login/password.png" class="user-icon left" alt />
+        <!-- <img src="@/static/images/login/password.png" class="user-icon left" alt /> -->
         <input
           type="number"
           v-model="code"
@@ -187,7 +187,7 @@ export default {
        
   }
   min-height: 100vh;
-  background: url("~@/static/images/login/login_bg.png") no-repeat center center;
+  // background: url("~@/static/images/login/login_bg.png") no-repeat center center;
   background-size: 100% 100%;
   .lz-logo-box {
     padding: 50px 0;

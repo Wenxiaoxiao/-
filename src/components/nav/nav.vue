@@ -3,14 +3,24 @@
     <div class="nav-blank"></div>
     <div class="nav-box">
       <router-link to="/" :class="[{'nav-li-active':nav==0},'nav-li']">
-        <img v-if="nav==0" src="../../static/images/tapBar/0-1.png" alt />
-        <img v-else src="../../static/images/tapBar/0-0.png" alt />
+        <!-- <img v-if="nav==0" src="../../static/images/tapBar/0-1.png" alt />
+        <img v-else src="../../static/images/tapBar/0-0.png" alt /> -->
         <span>首页</span>
       </router-link>
       <router-link to="/personal" :class="[{'nav-li-active':nav==1},'nav-li']">
-        <img v-if="nav==1" src="../../static/images/tapBar/1-1.png" alt />
-        <img v-else src="../../static/images/tapBar/1-0.png" alt />
-        <span>个人中心</span>
+        <!-- <img v-if="nav==1" src="../../static/images/tapBar/1-1.png" alt />
+        <img v-else src="../../static/images/tapBar/1-0.png" alt /> -->
+        <span>预约</span>
+      </router-link>
+      <router-link to="/personal" :class="[{'nav-li-active':nav==1},'nav-li']">
+        <!-- <img v-if="nav==1" src="../../static/images/tapBar/1-1.png" alt />
+        <img v-else src="../../static/images/tapBar/1-0.png" alt /> -->
+        <span>服务</span>
+      </router-link>
+      <router-link to="/personal" :class="[{'nav-li-active':nav==1},'nav-li']">
+        <!-- <img v-if="nav==1" src="../../static/images/tapBar/1-1.png" alt />
+        <img v-else src="../../static/images/tapBar/1-0.png" alt /> -->
+        <span>我的</span>
       </router-link>
     </div>
   </div>

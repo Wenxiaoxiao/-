@@ -10,7 +10,7 @@
       </div>
         <div class="file-item" v-for="(item,index) in fileUrls">
           <img :src="item" />
-          <img src='../../static/images/close.png' @click="delite(index)" class="up-delite">
+          <!-- <img src='../../static/images/close.png' @click="delite(index)" class="up-delite"> -->
         </div>
     </div>
   </div>

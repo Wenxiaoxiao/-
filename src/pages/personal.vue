@@ -26,30 +26,30 @@
           <div class="top-li-name">企业订单</div>
         </div>
         <div class="top-li">
-          <img
+          <!-- <img
             src="@static/images/personal/top-1.png"
             alt
             class="top-li-img"
             @click="goUrl('/personal/corPolicy')"
-          />
+          /> -->
           <div class="top-li-name">企业保单</div>
         </div>
         <div class="top-li">
-          <img
+          <!-- <img
             src="@static/images/personal/top-2.png"
             alt
             class="top-li-img"
             @click="goUrl('/personal/mysettlement')"
-          />
+          /> -->
           <div class="top-li-name">我的理赔</div>
         </div>
         <div class="top-li">
-          <img
+          <!-- <img
             src="@static/images/personal/top-3.png"
             alt
             class="top-li-img"
             @click="goUrl('/personal/chosepolicy')"
-          />
+          /> -->
           <div class="top-li-name">我的保全</div>
         </div>
       </div>
@@ -64,19 +64,19 @@
     </div>
     <div class="bottom">
       <a href="tel://400-9955-788">
-        <img src="@static/images/personal/rexian.png" alt class="kfrx" />
+        <!-- <img src="@static/images/personal/rexian.png" alt class="kfrx" /> -->
       </a>
       <div class="bottom-lis">
         <div class="bottom-li">
-          <img src="@static/images/personal/bottom-1.png" alt class="bottom-li-img" />
+          <!-- <img src="@static/images/personal/bottom-1.png" alt class="bottom-li-img" /> -->
           <div class="bottom-li-name">双保险资质</div>
         </div>
         <div class="bottom-li">
-          <img src="@static/images/personal/bottom-2.png" alt class="bottom-li-img" />
+          <!-- <img src="@static/images/personal/bottom-2.png" alt class="bottom-li-img" /> -->
           <div class="bottom-li-name">银保监会网销许可</div>
         </div>
           <div class="bottom-li">
-          <img src="@static/images/personal/bottom-3.png" alt class="bottom-li-img" />
+          <!-- <img src="@static/images/personal/bottom-3.png" alt class="bottom-li-img" /> -->
           <div class="bottom-li-name">1V1专属服务</div>
         </div>
       </div>
@@ -136,7 +136,7 @@ export default {
          '桐心企业保 —— 企业保险投保平台',
         '企业保险全站式服务平台，提供雇主责任险、企业团险、企业财产险、员工福利医疗险等。投保、变更、理赔全程服务。',
         // API_CONFIG.ROOT+ '/static/images/logo.png'
-         'http://epf.wts9999.net/m/public/images/logo2.png'
+        //  'http://epf.wts9999.net/m/public/images/logo2.png'
       )
      },1000)
   }

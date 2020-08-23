@@ -1,6 +1,7 @@
 <template>
   <div class="noDateBox">
-       <img src="@static/images/noDate.png" />
+       <!-- <img src="@static/images/noDate.png" /> -->
+       <img/>
   </div>
 </template>
 
