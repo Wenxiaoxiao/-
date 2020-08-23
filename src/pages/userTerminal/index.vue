@@ -5,12 +5,21 @@
             <img src="@static/images/bg.png"/>
         </div>
         <div class="top-nav">
-            <div>知识</div>
-            <div>实操</div>
-            <div>咨询</div>
+            <div>
+                <img src="@static/images/icon3.png"/>
+                <div>知识</div>
+            </div>
+            <div>
+                <img src="@static/images/icon2.png"/>
+                <div>实操</div>
+            </div>
+            <div>
+                <img src="@static/images/icon1.png"/>
+                <div>咨询</div>
+            </div>
         </div>
         <div class="sub-title">#顺其自然、为所当为#</div>
-        <van-tabs class="lists-tabs">
+        <van-tabs class="lists-tabs" animated @click="tabChange">
         <van-tab v-for="(tab,index) in tabs" :title="tab.name" :key="index">
             <app-list :listData="tmpList"></app-list>
         </van-tab>
@@ -69,6 +78,11 @@ export default {
             title:'症状是强迫性重复的结果1',
             tags:['原因','思维'],
             time:'2020-04-24'
+        },{
+            img:require('@static/images/list.png'),
+            title:'症状是强迫性重复的结果1',
+            tags:['原因'],
+            time:'2020-04-24'
         }],
         location: location,
         list: [] //列表数据
@@ -79,7 +93,9 @@ export default {
     
   },
   methods: {
-    
+    tabChange(){
+        
+    }
   }
 };
 </script>
@@ -112,8 +128,15 @@ export default {
             float:left;
             width:33.33%;
             text-align: center;
-            color:#666;
-            font-size: r(24);
+            font-size: 0;
+            img{
+                width:r(64);
+            }
+            div{
+                height:r(33);
+                color:#666;
+                font-size: r(24);
+            }
         }
     }
     .sub-title{
