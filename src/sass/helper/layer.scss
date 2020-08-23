@@ -1,0 +1,48 @@
+//弹窗默认背景为透明
+.bac-transparent{
+    background-color: transparent!important;
+    .layui-m-layerchild{
+        background-color: transparent!important;
+    }
+  }
+
+  //信息框样式
+  .layui-m-layer-lzAlert{
+    width: 80%!important;
+    
+    .layui-m-layercont{
+      font-size: 30px;
+      max-height: 300px;
+      overflow: auto;
+      word-break:break-all;
+      padding: 80px 30px;
+    }
+    .layui-m-layerbtn{
+      height: 80px;
+      line-height: 80px;
+      span[yes]{
+        font-size: r(30);
+        color:$baseColor!important;
+      }
+
+    }
+  }
+  //询问框样式
+  .layui-m-layer-inquiry{
+    width: 80%!important;
+    .layui-m-layercont{
+      font-size: r(30);
+    }
+    .layui-m-layerbtn{
+      height: 80px;
+      line-height: 80px;
+      span[yes]{
+        font-size: r(30);
+        color:$baseColor!important;
+      }
+      span[no]{
+        font-size: r(30);
+        color: #666!important;
+      }
+    }
+  }
