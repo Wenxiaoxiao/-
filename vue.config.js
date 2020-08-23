@@ -23,7 +23,7 @@ module.exports = {
   },
   devServer:{
     port: 7150,
-    proxy: 'http://epf.wts9999.net'
+    proxy: 'http://devoutact.top/'
   },
   css: {
     loaderOptions: {

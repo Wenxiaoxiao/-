@@ -136,7 +136,6 @@ export default {
          '桐心企业保 —— 企业保险投保平台',
         '企业保险全站式服务平台，提供雇主责任险、企业团险、企业财产险、员工福利医疗险等。投保、变更、理赔全程服务。',
         // API_CONFIG.ROOT+ '/static/images/logo.png'
-        //  'http://epf.wts9999.net/m/public/images/logo2.png'
       )
      },1000)
   }
