@@ -39,7 +39,7 @@ module.exports = {
       postcss: {
         plugins: [require('postcss-plugin-px2rem')({
           rootValue: 75,
-          minPixelValue: 8,
+          minPixelValue:1,
           exclude: /(node_module|static)/
         })]
       }

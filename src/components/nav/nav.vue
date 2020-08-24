@@ -12,13 +12,13 @@
         <img v-else src="../../static/images/tapBar/2.png" alt />
         <span>预约</span>
       </router-link>
-      <router-link to="/" :class="[{'nav-li-active':nav==1},'nav-li']">
-        <img v-if="nav==1" src="../../static/images/tapBar/3-1.png" alt />
+      <router-link to="/" :class="[{'nav-li-active':nav==2},'nav-li']">
+        <img v-if="nav==2" src="../../static/images/tapBar/3-1.png" alt />
         <img v-else src="../../static/images/tapBar/3.png" alt />
         <span>服务</span>
       </router-link>
-      <router-link to="/" :class="[{'nav-li-active':nav==1},'nav-li']">
-        <img v-if="nav==1" src="../../static/images/tapBar/4-1.png" alt />
+      <router-link to="/" :class="[{'nav-li-active':nav==3},'nav-li']">
+        <img v-if="nav==3" src="../../static/images/tapBar/4-1.png" alt />
         <img v-else src="../../static/images/tapBar/4.png" alt />
         <span>我的</span>
       </router-link>

@@ -93,7 +93,7 @@ function jsonP(params){
 function useHeader(header){
     // 通过header判断是否授权
     if(header.authed=="n"){
-        epps_login.init();
+        // epps_login.init();
          return false;
     }
     localStorage.setItem('hasAuth',1)

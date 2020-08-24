@@ -1,6 +1,6 @@
 <template>
   <div class="lists">
-    <div v-for="(item,i) in listData" :key="i" class="item">
+    <div v-for="(item,i) in listData" :key="i" class="item" @click="goDetail">
         <div class="left">
             <img :src="item.img"/>
         </div>
@@ -21,7 +21,13 @@ export default {
       listData:Array
   },
   mounted() {},
-  methods: {}
+  methods: {
+      goDetail(){
+          this.$router.push({
+              path:'/HomeDetail'
+          })
+      }
+  }
 };
 </script>
 
@@ -82,6 +88,9 @@ export default {
                 text-align: right;
             }
         }
+    }
+    .item:nth-last-child(1){
+        border:none;
     }
 }
 </style>

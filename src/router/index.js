@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Index from '../pages/userTerminal/index.vue'
+import Index from '../pages/userTerminal/index.vue';
+import HomeDetail from '../pages/userTerminal/indexDetail.vue';
 
 Vue.use(VueRouter)
 
@@ -11,6 +12,16 @@ const routes = [
     component: Index,
     meta: {
       title: '首页',
+      keepAlive: true,
+      isBack: false
+    },
+  },
+  {
+    path: '/HomeDetail',
+    name: 'HomeDetail',
+    component: HomeDetail,
+    meta: {
+      title: '首页详情',
       keepAlive: true,
       isBack: false
     },
@@ -44,6 +55,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 })
 

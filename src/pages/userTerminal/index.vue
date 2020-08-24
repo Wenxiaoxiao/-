@@ -32,8 +32,6 @@
 <script>
 import nav from "@/components/nav/nav.vue";
 import list from "@/components/indexList.vue";
-import tools from '../../api/tools'
-tools.refreshPageInios()
 var vm;
 export default {
   components: {
