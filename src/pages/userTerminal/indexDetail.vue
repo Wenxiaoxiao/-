@@ -25,7 +25,7 @@
                 </div>
                 <div class="d2">
                     <div class="des">{{item.des}}</div>
-                    <div class="ico"></div>
+                    <div class="ico"><img v-if="item.like" src="@static/images/like.png"/><img v-else src="@static/images/unlike.png"/></div>
                 </div>
                 <div class="d3">
                     <div class="d_i" v-for="(d,m) in item.reply" :key="m">
@@ -36,24 +36,28 @@
             </div>
         </div>
     </div>
+    <reply-box></reply-box>
   </div>
 </template>
 
 <script>
+import replyBox from "@/components/replyBox.vue";
 var vm;
 export default {
   components: {
-
+      "reply-box":replyBox
   },
   data() {
     return {
+        inputText:null,
         showExpandBar:true,
         commentLists:[
             {
                 icon:require('@static/images/logo.png'),
                 name:'学员孙丽',
                 time:'2020-04-24',
-                des:'深有感受.......',
+                des:'深有感受深有感受深有感受深有感受深有感受深有感受.......',
+                like:true,
                 reply:[
                     {
                         name:'张三',
@@ -70,6 +74,7 @@ export default {
                 name:'学员憨憨',
                 time:'2020-04-24',
                 des:'我太难了.......',
+                like:false,
                 reply:[
                     {
                         name:'张三',
@@ -212,11 +217,24 @@ export default {
                     }
                 }
                 .d2{
-                    height:r(33);
+                    min-height:r(33);
+                    overflow: hidden;
                     font-size: r(28);
                     color:#333;
                     line-height: r(33);
                     margin:r(8) r(0) r(20);
+                    .des{
+                        width:r(564);
+                        float:left;
+                    }
+                    .ico{
+                        float: right;
+                        width:r(32);
+                        height: r(30);
+                        img{
+                            width:r(32);
+                        }
+                    }
                 }
                 .d3{
                     width:r(606);

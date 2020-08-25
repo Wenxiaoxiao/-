@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Index from '../pages/userTerminal/index.vue';
 import HomeDetail from '../pages/userTerminal/indexDetail.vue';
+import Login from '../pages/login.vue';
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,16 @@ const routes = [
       keepAlive: true,
       isBack: false
     },
+  },
+  {
+    path:'/login',
+    name:'Login',
+    component:Login,
+    meta:{
+      title:'登陆',
+      keepAlive: true,
+      isBack: false
+    }
   },
   {
     path: '/HomeDetail',
@@ -55,22 +66,6 @@ const routes = [
       keepAlive: true,
       isBack: false
     }
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: () => import('../pages/login.vue'),
-    meta: {
-      title: '微信授权',
-    },
-  },
-  {
-    path: '/userLogin',
-    name: 'userLogin',
-    component: () => import('../pages/userLogin.vue'),
-    meta: {
-      title: '登录',
-    },
   },
 ]
 
