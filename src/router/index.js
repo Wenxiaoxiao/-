@@ -37,6 +37,26 @@ const routes = [
     },
   },
   {
+    path: '/needToKnow',
+    name: 'NeedToKnow',
+    component: () => import('../pages/needToKnow.vue'),
+    meta: {
+      title: '会员须知',
+      keepAlive: true,
+      isBack: false
+    }
+  },
+  {
+    path: '/mine',
+    name: 'Mine',
+    component: () => import('../pages/userTerminal/mine.vue'),
+    meta: {
+      title: '我的',
+      keepAlive: true,
+      isBack: false
+    }
+  },
+  {
     path: '/login',
     name: 'login',
     component: () => import('../pages/login.vue'),
