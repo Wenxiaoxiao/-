@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Index from '../pages/userTerminal/index.vue';
 import HomeDetail from '../pages/userTerminal/indexDetail.vue';
 import Login from '../pages/login.vue';
+import replyDetail from '../pages/userTerminal/replyDetail.vue';
 
 Vue.use(VueRouter)
 
@@ -32,10 +33,20 @@ const routes = [
     name: 'HomeDetail',
     component: HomeDetail,
     meta: {
-      title: '首页详情',
+      title: '详情',
       keepAlive: true,
       isBack: false
     },
+  },
+  {
+    path:'/replyDetail',
+    name:'replyDetail',
+    component:replyDetail,
+    meta:{
+      title:'回复详情',
+      keepAlive:true,
+      isBack:false
+    }
   },
   {
     path: '/subscribe',

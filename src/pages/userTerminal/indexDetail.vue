@@ -31,7 +31,7 @@
                     <div class="d_i" v-for="(d,m) in item.reply" :key="m">
                         {{d.name}}：{{d.des}}
                     </div>
-                    <div class="moreReply">共{{item.reply.length}}条回复></div>
+                    <div class="moreReply" @click="goReplyDetail">共{{item.reply.length}}条回复></div>
                 </div>
             </div>
         </div>
@@ -94,6 +94,11 @@ export default {
     
   },
   methods: {
+    goReplyDetail(){
+        this.$router.push({
+            path:'/replyDetail'
+        })
+    },
     tabChange(){
         
     }

@@ -17,7 +17,7 @@
         <img v-else src="../../static/images/tapBar/3.png" alt />
         <span>服务</span>
       </router-link>
-      <router-link to="/" :class="[{'nav-li-active':nav==3},'nav-li']">
+      <router-link to="/mine" :class="[{'nav-li-active':nav==3},'nav-li']">
         <img v-if="nav==3" src="../../static/images/tapBar/4-1.png" alt />
         <img v-else src="../../static/images/tapBar/4.png" alt />
         <span>我的</span>

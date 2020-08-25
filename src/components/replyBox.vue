@@ -11,9 +11,11 @@
 <script>
 export default {
   props: {
+      inputText:''
+  },
+  mounted() {
       
   },
-  mounted() {},
   methods: {
      
   }
