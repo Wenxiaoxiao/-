@@ -1,5 +1,47 @@
 <template>
-  <div class="container"></div>
+  <div class="login-container">
+    <img src="@static/images/company.png" class="company"/>
+    <van-form @submit="onSubmit">
+      <van-field
+        v-model="username"
+        name="账号"
+        label="账号"
+        placeholder="请输入手机号"
+      />
+      <van-field
+        v-model="password"
+        type="password"
+        name="密码"
+        label="密码"
+        placeholder="请输入验证码"
+      />
+      <van-field
+        v-model="code"
+        clearable
+        name="验证码"
+        label="验证码"
+        placeholder="请输入验证码"
+      >
+        <template #button>
+          <img src="@static/images/code.png" class="receive-code-img"/>
+        </template>
+      </van-field>
+      <div style="margin: 16px;">
+        <van-button round block type="info" native-type="submit">
+          登录
+        </van-button>
+      </div>
+    </van-form>
+    <div class="login-tips">
+      <div class="left">
+        <van-icon name="checked" :class="konwn?'l-ico active':'l-ico'" @click="konwn=!konwn"/>
+        <span @click="needKnow">会员须知</span>
+      </div>
+      <div class="right">
+        忘记密码？
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -7,44 +49,71 @@ let vm;
 export default {
   data() {
     return {
-      name: "",
+      username: '',
+      password: '',
+      code:'',
+      konwn:false
     };
   },
   methods: {
-    login(){
-      let code=this.$route.query.code;
-      let state=this.$route.query.state;
-      this.$http({
-        url: "/login/login",
-        type:"GET",
-        data:{
-          code:code,
-          state:state
-        }
-      }).then(
-        data => {
-          // 成功回调
-          this.$notice.msg('登录成功！');
-          let redirect_url=sessionStorage.oldUrlName;
-          if(redirect_url&&redirect_url.indexOf('login')===-1){
-            location.replace(redirect_url)
-          }else{
-            location.replace('/')
-          }
-        },
-        error => {
-          // 错误回调
-          console.log(error);
-        }
-      );
-    }
+    needKnow(){
+      this.$router.push({
+        path:'/needToKnow'
+      })
+    },
+    onSubmit(values) {
+      console.log('submit', values);
+    },
   },
   created() {
     vm = this;
-    this.login()
   }
 };
 </script>
 <style lang="scss" scoped>
-
+.login-container{
+  min-height:100vh;
+  width:r(750);
+  background: #fff;
+  padding-top:r(80);
+  font-size: r(32);
+  .company{
+    height:r(164);
+    margin:0 auto;
+    display: block;
+    margin-bottom:r(100);
+  }
+  .receive-code-img{
+    width:r(223);
+    height: r(62);
+  }
+  .login-tips{
+    height:r(40);
+    padding:r(0) r(48);
+    line-height: r(40);
+    overflow: hidden;
+    .left{
+      float: left;
+      color:#999;
+      .l-ico{
+        display: inline-block;
+        vertical-align: middle;
+        width:r(34);
+        margin-right: r(12);
+      }
+      .l-ico.active{
+        color: #1574F6;
+      }
+      span{
+        display: inline-block;
+        vertical-align: middle;
+        font-size: r(28);
+      }
+    }
+    .right{
+      float: right;
+      color: #0079FE;
+    }
+  }
+}
 </style>
