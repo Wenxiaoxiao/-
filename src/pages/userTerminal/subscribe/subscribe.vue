@@ -2,28 +2,28 @@
   <div class="subscribe-page">
     <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
       <van-swipe-item>
-        <img src="../../static/images/sub-swiper.png" alt="">
+        <img src="@static/images/sub-swiper.png" alt="">
       </van-swipe-item>
       <van-swipe-item>
-        <img src="../../static/images/sub-swiper.png" alt="">
+        <img src="@static/images/sub-swiper.png" alt="">
       </van-swipe-item>
       <van-swipe-item>
-        <img src="../../static/images/sub-swiper.png" alt="">
+        <img src="@static/images/sub-swiper.png" alt="">
       </van-swipe-item>
       <van-swipe-item>
-        <img src="../../static/images/sub-swiper.png" alt="">
+        <img src="@static/images/sub-swiper.png" alt="">
       </van-swipe-item>
     </van-swipe>
 
 
     <div class="sub-list">
       <div class="sub-item" v-for="(item,index) in items" :key="index">
-        <img src="../../static/images/teacher_icon.png" alt="">
+        <img src="@static/images/teacher_icon.png" alt="">
         <div class="content">
           <div>张老师</div>
           <div>荣誉证书/资质证书</div>
           <div>
-            <a href="javascript:void(0)">预约</a>
+            <a href="javascript:void(0)" @click="goDetail">预约</a>
           </div>
         </div>
       </div>
@@ -43,14 +43,15 @@
         items: 3
       }
     },
+    methods:{
+      goDetail(){
+        this.$router.push({
+          path:'/subscribeDetail'
+        })
+      }
+    }
   }
 </script>
-// <style lang="scss">
-//   /deep/ .van-swipe__indicator--active{
-//     width: 14px!important;
-//     border-radius: 6px;
-//   }
-// </style>
 
 <style lang="scss" scoped>
   .my-swipe .van-swipe-item {

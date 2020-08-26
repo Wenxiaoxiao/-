@@ -51,12 +51,32 @@ const routes = [
   {
     path: '/subscribe',
     name: 'Subscribe',
-    component: () => import('../pages/userTerminal/subscribe.vue'),
+    component: () => import('../pages/userTerminal/subscribe/subscribe.vue'),
     meta: {
       title: '预约',
       keepAlive: true,
       isBack: false
     },
+  },
+  {
+    path:'/subscribeDetail',
+    name:'subscribeDetail',
+    component:()=>import('../pages/userTerminal/subscribe/subscribeDetail.vue'),
+    meta:{
+      title:'咨询师详情',
+      keepAlive: true,
+      isBack: false
+    }
+  },
+  {
+    path:'/subscribeApply',
+    name:'subscribeApply',
+    component:()=>import('../pages/userTerminal/subscribe/subscribeApply.vue'),
+    meta:{
+      title:'预约申请',
+      keepAlive: true,
+      isBack: false
+    }
   },
   {
     path: '/needToKnow',
