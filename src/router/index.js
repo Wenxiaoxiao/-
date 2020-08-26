@@ -71,9 +71,29 @@ const routes = [
   {
     path: '/mine',
     name: 'Mine',
-    component: () => import('../pages/userTerminal/mine.vue'),
+    component: () => import('../pages/userTerminal/mine/mine.vue'),
     meta: {
       title: '我的',
+      keepAlive: true,
+      isBack: false
+    }
+  },
+  {
+    path: '/memberCenter',
+    name: 'MemberCenter',
+    component: () => import('../pages/userTerminal/mine/memberCenter.vue'),
+    meta: {
+      title: '个人中心',
+      keepAlive: true,
+      isBack: false
+    }
+  },
+  {
+    path: '/integral',
+    name: 'Integral',
+    component: () => import('../pages/userTerminal/mine/integral.vue'),
+    meta: {
+      title: '积分明细',
       keepAlive: true,
       isBack: false
     }
