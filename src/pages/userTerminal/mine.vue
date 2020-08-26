@@ -38,13 +38,17 @@
         </ul>
       </div>
     </div>
-
+    <app-nav nav="3"></app-nav>
   </div>
 </template>
 
 <script>
+import nav from "@/components/nav/nav.vue";
   export default {
-    name: 'mine'
+    name: 'mine',
+    components: {
+      "app-nav": nav
+    },
   }
 </script>
 
