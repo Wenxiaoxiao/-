@@ -3,18 +3,18 @@
     <div class="top">
       <a href="javascript:;">设置</a>
       <div class="user">
-        <img src="../../static/images/mineLogo.png" alt="">
+        <img src="@static/images/mineLogo.png" alt="">
         <div class="user-name">Ellison</div>
         <div class="user-title">#世界大得不可以去拥抱#</div>
-        <div class="user-type">普通用户</div>
+        <div @click="navTo('memberCenter')" class="user-type">普通用户</div>
       </div>
     </div>
     <div class="center">
       <ul class="center-nav">
-        <li><div class="left-icon"><img src="@static/images/tapBar/1-1.png" alt=""></div><div class="dsc">个人档案</div></li>
-        <li><div class="left-icon"><img src="@static/images/tapBar/1-1.png" alt=""></div><div class="dsc"><span>我的积分</span><span class="right-content">积分明细</span></div></li>
-        <li><div class="left-icon"><img src="@static/images/tapBar/1-1.png" alt=""></div><div class="dsc">预约记录</div></li>
-        <li><div class="left-icon"><img src="@static/images/tapBar/1-1.png" alt=""></div><div class="dsc">诊前问答及报告</div></li>
+        <li><div class="left-icon"><img src="@static/images/tapBar/1-1.png" alt=""></div><div @click="navTo('memberCenter')" class="dsc">个人档案</div></li>
+        <li><div class="left-icon"><img src="@static/images/tapBar/1-1.png" alt=""></div><div @click="navTo('integral')" class="dsc"><span>我的积分</span><span class="right-content">积分明细</span></div></li>
+        <li><div class="left-icon"><img src="@static/images/tapBar/1-1.png" alt=""></div><div @click="navTo('memberCenter')" class="dsc">预约记录</div></li>
+        <li><div class="left-icon"><img src="@static/images/tapBar/1-1.png" alt=""></div><div @click="navTo('memberCenter')" class="dsc">诊前问答及报告</div></li>
       </ul>
     </div>
     <div class="bottom">
@@ -28,11 +28,11 @@
             <div class="dsc">游戏练习</div>
           </li>
           <li>
-            <img src="" alt="">
+            <img src="@static/images/tapBar/1-1.png" alt="">
             <div class="dsc">我的故事</div>
           </li>
           <li>
-            <img src="" alt="">
+            <img src="@static/images/tapBar/1-1.png" alt="">
             <div class="dsc">咨询问题</div>
           </li>
         </ul>
@@ -44,7 +44,23 @@
 
 <script>
   export default {
-    name: 'mine'
+    name: 'mine',
+    data() {
+      return {
+      }
+    },
+    methods: {
+      memberCenter() {
+        this.$router.push({
+          path: '/memberCenter'
+        })
+      },
+      navTo(type) {
+        this.$router.push({
+          path: `/${type}`
+        })
+      }
+    },
   }
 </script>
 
