@@ -158,6 +158,16 @@ const routes = [
       isBack: false
     }
   },
+  {
+    path: '/answerDetail',
+    name: 'AnswerDetail',
+    component: () => import('../pages/userTerminal/mine/answerDetail.vue'),
+    meta: {
+      title: '诊前问答',
+      keepAlive: true,
+      isBack: false
+    }
+  },
 ]
 
 const router = new VueRouter({
