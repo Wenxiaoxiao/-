@@ -8,7 +8,7 @@
     <div class="txt2">请在就诊前填写就诊信息，方便咨询师提前了解您的状况</div>
     <div class="fixed-blank"></div>
     <div class="fixed-bottom-btns">
-        <div class="fbs-1">填写就诊信息</div>
+        <div class="fbs-1" @click="writeInfo">填写就诊信息</div>
         <div class="fbs-2">返回首页</div>
     </div>
   </div>
@@ -24,7 +24,11 @@
       }
     },
     methods:{
-      
+      writeInfo(){
+          this.$router.push({
+              path:'/subYourInfo'
+          })
+      }
     }
   }
 </script>

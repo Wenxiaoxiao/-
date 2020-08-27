@@ -89,6 +89,16 @@ const routes = [
     }
   },
   {
+    path:'/subYourInfo',
+    name:'subYourInfo',
+    component:()=>import('../pages/userTerminal/subscribe/subYourInfo.vue'),
+    meta:{
+      title:'就诊信息',
+      keepAlive: true,
+      isBack: false
+    }
+  },
+  {
     path: '/needToKnow',
     name: 'NeedToKnow',
     component: () => import('../pages/needToKnow.vue'),
