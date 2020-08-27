@@ -98,7 +98,7 @@ export default {
       .l-ico{
         display: inline-block;
         vertical-align: middle;
-        width:r(34);
+        font-size: r(34);
         margin-right: r(12);
       }
       .l-ico.active{
