@@ -1,7 +1,7 @@
 <template>
   <div class="mine">
     <div class="top">
-      <a href="javascript:;">设置</a>
+      <a href="javascript:;" @click="navTo('personInfo')">设置</a>
       <div class="user">
         <img src="@static/images/mineLogo.png" alt="">
         <div class="user-name">Ellison</div>
@@ -11,10 +11,10 @@
     </div>
     <div class="center">
       <ul class="center-nav">
-        <li><div class="left-icon"><img src="@static/images/tapBar/1-1.png" alt=""></div><div @click="navTo('memberCenter')" class="dsc">个人档案</div></li>
+        <li><div class="left-icon"><img src="@static/images/tapBar/1-1.png" alt=""></div><div @click="navTo('personRecord')" class="dsc">个人档案</div></li>
         <li><div class="left-icon"><img src="@static/images/tapBar/1-1.png" alt=""></div><div @click="navTo('integral')" class="dsc"><span>我的积分</span><span class="right-content">积分明细</span></div></li>
         <li><div class="left-icon"><img src="@static/images/tapBar/1-1.png" alt=""></div><div @click="navTo('memberCenter')" class="dsc">预约记录</div></li>
-        <li><div class="left-icon"><img src="@static/images/tapBar/1-1.png" alt=""></div><div @click="navTo('memberCenter')" class="dsc">诊前问答及报告</div></li>
+        <li><div class="left-icon"><img src="@static/images/tapBar/1-1.png" alt=""></div><div @click="navTo('reportAndAnswer')" class="dsc">诊前问答及报告</div></li>
       </ul>
     </div>
     <div class="bottom">

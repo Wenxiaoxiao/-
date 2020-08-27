@@ -118,6 +118,36 @@ const routes = [
       isBack: false
     }
   },
+  {
+    path: '/personInfo',
+    name: 'PersonInfo',
+    component: () => import('../pages/userTerminal/mine/personInfo.vue'),
+    meta: {
+      title: '个人资料',
+      keepAlive: true,
+      isBack: false
+    }
+  },
+  {
+    path: '/personRecord',
+    name: 'PersonRecord',
+    component: () => import('../pages/userTerminal/mine/personRecord.vue'),
+    meta: {
+      title: '个人档案',
+      keepAlive: true,
+      isBack: false
+    }
+  },
+  {
+    path: '/reportAndAnswer',
+    name: 'ReportAndAnswer',
+    component: () => import('../pages/userTerminal/mine/reportAndAnswer.vue'),
+    meta: {
+      title: '就诊问答及报告',
+      keepAlive: true,
+      isBack: false
+    }
+  },
 ]
 
 const router = new VueRouter({
