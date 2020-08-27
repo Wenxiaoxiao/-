@@ -28,7 +28,7 @@
       </div>
       <div class="login-tips">
         <div class="left">
-          <van-icon name="checked" :class="konwn?'l-ico active':'l-ico'" @click="konwn=!konwn" />
+          <van-icon name="checked" :class="know?'l-ico active':'l-ico'" @click="know=!know" />
           <span @click="needKnow">会员须知</span>
         </div>
         <div class="right">忘记密码？</div>
@@ -42,8 +42,18 @@
         </div>
         <div class="lp-2">单价：XX/小时，共计XX小时</div>
       </div>
-      <div class="right-paybtn">支付并预约</div>
+      <div class="right-paybtn" @click="showModal=true">支付并预约</div>
     </div>
+    <van-overlay :show="showModal">
+        <div class="pay-style-chosed">
+            <div class="content">
+                <div class="c-top">
+                    
+                </div>
+                <div class="c-bottom"></div>
+            </div>
+        </div>
+    </van-overlay>
   </div>
 </template>
 
@@ -53,7 +63,8 @@ export default {
   components: {},
   data() {
     return {
-      konwn: false,
+      showModal:false,
+      know: false,
       date: null,
       show: false,
       ableTime: [
@@ -264,6 +275,23 @@ export default {
       color: #fff;
       border-radius: 44px;
       line-height: 88px;
+    }
+  }
+  .pay-style-chosed{
+      width:100%;
+      height: 100vh;
+      display: flex;
+        align-items: center;
+        justify-content: center;
+    .content{
+        width:670px;
+        height: 788px;
+        .c-top{
+            width: 670px;
+            height: 640px;
+            background: #fff;
+            border-radius: 20px;
+        }
     }
   }
 }

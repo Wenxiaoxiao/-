@@ -79,6 +79,16 @@ const routes = [
     }
   },
   {
+    path:'/subSuccess',
+    name:'subSuccess',
+    component:()=>import('../pages/userTerminal/subscribe/subSuccess.vue'),
+    meta:{
+      title:'预约成功',
+      keepAlive: true,
+      isBack: false
+    }
+  },
+  {
     path: '/needToKnow',
     name: 'NeedToKnow',
     component: () => import('../pages/needToKnow.vue'),
