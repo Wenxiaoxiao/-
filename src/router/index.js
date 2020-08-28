@@ -18,26 +18,6 @@ const routes = [
     },
   },
   {
-    path: '/Login',
-    name: 'Login1',
-    component: () => import('../pages/login1.vue'),
-    meta: {
-      title: '登录',
-      keepAlive: true,
-      isBack: false
-    },
-  },
-  {
-    path: '/Index',
-    name: 'Index',
-    component: () => import('../pages/consultTerminal/index.vue'),
-    meta: {
-      title: '首页',
-      keepAlive: true,
-      isBack: false
-    },
-  },
-  {
     path:'/userIndex',
     name:'userIndex',
     component:Index,
@@ -226,6 +206,37 @@ const routes = [
       keepAlive: true,
       isBack: false
     }
+  },
+  //咨询师端
+  {
+    path: '/Login',
+    name: 'Login1',
+    component: () => import('../pages/login1.vue'),
+    meta: {
+      title: '登录',
+      keepAlive: true,
+      isBack: false
+    },
+  },
+  {
+    path: '/Index',
+    name: 'Index',
+    component: () => import('../pages/consultTerminal/index.vue'),
+    meta: {
+      title: '首页',
+      keepAlive: true,
+      isBack: false
+    },
+  },
+  {
+    path:'/home',
+    name:'home',
+    component: () => import('../pages/consultTerminal/mine/mine.vue'),
+    meta: {
+      title: '我的',
+      keepAlive: true,
+      isBack: false
+    },
   }
 ]
 
