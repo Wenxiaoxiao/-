@@ -66,23 +66,23 @@ export default {
       ],
       tmpList: [
         {
-          img: require("@static/images/list.png"),
+          img: require("@static/images/list4.png"),
           title:
             "“同心益百分”智囊团开展线上心理咨询公益活动“同心益百分”智囊团开展线上心理咨询公益活动",
           time: "2020-04-24"
         },
         {
-          img: require("@static/images/list.png"),
+          img: require("@static/images/list4.png"),
           title: "525心理健康公益行动",
           time: "2020-04-24"
         },
         {
-          img: require("@static/images/list.png"),
+          img: require("@static/images/list4.png"),
           title: "“爱润心田”心理咨询公益项目",
           time: "2020-04-24"
         },
         {
-          img: require("@static/images/list.png"),
+          img: require("@static/images/list4.png"),
           title: "“爱润心田”心理咨询公益项目",
           time: "2020-04-24"
         }

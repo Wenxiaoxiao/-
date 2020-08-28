@@ -5,7 +5,7 @@
             <img src="@static/images/bg.png"/>
         </div>
         <div class="top-nav">
-            <div>
+            <div @click="goUrl('/knowledge')">
                 <img src="@static/images/icon3.png"/>
                 <div>知识</div>
             </div>
@@ -92,6 +92,11 @@ export default {
   methods: {
     tabChange(){
         
+    },
+    goUrl(path){
+        this.$router.push({
+            path:path
+        })
     }
   }
 };

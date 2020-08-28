@@ -187,6 +187,16 @@ const routes = [
       keepAlive: true,
       isBack: false
     }
+  },
+  {
+    path: '/knowledge',
+    name: 'knowledge',
+    component: () => import('../pages/userTerminal/knowledge/knowledge.vue'),
+    meta: {
+      title: '知识',
+      keepAlive: true,
+      isBack: false
+    }
   }
 ]
 
