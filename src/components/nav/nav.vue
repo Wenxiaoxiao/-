@@ -55,6 +55,7 @@ export default {
   flex-direction: row;
   justify-content: space-around;
   background-color: #fff;
+  box-shadow: 0px -4px 40px rgba(51, 51, 51, 0.12);
   .nav-li {
     display: inline-block;
     width: 50%;
