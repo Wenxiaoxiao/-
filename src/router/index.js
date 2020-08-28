@@ -197,6 +197,16 @@ const routes = [
       keepAlive: true,
       isBack: false
     }
+  },
+  {
+    path: '/exercise',
+    name: 'exercise',
+    component: () => import('../pages/userTerminal/exercise/exercise.vue'),
+    meta: {
+      title: '实操',
+      keepAlive: true,
+      isBack: false
+    }
   }
 ]
 

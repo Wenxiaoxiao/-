@@ -57,6 +57,7 @@ export default {
                 color:#999;
                 line-height: r(28);
                 text-align: left;
+                margin-top: 8px;
             }
         }
         .right{

@@ -9,11 +9,11 @@
                 <img src="@static/images/icon3.png"/>
                 <div>知识</div>
             </div>
-            <div>
+            <div @click="goUrl('/exercise')">
                 <img src="@static/images/icon2.png"/>
                 <div>实操</div>
             </div>
-            <div>
+            <div @click="goUrl('/subscribe')">
                 <img src="@static/images/icon1.png"/>
                 <div>咨询</div>
             </div>
