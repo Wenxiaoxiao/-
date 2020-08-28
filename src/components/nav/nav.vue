@@ -12,7 +12,7 @@
         <img v-else src="../../static/images/tapBar/2.png" alt />
         <span>预约</span>
       </router-link>
-      <router-link to="/" :class="[{'nav-li-active':nav==2},'nav-li']">
+      <router-link to="/service" :class="[{'nav-li-active':nav==2},'nav-li']">
         <img v-if="nav==2" src="../../static/images/tapBar/3-1.png" alt />
         <img v-else src="../../static/images/tapBar/3.png" alt />
         <span>服务</span>
@@ -55,6 +55,7 @@ export default {
   flex-direction: row;
   justify-content: space-around;
   background-color: #fff;
+  box-shadow: 0px -4px 40px rgba(51, 51, 51, 0.12);
   .nav-li {
     display: inline-block;
     width: 50%;

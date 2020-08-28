@@ -2,16 +2,35 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Index from '../pages/userTerminal/index.vue';
 import HomeDetail from '../pages/userTerminal/indexDetail.vue';
-import Login from '../pages/login.vue';
 import replyDetail from '../pages/userTerminal/replyDetail.vue';
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Index,
+    path: '/userLogin',
+    name: 'userLogin',
+    component: () => import('../pages/login.vue'),
+    meta: {
+      title: '登录',
+      keepAlive: true,
+      isBack: false
+    },
+  },
+  {
+    path: '/Login',
+    name: 'Login1',
+    component: () => import('../pages/login1.vue'),
+    meta: {
+      title: '登录',
+      keepAlive: true,
+      isBack: false
+    },
+  },
+  {
+    path: '/Index',
+    name: 'Index',
+    component: () => import('../pages/consultTerminal/index.vue'),
     meta: {
       title: '首页',
       keepAlive: true,
@@ -19,11 +38,11 @@ const routes = [
     },
   },
   {
-    path:'/login',
-    name:'Login',
-    component:Login,
+    path:'/userIndex',
+    name:'userIndex',
+    component:Index,
     meta:{
-      title:'登陆',
+      title:'首页',
       keepAlive: true,
       isBack: false
     }
@@ -178,6 +197,36 @@ const routes = [
       isBack: false
     }
   },
+  {
+    path: '/service',
+    name: 'service',
+    component: () => import('../pages/userTerminal/service/service.vue'),
+    meta: {
+      title: '服务',
+      keepAlive: true,
+      isBack: false
+    }
+  },
+  {
+    path: '/knowledge',
+    name: 'knowledge',
+    component: () => import('../pages/userTerminal/knowledge/knowledge.vue'),
+    meta: {
+      title: '知识',
+      keepAlive: true,
+      isBack: false
+    }
+  },
+  {
+    path: '/exercise',
+    name: 'exercise',
+    component: () => import('../pages/userTerminal/exercise/exercise.vue'),
+    meta: {
+      title: '实操',
+      keepAlive: true,
+      isBack: false
+    }
+  }
 ]
 
 const router = new VueRouter({
