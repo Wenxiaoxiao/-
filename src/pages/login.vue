@@ -4,21 +4,21 @@
     <van-form @submit="onSubmit">
       <van-field
         v-model="username"
-        name="账号"
+        name="username"
         label="账号"
         placeholder="请输入手机号"
       />
       <van-field
         v-model="password"
         type="password"
-        name="密码"
+        name="password"
         label="密码"
         placeholder="请输入验证码"
       />
       <van-field
         v-model="code"
         clearable
-        name="验证码"
+        name="code"
         label="验证码"
         placeholder="请输入验证码"
       >
@@ -45,14 +45,19 @@
 </template>
 
 <script>
-let vm;
+import { Toast } from 'vant';
 export default {
   data() {
     return {
       username: '',
       password: '',
       code:'',
-      konwn:false
+      konwn:false,
+      contentMap:{
+        username:'账号',
+        password:'密码',
+        code:'验证码'
+      }
     };
   },
   methods: {
@@ -63,10 +68,20 @@ export default {
     },
     onSubmit(values) {
       console.log('submit', values);
+      let that = this;
+      for(let m in values){
+        if(values[m]==""){
+          let rel = that.contentMap[m]+'未填写！';
+          return Toast(rel);
+        }
+      }
+      this.$router.push({
+        path:'/Index'
+      })
     },
   },
   created() {
-    vm = this;
+
   }
 };
 </script>

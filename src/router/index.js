@@ -10,20 +10,20 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Index,
+    name: 'Login',
+    component: Login,
     meta: {
-      title: '首页',
+      title: '登录',
       keepAlive: true,
       isBack: false
     },
   },
   {
-    path:'/login',
-    name:'Login',
-    component:Login,
+    path:'/Index',
+    name:'Index',
+    component:Index,
     meta:{
-      title:'登陆',
+      title:'首页',
       keepAlive: true,
       isBack: false
     }
