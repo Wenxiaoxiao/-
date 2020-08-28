@@ -76,12 +76,21 @@ export default {
         }
       }
       this.$router.push({
-        path:'/Index'
+        path:'/userIndex'
       })
     },
   },
   created() {
 
+  },
+  mounted(){
+    //判断用户是会员还是咨询师
+    let type = this.$route.query.type;
+    if(type==1){
+      this.$router.push({
+        path:'/Login'
+      })
+    }
   }
 };
 </script>

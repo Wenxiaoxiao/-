@@ -2,16 +2,15 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Index from '../pages/userTerminal/index.vue';
 import HomeDetail from '../pages/userTerminal/indexDetail.vue';
-import Login from '../pages/login.vue';
 import replyDetail from '../pages/userTerminal/replyDetail.vue';
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'Login',
-    component: Login,
+    path: '/userLogin',
+    name: 'userLogin',
+    component: () => import('../pages/login.vue'),
     meta: {
       title: '登录',
       keepAlive: true,
@@ -19,8 +18,28 @@ const routes = [
     },
   },
   {
-    path:'/Index',
-    name:'Index',
+    path: '/Login',
+    name: 'Login1',
+    component: () => import('../pages/login1.vue'),
+    meta: {
+      title: '登录',
+      keepAlive: true,
+      isBack: false
+    },
+  },
+  {
+    path: '/Index',
+    name: 'Index',
+    component: () => import('../pages/consultTerminal/index.vue'),
+    meta: {
+      title: '首页',
+      keepAlive: true,
+      isBack: false
+    },
+  },
+  {
+    path:'/userIndex',
+    name:'userIndex',
     component:Index,
     meta:{
       title:'首页',
