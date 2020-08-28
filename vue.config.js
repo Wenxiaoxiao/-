@@ -1,6 +1,8 @@
 // vue.config.js
 const path = require('path');
 module.exports = {
+  publicPath:'/docs/',
+  outputDir: 'docs',
   assetsDir: "static",
   filenameHashing:true,
   chainWebpack: config => {
