@@ -60,9 +60,9 @@ import nav from "@/components/nav/nav1.vue";
         })
       },
       navTo(type) {
-        this.$router.push({
-          path: `/${type}`
-        })
+        // this.$router.push({
+        //   path: `/${type}`
+        // })
       }
     },
   }

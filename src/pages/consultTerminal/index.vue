@@ -1,13 +1,23 @@
 <template>
-  <div class="index">
-    
+  <div class="index-page">
+    <van-search
+    v-model="searchValue"
+    shape="round"
+    background="#fff"
+    placeholder="请输入搜索关键词"
+    />
+    <van-tabs class="lists-tabs" animated @click="tabChange">
+    <van-tab v-for="(tab,index) in tabs" :title="tab.name" :key="index">
+        <app-list :listData="tmpList"></app-list>
+    </van-tab>
+    </van-tabs>
     <app-nav nav="0"></app-nav>
   </div>
 </template>
 
 <script>
 import nav from "@/components/nav/nav1.vue";
-import list from "@/components/indexList.vue";
+import list from "@/components/consultList.vue";
 export default {
   components: {
     "app-nav": nav,
@@ -15,30 +25,16 @@ export default {
   },
   data() {
     return {
+        searchValue:"",
         tabs:[
             {
-                name:'最新'
+                name:'待就诊'
             },
             {
-                name:'系统理念'
+                name:'已就诊'
             },
             {
-                name:'重置理念'
-            },
-            {
-                name:'森田疗法实操'
-            },
-            {
-                name:'现象分析'
-            },
-            {
-                name:'学员故事'
-            },
-            {
-                name:'家长须知'
-            },
-            {
-                name:'公益活动'
+                name:'已取消'
             }
         ],
         tmpList:[{
@@ -79,57 +75,12 @@ export default {
 </script>
 
 <style lang="scss">
-.index-contains{
-    width:r(750);
-    min-height:100vh;
-    background:#fff;
-    .top-header{
-        width:r(750);
-        height:r(458);
-        &>img{
-            width:r(750);
-        }
-    }
-    .top-nav{
-        width:r(690);
-        height:r(143);
-        background:#fff;
-        border-radius:r(16);
-        box-shadow:r(0) r(0) r(10) rgba(0,0,0,0.1);
-        margin:0 auto;
-        margin-top:r(-95);
-        position:relative;
-        z-index: 1;
-        overflow: hidden;
-        padding:r(34) r(0) r(22);
-        &>div{
-            float:left;
-            width:33.33%;
-            text-align: center;
-            font-size: 0;
-            img{
-                width:r(64);
-            }
-            div{
-                height:r(33);
-                color:#666;
-                font-size: r(24);
-            }
-        }
-    }
-    .sub-title{
-        font-size:r(20);
-        color:#333;
-        text-align: center;
-        line-height:r(60);
-    }
+.index-page{
+    min-height: 100vh;
+    background: #fff;
     .lists-tabs{
-        .van-tab{
-            height:r(88);
-        }
         .van-tabs__line{
-            background:linear-gradient(88deg,rgba(21,116,246,1) 0%,rgba(21,116,246,0.24) 100%);
-            border-radius:r(2);
+            background: #1574F6;
         }
     }
 }
