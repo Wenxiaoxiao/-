@@ -1,7 +1,7 @@
 // vue.config.js
 const path = require('path');
 module.exports = {
-  publicPath:'/docs/',
+  publicPath:'./',
   outputDir: 'docs',
   assetsDir: "static",
   filenameHashing:true,
