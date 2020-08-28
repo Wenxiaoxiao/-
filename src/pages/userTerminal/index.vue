@@ -32,7 +32,6 @@
 <script>
 import nav from "@/components/nav/nav.vue";
 import list from "@/components/indexList.vue";
-var vm;
 export default {
   components: {
     "app-nav": nav,
@@ -87,7 +86,7 @@ export default {
     };
   },
   mounted() {
-    vm = this;
+
     
   },
   methods: {

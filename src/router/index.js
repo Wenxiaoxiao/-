@@ -178,6 +178,16 @@ const routes = [
       isBack: false
     }
   },
+  {
+    path: '/service',
+    name: 'service',
+    component: () => import('../pages/userTerminal/service/service.vue'),
+    meta: {
+      title: '服务',
+      keepAlive: true,
+      isBack: false
+    }
+  }
 ]
 
 const router = new VueRouter({

@@ -12,7 +12,7 @@
         <img v-else src="../../static/images/tapBar/2.png" alt />
         <span>预约</span>
       </router-link>
-      <router-link to="/" :class="[{'nav-li-active':nav==2},'nav-li']">
+      <router-link to="/service" :class="[{'nav-li-active':nav==2},'nav-li']">
         <img v-if="nav==2" src="../../static/images/tapBar/3-1.png" alt />
         <img v-else src="../../static/images/tapBar/3.png" alt />
         <span>服务</span>
