@@ -207,6 +207,26 @@ const routes = [
       isBack: false
     }
   },
+  {
+    path: '/setting',
+    name: 'Setting',
+    component: () => import('../pages/userTerminal/mine/setting.vue'),
+    meta: {
+      title: '设置',
+      keepAlive: true,
+      isBack: false
+    }
+  },
+  {
+    path: '/subscribeList',
+    name: 'SubscribeList',
+    component: () => import('../pages/userTerminal/mine/subscribeList.vue'),
+    meta: {
+      title: '预约记录',
+      keepAlive: true,
+      isBack: false
+    }
+  },
   //咨询师端
   {
     path: '/Login',
