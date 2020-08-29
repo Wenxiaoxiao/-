@@ -257,6 +257,16 @@ const routes = [
       keepAlive: true,
       isBack: false
     },
+  },
+  {
+    path:'/consultDetail',
+    name:'consultDetail',
+    component: () => import('../pages/consultTerminal/indexDetail.vue'),
+    meta: {
+      title: '客户详情',
+      keepAlive: true,
+      isBack: false
+    },
   }
 ]
 

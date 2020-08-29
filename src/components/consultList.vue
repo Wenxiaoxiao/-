@@ -1,6 +1,6 @@
 <template>
   <div class="lists">
-    <div v-for="(item,i) in listData" :key="i" class="item">
+    <div v-for="(item,i) in listData" :key="i" class="item" @click="goDetail">
         <div class="left">
             <img :src="item.img"/>
         </div>
@@ -23,7 +23,7 @@ export default {
   methods: {
       goDetail(){
           this.$router.push({
-              path:'/HomeDetail'
+              path:'/consultDetail'
           })
       }
   }

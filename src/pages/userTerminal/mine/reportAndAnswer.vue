@@ -100,6 +100,7 @@
   }
 </style>
 <style lang="scss">
+.reportAndAnswer{
   .van-tabs__wrap{
     box-shadow: 0 10px 5px #eee;
   }
@@ -111,4 +112,5 @@
     border-radius:r(2);
     width: 80px!important;
   }
+}
 </style>
