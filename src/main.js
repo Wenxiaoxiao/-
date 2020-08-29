@@ -18,7 +18,7 @@ import mixin from '@/api/mixin'
 import BaiduMap from 'vue-baidu-map'
 
 Vue.mixin(mixin)
-weixin.hideWxBtns()
+// weixin.hideWxBtns()
 Vue.component('noDate', noDate)
 Vue.config.productionTip = false
 console.log("API_CONFIG.LOCAL==" + API_CONFIG.LOCAL);
@@ -35,7 +35,7 @@ function init() {
   Vue.use(notice)
   Vue.use(filter)
   Vue.use(title)
-  Vue.use(weixin)
+  // Vue.use(weixin)
   let options = {
     fullscreenEl: false
   };
@@ -58,7 +58,7 @@ function init() {
   Vue.prototype.$tools = tools;
   Vue.prototype.$regulars = regulars;
   Vue.prototype.$notice = notice;
-  Vue.prototype.$weixin = weixin;
+  // Vue.prototype.$weixin = weixin;
 
   new Vue({
     router,
