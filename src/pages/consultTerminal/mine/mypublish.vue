@@ -75,7 +75,8 @@ import list from "@/components/serviceList.vue";
         box-shadow: 0px 4px 40px rgba(21, 116, 246, 0.35);
     }
   .van-tabs__wrap{
-    box-shadow: 0 10px 5px #eee;
+    // box-shadow: 0 10px 5px #eee;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   }
   .van-tab--active{
     color: #1574F6;

@@ -108,7 +108,8 @@
 <style lang="scss">
 .reportAndAnswer{
   .van-tabs__wrap{
-    box-shadow: 0 10px 5px #eee;
+    // box-shadow: 0 10px 5px #eee;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   }
   .van-tab--active{
     color: #1574F6;

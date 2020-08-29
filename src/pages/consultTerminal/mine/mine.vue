@@ -5,7 +5,7 @@
         <img src="@static/images/mineLogo.png" alt="">
         <div class="user-name">Ellison</div>
         <div class="user-title">#世界大得不可以去拥抱#</div>
-        <div @click="navTo('memberCenter')" class="user-type">咨询师</div>
+        <div @click="navTo('personalInfo')" class="user-type">咨询师</div>
       </div>
     </div>
     <div class="center">
@@ -15,7 +15,7 @@
         <li><div class="left-icon"><img src="@static/images/consult/feedback.png" alt=""></div><div @click="navTo('suggestion')" class="dsc">意见反馈</div></li>
       </ul>
     </div>
-    <div class="exit-btn">退出登录</div>
+    <div class="exit-btn" @click="exitBtn">退出登录</div>
     <app-nav nav="1"></app-nav>
   </div>
 </template>
@@ -35,6 +35,11 @@ import nav from "@/components/nav/nav1.vue";
       navTo(type) {
         this.$router.push({
           path: `/${type}`
+        })
+      },
+      exitBtn(){
+        this.$router.push({
+          path:'/Login'
         })
       }
     },

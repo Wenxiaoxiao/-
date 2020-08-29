@@ -8,12 +8,15 @@
     />
     <van-tabs class="lists-tabs" animated @click="tabChange">
     <van-tab title="待就诊">
+        <van-divider :style="{ color: '#ccc', borderColor: '#ccc', padding: '0 30px' }"><div class="daytime">2020年07月13日<br/>今天</div></van-divider>
         <app-list :listData="tmpList"></app-list>
     </van-tab>
     <van-tab title="已就诊">
+        <van-divider :style="{ color: '#ccc', borderColor: '#ccc', padding: '0 30px' }"><div class="daytime">2020年07月13日<br/>今天</div></van-divider>
         <app-list :listData="tmpList1"></app-list>
     </van-tab>
     <van-tab title="已取消">
+        <van-divider :style="{ color: '#ccc', borderColor: '#ccc', padding: '0 30px' }"><div class="daytime">2020年07月13日<br/>今天</div></van-divider>
         <app-list :listData="tmpList2"></app-list>
     </van-tab>
     </van-tabs>
@@ -113,10 +116,16 @@ export default {
 .index-page{
     min-height: 100vh;
     background: #fff;
+    .van-tabs__wrap{
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
     .lists-tabs{
         .van-tabs__line{
             background: #1574F6;
         }
+    }
+    .daytime{
+        text-align: center;
     }
 }
 </style>

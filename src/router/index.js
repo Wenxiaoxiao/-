@@ -378,6 +378,16 @@ const routes = [
       isBack: false
     },
   },
+  {
+    path:'/personalInfo',
+    name:'personalInfo',
+    component: () => import('../pages/consultTerminal/mine/personalInfo.vue'),
+    meta: {
+      title: '个人资料',
+      keepAlive: true,
+      isBack: false
+    },
+  }
 ]
 
 const router = new VueRouter({
