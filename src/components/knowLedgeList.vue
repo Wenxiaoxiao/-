@@ -8,7 +8,7 @@
             </div>
             <div class="time">{{item.time}}</div>
             <div class="attract">
-                <img src="@static/images/unlike.png"/><span>{{item.message}}</span>
+                <img src="@static/images/comments.png"/><span>{{item.message}}</span>
                 <img src="@static/images/unlike.png"/><span>{{item.like}}</span>
             </div>
         </div>
