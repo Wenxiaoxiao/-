@@ -1,43 +1,21 @@
 <template>
   <div class="mine">
     <div class="top">
-      <a href="javascript:;" @click="navTo('personInfo')">设置</a>
       <div class="user">
         <img src="@static/images/mineLogo.png" alt="">
         <div class="user-name">Ellison</div>
         <div class="user-title">#世界大得不可以去拥抱#</div>
-        <div @click="navTo('memberCenter')" class="user-type">普通用户</div>
+        <div @click="navTo('memberCenter')" class="user-type">咨询师</div>
       </div>
     </div>
     <div class="center">
       <ul class="center-nav">
-        <li><div class="left-icon"><img src="@static/images/tapBar/1-1.png" alt=""></div><div @click="navTo('personRecord')" class="dsc">个人档案</div></li>
-        <li><div class="left-icon"><img src="@static/images/tapBar/1-1.png" alt=""></div><div @click="navTo('integral')" class="dsc"><span>我的积分</span><span class="right-content">积分明细</span></div></li>
-        <li><div class="left-icon"><img src="@static/images/tapBar/1-1.png" alt=""></div><div @click="navTo('memberCenter')" class="dsc">预约记录</div></li>
-        <li><div class="left-icon"><img src="@static/images/tapBar/1-1.png" alt=""></div><div @click="navTo('reportAndAnswer')" class="dsc">诊前问答及报告</div></li>
+        <li><div class="left-icon"><img src="@static/images/consult/timeset.png" alt=""></div><div class="dsc">出诊时间设置</div></li>
+        <li><div class="left-icon"><img src="@static/images/consult/publish.png" alt=""></div><div class="dsc">我的发表</div></li>
+        <li><div class="left-icon"><img src="@static/images/consult/feedback.png" alt=""></div><div @click="navTo('suggestion')" class="dsc">意见反馈</div></li>
       </ul>
     </div>
-    <div class="bottom">
-      <div class="bottom-title">
-        我的发表
-      </div>
-      <div class="bottom-nav">
-        <ul>
-          <li>
-            <img src="@static/images/tapBar/1-1.png" alt="">
-            <div class="dsc">游戏练习</div>
-          </li>
-          <li>
-            <img src="@static/images/tapBar/1-1.png" alt="">
-            <div class="dsc">我的故事</div>
-          </li>
-          <li>
-            <img src="@static/images/tapBar/1-1.png" alt="">
-            <div class="dsc">咨询问题</div>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <div class="exit-btn">退出登录</div>
     <app-nav nav="1"></app-nav>
   </div>
 </template>
@@ -54,15 +32,10 @@ import nav from "@/components/nav/nav1.vue";
       }
     },
     methods: {
-      memberCenter() {
-        this.$router.push({
-          path: '/memberCenter'
-        })
-      },
       navTo(type) {
-        // this.$router.push({
-        //   path: `/${type}`
-        // })
+        this.$router.push({
+          path: `/${type}`
+        })
       }
     },
   }
@@ -81,16 +54,6 @@ import nav from "@/components/nav/nav1.vue";
       display: flex;
       justify-content: center;
       padding-top: 45px;
-      &>a{
-        font-size: 26px;
-        height: 37px;
-        line-height: 37px;
-        position: absolute;
-        top: 30px;
-        right: 30px;
-        padding: 0 4px;
-        color: #fff;
-      }
       .user{
         color: #fff;
         display: flex;
@@ -115,12 +78,16 @@ import nav from "@/components/nav/nav1.vue";
           margin-top: 8px;
         }
         .user-type{
+          background-image: url('../../../static/images/consult/consultant.png');
+          background-repeat: no-repeat;
+          background-size:r(23) r(27);
+          background-position: 20px center;
           margin-top: 24px;
           height: 52px;
           line-height: 52px;
           font-size: 24px;
           padding: 0 14px 0 50px;
-          background: #fff;
+          background-color: #fff;
           border-radius: 25px;
           color: #1574F6;
         }
@@ -168,38 +135,19 @@ import nav from "@/components/nav/nav1.vue";
         }
       }
     }
-    .bottom{
-      color: #333;
-      .bottom-title{
-        font-size:32px;
-        height:45px;
-        font-weight:400;
-        line-height:45px;
-        padding-left: 60px;
-      }
-      .bottom-nav{
-        padding: 46px 0;
-        ul{
-          display: flex;
-          justify-content: space-between;
-          padding: 0 69px;
-          li{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            img{
-              height: 60px;
-            }
-            .dsc{
-              height:40px;
-              font-size:28px;
-              font-weight:400;
-              line-height:40px;
-              margin-top: 24px;
-            }
-          }
-        }
-      }
+    .exit-btn{
+      width: 630px;
+      height: 88px;
+      background: #1574F6;
+      box-shadow: 0px 4px 40px rgba(21, 116, 246, 0.35);
+      border-radius: 44px;
+      color: #fff;
+      font-size: 32px;
+      line-height: 88px;
+      text-align: center;
+      margin: 0 auto;
+      margin-top:280px;
+
     }
   }
 

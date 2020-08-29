@@ -267,6 +267,16 @@ const routes = [
       keepAlive: true,
       isBack: false
     },
+  },
+  {
+    path:'/suggestion',
+    name:'suggestion',
+    component: () => import('../pages/consultTerminal/mine/suggestion.vue'),
+    meta: {
+      title: '意见反馈',
+      keepAlive: true,
+      isBack: false
+    },
   }
 ]
 
