@@ -18,13 +18,14 @@
 <script>
 export default {
   props: {
-      listData:Array
+      listData:Array,
+      detail:String
   },
   mounted() {},
   methods: {
       goDetail(){
           this.$router.push({
-              path:'/HomeDetail'
+              path:this.detail||'/HomeDetail'
           })
       }
   }

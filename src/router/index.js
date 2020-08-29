@@ -287,6 +287,26 @@ const routes = [
       keepAlive: true,
       isBack: false
     },
+  },
+  {
+    path:'/mypublish',
+    name:'mypublish',
+    component: () => import('../pages/consultTerminal/mine/mypublish.vue'),
+    meta: {
+      title: '我的发表',
+      keepAlive: true,
+      isBack: false
+    },
+  },
+  {
+    path:'/publishDetail',
+    name:'publishDetail',
+    component: () => import('../pages/consultTerminal/mine/publishDetail.vue'),
+    meta: {
+      title: '内容详情',
+      keepAlive: true,
+      isBack: false
+    },
   }
 ]
 
