@@ -1,42 +1,35 @@
 <template>
-  <div class="index-detail">
-    <div class="top-img"><img src="@static/images/1.png" /></div>
-    <div class="top-tit">
-        <div class="line-1">孩子厌学自闭，拒绝沟通怎么办？</div>
-        <div class="line-2">发布时间：2019-12-30</div>
-        <div class="line-3"><img src="@static/images/share.png"/><img src="@static/images/collect.png"/></div>
+  <div class="consult-index-detail">
+    <div class="top-head">
+        <img src="@static/images/teacher_icon.png" class="left-img"/>
+        <div class="right-des">
+            <div class="name">张老师</div>
+            <div class="txt">状态：已就诊</div>
+        </div>
     </div>
-    <div class="design-title"><i></i><span>系统理论</span></div>
-    <div class="detailContent">
-        <div class="main-content">
-            我今年39岁，有个儿子，今年上初二，由于是独子，所以从小我和他爸比较疼爱他，他爸爸更是当宝贝样宠着，孩子是我们唯一的希望，我孩子小学的时候学还好，可是不知道为什么，我孩子上了初一以后，成绩大幅下滑，我找他们老师了解情况才知道，我孩子不爱学
-            <img src="@static/images/detail.png"/>
-            习了，爱玩电脑了，经常在电脑上玩游戏，甚至还会跟些混混在一起抽烟，整天无所事事，即使在教室里也经常心不在焉，根本不想学习的事，做为家长看到孩子这样，真是心碎、心痛。
+    <div class="userInfos">
+        <div class="design-title"><i></i><span>个人档案</span></div>
+        <div class="txt">
+            姓名：XXXX
+        </div>
+        <div class="txt">
+            手机号：XXX-XXXX-XXXX
+        </div>
+        <div class="txt">
+            备注：XXXXXXXXXXXXX
         </div>
         <div class="expand-bar" v-show="showExpandBar" @click="showExpandBar=false;">--展开内容--</div>
     </div>
-    <div class="comment-list">
-        <div class="comment-item" v-for="(item,i) in commentLists" :key="i">
-            <img class="left" :src="item.icon">
-            <div class="right">
-                <div class="d1">
-                    <div class="le">{{item.name}}</div>
-                    <div class="rig">{{item.time}}</div>
-                </div>
-                <div class="d2">
-                    <div class="des">{{item.des}}</div>
-                    <div class="ico"><img v-if="item.like" src="@static/images/like.png"/><img v-else src="@static/images/unlike.png"/></div>
-                </div>
-                <div class="d3">
-                    <div class="d_i" v-for="(d,m) in item.reply" :key="m">
-                        {{d.name}}：{{d.des}}
-                    </div>
-                    <div class="moreReply" @click="goReplyDetail">共{{item.reply.length}}条回复></div>
-                </div>
+    <div class="steps" v-for="(item,i) in list" :key="i">
+        <div class="design-title"><i></i><span>{{item.title}}</span></div>
+        <div v-if="item.children" class="qa">
+            <div v-for="(qa,m) in item.children" :key="m">
+                <div class="qa-q">{{qa.q}}</div>
+                <div class="qa-a">{{qa.a}}</div>
             </div>
         </div>
+        <div v-else class="txt">{{item.content}}</div>
     </div>
-    <reply-box></reply-box>
   </div>
 </template>
 
@@ -48,44 +41,43 @@ export default {
   },
   data() {
     return {
-        inputText:null,
         showExpandBar:true,
-        commentLists:[
+        list:[
             {
-                icon:require('@static/images/logo.png'),
-                name:'学员孙丽',
-                time:'2020-04-24',
-                des:'深有感受深有感受深有感受深有感受深有感受深有感受.......',
-                like:true,
-                reply:[
+                title:'阶段评估:第三阶段',
+                children:[
                     {
-                        name:'张三',
-                        des:'喜欢这么坦率的你'
+                        q:'1.问题1XXXXXXXXXXX?',
+                        a:'文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文...'
                     },
                     {
-                        name:'李四',
-                        des:'喜欢这么坦率的你'
-                    }
+                        q:'2.问题2XXXXXXXXXXX?',
+                        a:'文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文...'
+                    },
+                    {
+                        q:'3.问题3XXXXXXXXXXX?',
+                        a:'文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文...'
+                    },
                 ]
             },
             {
-                icon:require('@static/images/logo.png'),
-                name:'学员憨憨',
-                time:'2020-04-24',
-                des:'我太难了.......',
-                like:false,
-                reply:[
-                    {
-                        name:'张三',
-                        des:'喜欢这么坦率的你'
-                    },
-                    {
-                        name:'李四',
-                        des:'喜欢这么坦率的你'
-                    }
-                ]
-            }
-        ]
+                title:'个人描述',
+                content:'文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文...'
+            },
+            {
+                title:'预约就诊时间',
+                content:'今天  13:00-15:00'
+            },
+            {
+                title:'客户诊断报告',
+                content:'文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字1.文字文字文字文字文字文字文字文字文字文字2.文字文字文字文字文字文字文字文字文字文字'
+            },
+            {
+                title:'留档报告',
+                content:'文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文...'
+            },
+        ],
+
     };
   },
   mounted() {
@@ -105,55 +97,16 @@ export default {
 </script>
 
 <style lang="scss">
-.index-detail{
-    width: r(750);
-    height:100vh;
-    background:#fff;
-    overflow-y:auto;
+.consult-index-detail{
+    width:r(750);
+    min-height:100vh;
+    background: #fff;
     padding:r(0) r(30);
-    .top-img{
-        padding:r(30) 0;
-        img{
-            width:r(690);
-        }
-    }
-    .top-tit{
-        height:r(109);
-        width:r(690);
-        position:relative;
-        .line-1{
-            height:r(52);
-            line-height:r(53);
-            font-size:r(38);
-            color:#333333;
-        }
-        .line-2{
-            height:r(33);
-            line-height:r(33);
-            font-size:r(24);
-            color:#999999;
-        }
-        .line-3{
-            width:r(108);
-            font-size: 0;
-            position: absolute;
-            bottom:0;
-            right:0;
-            &>img{
-                display:inline-block;
-                height:r(35);
-                margin-right: r(30);
-            }
-            &>img:nth-last-child(1){
-                margin: 0;
-            }
-        }
-    }
+    padding-bottom: r(40);
     .design-title{
         height:r(81);
         line-height:r(81);
         font-size: 0;
-        border-bottom:r(1) solid #ccc;
         &>span{
             display:inline-block;
             font-size:r(32);
@@ -170,17 +123,43 @@ export default {
             margin-right:r(16);
         }
     }
-    .detailContent{
-        position:relative;
-        .main-content{
-            padding:r(24) r(0) r(80);
-            font-size:r(28);
-            line-height:r(42);
-            color:#333;
-            img{
-                width:r(690);
-                margin:r(32) 0;
+    .top-head{
+        height:r(237);
+        padding:r(40) 0;
+        border-bottom:r(1) solid #ccc;
+        font-size: 0;
+        .left-img{
+            width:r(156);
+            height:r(156);
+            margin-right: r(30);
+            vertical-align: middle;
+        }
+        .right-des{
+            width:r(504);
+            display: inline-block;
+            vertical-align: middle;
+            .name{
+                height:r(42);
+                font-size: r(28);
+                line-height: r(42);
+                color: #333;
+                font-weight: bold;
+                margin-bottom: r(8);
             }
+            .txt{
+                font-size: r(24);
+                height: r(33);
+                line-height:r(33);
+                color: #666;
+            }
+        }
+    }
+    .userInfos{
+        position: relative;
+        .txt{
+            font-size: 28px;
+            line-height: 42px;
+            color: #333333;
         }
         .expand-bar{
             position:absolute;
@@ -195,69 +174,17 @@ export default {
             background-image: linear-gradient(to bottom,rgba(255,255,255,0.2) 0%,rgba(255,255,255,1) 50%);
         } 
     }
-    .comment-list{
-        .comment-item{
-            overflow: hidden;
-            margin-bottom:r(40);
-            .left{
-                width:r(64);
-                margin-right: r(20);
-                float:left;
-            }
-            .right{
-                width: r(606);
-                float:left;
-                .d1{
-                    height:r(28);
-                    font-size: r(20);
-                    line-height:r(28);
-                    color:#999;
-                    overflow: hidden;
-                    .le{
-                        float:left;
-                    }
-                    .rig{
-                        float:right;
-                    }
-                }
-                .d2{
-                    min-height:r(33);
-                    overflow: hidden;
-                    font-size: r(28);
-                    color:#333;
-                    line-height: r(33);
-                    margin:r(8) r(0) r(20);
-                    .des{
-                        width:r(564);
-                        float:left;
-                    }
-                    .ico{
-                        float: right;
-                        width:r(32);
-                        height: r(30);
-                        img{
-                            width:r(32);
-                        }
-                    }
-                }
-                .d3{
-                    width:r(606);
-                    padding:r(20);
-                    border-radius:r(10);
-                    background:#f5f5f5;
-                    .d_i{
-                        height:r(33);
-                        font-size: r(24);
-                        color:#666;
-                        line-height:r(33);
-                    }
-                    .moreReply{
-                        font-size: r(24);
-                        line-height:r(33);
-                        color:#1574F6;
-                    }
-                }
-            }
+    .steps{
+        margin-top:r(20);
+        .qa{
+            font-size: 28px;
+            color: #333;
+            line-height: 42px;
+        }
+        .txt{
+            font-size: 28px;
+            color: #333;
+            line-height: 42px;
         }
     }
 }
