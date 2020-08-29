@@ -27,11 +27,11 @@
             <img src="@static/images/mine/mine_game_icon.png" alt="">
             <div class="dsc">游戏练习</div>
           </li>
-          <li>
+          <li @click="navTo('myStory')">
             <img src="@static/images/mine/mine_story_icon.png" alt="">
             <div class="dsc">我的故事</div>
           </li>
-          <li>
+          <li @click="navTo('questions')">
             <img src="@static/images/mine/mine_questions_icon.png" alt="">
             <div class="dsc">咨询问题</div>
           </li>

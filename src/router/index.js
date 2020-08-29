@@ -347,7 +347,37 @@ const routes = [
       keepAlive: true,
       isBack: false
     },
-  }
+  },
+  {
+    path:'/reportDetail',
+    name:'ReportDetail',
+    component: () => import('../pages/userTerminal/mine/reportDetail.vue'),
+    meta: {
+      title: '报告',
+      keepAlive: true,
+      isBack: false
+    },
+  },
+  {
+    path:'/myStory',
+    name:'MyStory',
+    component: () => import('../pages/userTerminal/mine/myStory.vue'),
+    meta: {
+      title: '我的故事',
+      keepAlive: true,
+      isBack: false
+    },
+  },
+  {
+    path:'/questions',
+    name:'Questions',
+    component: () => import('../pages/userTerminal/mine/questions.vue'),
+    meta: {
+      title: '咨询问题',
+      keepAlive: true,
+      isBack: false
+    },
+  },
 ]
 
 const router = new VueRouter({

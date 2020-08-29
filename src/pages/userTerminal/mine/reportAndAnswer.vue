@@ -1,9 +1,9 @@
 <template>
   <div class="reportAndAnswer full-page">
      <van-tabs class="lists-tabs" animated @click="tabChange">
-        <van-tab v-for="(tab,index) in tabs" :title="tab.name" :key="index">
+        <van-tab v-for="(tab) in tabs" :title="tab.name" :key="tab.title">
           <div class="list">
-            <div class="list-item">
+            <div class="list-item" @click="navTo">
               <img src="@static/images/bg.png" alt="" srcset="">
               <div class="infos">
                 <p class="item-title">XXXXXXXXX诊前问答</p>
@@ -12,7 +12,7 @@
                 <p class="item-status"><a href=":;" :class="{done: true,unFinish: false}">已完成</a></p>
               </div>
             </div>
-            <div class="list-item">
+            <div class="list-item" @click="navTo">
               <img src="@static/images/bg.png" alt="" srcset="">
               <div class="infos">
                 <p class="item-title">XXXXXXXXX诊前问答</p>
@@ -35,14 +35,20 @@
         tabs: [
           {name: '就诊问答'},
           {name: '报告'}
-        ]
+        ],
+        type: ''
       }
     },
     methods: {
-      tabChange(e) {
-        console.log(e);
+      tabChange(num,title) {
+        this.type = name === 0 ? 'answer' : 'report'
+      },
+      navTo(){
+        this.$router.push({
+          path: `/${this.type}Detail`
+        })
       }
-    },
+    }
   }
 </script>
 
