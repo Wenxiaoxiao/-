@@ -2,7 +2,7 @@
   <div>
     <div class="nav-blank"></div>
     <div class="nav-box">
-      <router-link to="/" :class="[{'nav-li-active':nav==0},'nav-li']">
+      <router-link to="/userIndex" :class="[{'nav-li-active':nav==0},'nav-li']">
         <img v-if="nav==0" src="../../static/images/tapBar/1-1.png" alt />
         <img v-else src="../../static/images/tapBar/1.png" alt />
         <span>首页</span>

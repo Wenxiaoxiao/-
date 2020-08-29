@@ -9,7 +9,7 @@ import 'vant/lib/index.css';
 import { regulars } from '@/static/js/wtsTools.esm.min.js' //弹窗
 import tools from '@/api/tools' //弹窗
 import notice from '@/api/notice.js' //弹窗
-import weixin from './extend/weixin' //微信方法
+// import weixin from './extend/weixin' //微信方法
 import title from 'vue-wechat-title' //标题更新
 import filter from '@/api/filter.js' //公共过滤器
 import VueLazyload from 'vue-lazyload' //图片懒加载
