@@ -5,7 +5,7 @@
           <app-list :listData="tmpList" :detail="'/publishDetail'"></app-list>
         </van-tab>
       </van-tabs>
-    <van-button class="publish-btn" icon="plus" type="info" round>发表文章</van-button>
+    <van-button class="publish-btn" icon="plus" type="info" round @click="publishArticle">发表文章</van-button>
   </div>
 </template>
 
@@ -52,6 +52,11 @@ import list from "@/components/serviceList.vue";
     methods: {
       tabChange(e) {
         console.log(e);
+      },
+      publishArticle(){
+          this.$router.push({
+              path:'/publishArticle'
+          })
       }
     },
   }

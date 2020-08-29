@@ -307,6 +307,16 @@ const routes = [
       keepAlive: true,
       isBack: false
     },
+  },
+  {
+    path:'/publishArticle',
+    name:'publishArticle',
+    component: () => import('../pages/consultTerminal/mine/publishArticle.vue'),
+    meta: {
+      title: '发表文章',
+      keepAlive: true,
+      isBack: false
+    },
   }
 ]
 
