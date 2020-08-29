@@ -30,6 +30,14 @@
         </div>
         <div v-else class="txt">{{item.content}}</div>
     </div>
+    <div class="steps" v-for="(item,i) in flexible" :key="'tmp-'+i" v-show="type!=2">
+        <div class="design-title"><i></i><span>{{item.title}}</span></div>
+        <div class="txt" v-if="type==0">{{item.content}}</div>
+        <div class="txt" v-if="type==1">
+            <textarea :placeholder="item.placeholder"></textarea>
+        </div>
+    </div>
+    <div class="sub-btn" v-show="type==1">就诊完成</div>
   </div>
 </template>
 
@@ -41,6 +49,7 @@ export default {
   },
   data() {
     return {
+        type:null,
         showExpandBar:true,
         list:[
             {
@@ -68,20 +77,23 @@ export default {
                 title:'预约就诊时间',
                 content:'今天  13:00-15:00'
             },
+        ],
+        flexible:[
             {
                 title:'客户诊断报告',
+                placeholder:'该报告将发送给客户',
                 content:'文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字1.文字文字文字文字文字文字文字文字文字文字2.文字文字文字文字文字文字文字文字文字文字'
             },
             {
                 title:'留档报告',
+                placeholder:'留档供您自己查看',
                 content:'文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文...'
             },
-        ],
-
+        ]
     };
   },
   mounted() {
-    
+    this.type=this.$route.query.type;//1,待就诊,2已取消,0已就诊
   },
   methods: {
     goReplyDetail(){
@@ -185,7 +197,26 @@ export default {
             font-size: 28px;
             color: #333;
             line-height: 42px;
+            textarea{
+                width: 690px;
+                height: 300px;
+                background: #F5F5F5;
+                resize: none;
+                padding:r(24) r(30);
+            }
         }
+    }
+    .sub-btn{
+        width: 690px;
+        height: 88px;
+        background: #1574F6;
+        border-radius: 44px;
+        box-shadow: 0px 4px 40px rgba(21, 116, 246, 0.35);
+        color: #fff;
+        font-size: 32px;
+        line-height: 88px;
+        text-align: center;
+        margin-top: 71px;
     }
 }
 </style>

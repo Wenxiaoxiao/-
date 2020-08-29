@@ -1,6 +1,6 @@
 <template>
   <div class="lists">
-    <div v-for="(item,i) in listData" :key="i" class="item" @click="goDetail">
+    <div v-for="(item,i) in listData" :key="i" class="item" @click="goDetail(item.type)">
         <div class="left">
             <img :src="item.img"/>
         </div>
@@ -8,7 +8,10 @@
            <div class="name">{{item.name}}</div>
            <div class="time"><span class="s1">预约时间：</span><span class="s2">{{item.booktime}}</span></div>
            <div class="des"><span class="s1">个人描述：</span><span class="s2">{{item.des}}</span></div>
-           <div class="status">状态：{{item.status}}</div>
+           <div class="status">状态：
+               <span :class="item.status=='待就诊'?'active':''">{{item.status}}</span>
+               <van-button class="goon-btn" v-if="item.status=='待就诊'" round color="rgba(21,116,246,0.06)">就诊完成</van-button>
+           </div>
         </div>
     </div>
   </div>
@@ -21,11 +24,12 @@ export default {
   },
   mounted() {},
   methods: {
-      goDetail(){
-          this.$router.push({
-              path:'/consultDetail'
-          })
-      }
+    goDetail(type){
+        this.$router.push({
+            path:'/consultDetail',
+            query:{type:type}
+        })
+    }
   }
 };
 </script>
@@ -81,6 +85,25 @@ export default {
             }
             .status{
                 margin-top: 24px;
+                position: relative;
+                span{
+                    display: inline-block;
+                    font-size: 24px;
+                    &.active{
+                        color: #1574F6;
+                    }
+                }
+                .goon-btn{
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: #1574F6 !important;
+                    border: 0px solid transparent;
+                    // width: 136px;
+                    height: 56px;
+                    font-size: 24px;
+                }
             }
         }
     }

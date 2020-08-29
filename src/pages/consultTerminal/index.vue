@@ -7,8 +7,14 @@
     placeholder="请输入搜索关键词"
     />
     <van-tabs class="lists-tabs" animated @click="tabChange">
-    <van-tab v-for="(tab,index) in tabs" :title="tab.name" :key="index">
+    <van-tab title="待就诊">
         <app-list :listData="tmpList"></app-list>
+    </van-tab>
+    <van-tab title="已就诊">
+        <app-list :listData="tmpList1"></app-list>
+    </van-tab>
+    <van-tab title="已取消">
+        <app-list :listData="tmpList2"></app-list>
     </van-tab>
     </van-tabs>
     <app-nav nav="0"></app-nav>
@@ -42,19 +48,45 @@ export default {
             name:'张三',
             booktime:'今天  13:00-15:00',
             des:'个人描述个人描述个人描述个个人描述个人描述个人描述...',
-            status:'已就诊'
+            status:'待就诊',
+            type:1
         },{
             img:require('@static/images/userico.png'),
             name:'张三',
             booktime:'今天  13:00-15:00',
             des:'个人描述个人描述个人描述个个人描述个人描述个人描述...',
-            status:'已就诊'
+            status:'待就诊',
+            type:1
+        }],
+        tmpList1:[{
+            img:require('@static/images/userico.png'),
+            name:'张三',
+            booktime:'今天  13:00-15:00',
+            des:'个人描述个人描述个人描述个个人描述个人描述个人描述...',
+            status:'已就诊',
+            type:0
         },{
             img:require('@static/images/userico.png'),
             name:'张三',
             booktime:'今天  13:00-15:00',
             des:'个人描述个人描述个人描述个个人描述个人描述个人描述...',
-            status:'已就诊'
+            status:'已就诊',
+            type:0
+        }],
+        tmpList2:[{
+            img:require('@static/images/userico.png'),
+            name:'张三',
+            booktime:'今天  13:00-15:00',
+            des:'个人描述个人描述个人描述个个人描述个人描述个人描述...',
+            status:'已取消',
+            type:2
+        },{
+            img:require('@static/images/userico.png'),
+            name:'张三',
+            booktime:'今天  13:00-15:00',
+            des:'个人描述个人描述个人描述个个人描述个人描述个人描述...',
+            status:'已取消',
+            type:2
         }],
         location: location,
         list: [] //列表数据
@@ -65,7 +97,7 @@ export default {
     
   },
   methods: {
-    tabChange(){
+    tabChange(index){
         
     },
     goUrl(path){
