@@ -49,7 +49,7 @@ export default {
             line-height: 91px;
             color: #333;
             font-size: 34px;
-            border-bottom: r(1) solid #ccc;
+            border-bottom: r(1) solid #ebedf0;
             position: relative;
             &>.sucess-ico{
                 color: #1574F6;

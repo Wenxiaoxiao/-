@@ -41,7 +41,7 @@ export default {
     .item{
         padding:r(41) r(0) r(39);
         overflow: hidden;
-        border-bottom:r(1) solid #ccc;
+        border-bottom:r(1) solid #ebedf0;
         .left{
             width: 420px;
             float: left;

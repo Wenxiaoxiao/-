@@ -153,7 +153,7 @@ export default {
         height:r(81);
         line-height:r(81);
         font-size: 0;
-        border-bottom:r(1) solid #ccc;
+        border-bottom:r(1) solid #ebedf0;
         &>span{
             display:inline-block;
             font-size:r(32);

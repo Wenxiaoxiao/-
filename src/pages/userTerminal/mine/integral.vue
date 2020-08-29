@@ -53,7 +53,7 @@
       justify-content: flex-end;
       .selecter{
         padding: 0 80px 0 24px;
-        border: 1px solid #ccc;
+        border: 1px solid #ebedf0;
         height: 64px;
         line-height: 64px;
         color: #666;
@@ -65,7 +65,7 @@
       padding: 0 30px;
       .list-item{
         padding: 30px 0;
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid #ebedf0;
         display: flex;
         justify-content: space-between;
         align-items: center;

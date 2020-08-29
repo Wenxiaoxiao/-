@@ -114,7 +114,7 @@ export default {
   .top-head {
     height: r(237);
     padding: r(40) 0;
-    border-bottom: r(1) solid #ccc;
+    border-bottom: r(1) solid #ebedf0;
     font-size: 0;
     .left-img {
       width: r(156);
@@ -151,7 +151,7 @@ export default {
         right: r(30);
         top: 0;
         .van-cell {
-          border: r(1) solid #ccc;
+          border: r(1) solid #ebedf0;
           padding: r(16) r(26) r(15) r(26);
           border-radius: r(49);
           font-size: r(24);
@@ -313,7 +313,7 @@ export default {
               width: 610px;
               height: 106px;
               background: #FFFFFF;
-              border: 2px solid #CCCCCC;
+              border: 2px solid #ebedf0CCC;
               opacity: 1;
               border-radius: r(50);
               margin-top:40px;

@@ -54,6 +54,10 @@
 </script>
 
 <style lang="scss" scoped>
+.subscribe-page{
+  height: 100vh;
+  background: #fff;
+}
   .my-swipe .van-swipe-item {
     height: 410px;
     img{
@@ -63,17 +67,12 @@
     }
 
   }
-  // .my-swipe >>> .van-swipe__indicator--active{
-  //   width: 14px!important;
-  //   border-radius: 6px;
-  // }
-  // class="van-swipe__indicators"
   .sub-list{
     padding: 0 30px;
     .sub-item{
       display: flex;
       padding: 40px 0;
-      border-bottom: 1px solid#ccc;
+      border-bottom: 1px solid #ebedf0;
       &>img{
         height: 156px;
         width: 156px;

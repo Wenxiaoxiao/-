@@ -60,7 +60,7 @@
   }
   .list-item{
     padding: 40px 0 25px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ebedf0;
     .btns{
       display: flex;
       align-items: center;
@@ -80,7 +80,7 @@
       a{
         height: 56px;
         width: 136px;
-        border: 1px solid #ccc;
+        border: 1px solid #ebedf0;
         color: #666;
         text-align: center;
         font-size: 24px;

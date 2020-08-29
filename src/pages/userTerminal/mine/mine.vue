@@ -115,12 +115,16 @@ import nav from "@/components/nav/nav.vue";
           margin-top: 8px;
         }
         .user-type{
+          background-image: url('../../../static/images/mine/mine_domestic_icon.png');
+          background-repeat: no-repeat;
+          background-size:r(23) r(27);
+          background-position: 20px center;
           margin-top: 24px;
           height: 52px;
           line-height: 52px;
           font-size: 24px;
           padding: 0 14px 0 50px;
-          background: #fff;
+          background-color: #fff;
           border-radius: 25px;
           color: #1574F6;
         }

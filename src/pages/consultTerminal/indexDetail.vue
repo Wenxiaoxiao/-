@@ -138,7 +138,7 @@ export default {
     .top-head{
         height:r(237);
         padding:r(40) 0;
-        border-bottom:r(1) solid #ccc;
+        border-bottom:r(1) solid #ebedf0;
         font-size: 0;
         .left-img{
             width:r(156);

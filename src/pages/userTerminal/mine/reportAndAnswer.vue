@@ -60,7 +60,7 @@
     display: flex;
     align-items: center;
     padding-bottom: 40px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ebedf0;
     img{
       height: 150px;
       width: 250px;

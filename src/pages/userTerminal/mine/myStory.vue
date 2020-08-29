@@ -38,7 +38,7 @@
     .list-item{
       display: flex;
       padding: 40px 0;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #ebedf0;
       >img{
         margin-right: 20px;
         width: 250px;

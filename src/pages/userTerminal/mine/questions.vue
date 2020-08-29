@@ -35,7 +35,7 @@
     }
     .question-item{
       padding: 40px 0;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #ebedf0;
       display: flex;
       justify-content: space-between;
       >img{

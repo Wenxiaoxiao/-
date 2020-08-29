@@ -32,7 +32,7 @@
     padding: 40px 22px;
     .top{
       padding: 0 8px 33px;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #ebedf0;
     }
     .content{
       padding: 40px 8px 20px;

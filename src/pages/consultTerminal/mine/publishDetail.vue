@@ -50,7 +50,7 @@ export default {
         width:r(690);
         padding-bottom: 40px;
         position:relative;
-        border-bottom: r(1) solid #ccc;
+        border-bottom: r(1) solid #ebedf0;
         .line-1{
             height:r(52);
             line-height:r(53);
