@@ -42,7 +42,6 @@
 
 <script>
 import replyBox from "@/components/replyBox.vue";
-var vm;
 export default {
   components: {
       "reply-box":replyBox
@@ -90,7 +89,6 @@ export default {
     };
   },
   mounted() {
-    vm = this;
     
   },
   methods: {
@@ -108,6 +106,7 @@ export default {
 
 <style lang="scss">
 .index-detail{
+    width: r(750);
     height:100vh;
     background:#fff;
     overflow-y:auto;

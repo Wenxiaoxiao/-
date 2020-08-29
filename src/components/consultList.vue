@@ -5,7 +5,10 @@
             <img :src="item.img"/>
         </div>
         <div class="right">
-           
+           <div class="name">{{item.name}}</div>
+           <div class="time"><span class="s1">预约时间：</span><span class="s2">{{item.booktime}}</span></div>
+           <div class="des"><span class="s1">个人描述：</span><span class="s2">{{item.des}}</span></div>
+           <div class="status">状态：{{item.status}}</div>
         </div>
     </div>
   </div>
@@ -36,52 +39,48 @@ export default {
         border-bottom:r(1) solid #ccc;
         .left{
             float:left;
-            margin-right:r(20);
+            margin-right:r(30);
             &>img{
                 width:r(156);
                 height:r(156);
             }
         }
         .right{
-            float:left;
-            .tit{
-                font-size:r(28);
-                line-height:r(42);
-                color:#333;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-            .tags{
-                height:r(72);
-                padding:r(16) 0;
+            width:r(504);
+            float: left;
+            font-size: 24px;
+            line-height: 33px;
+            color: #666666;
+            &>div{
                 &>span{
                     display: inline-block;
-                    width:r(100);
-                    border-radius:r(21);
-                    height:r(40);
-                    line-height:r(40);
-                    text-align: center;
-                    margin-right:r(20);
+                    font-size: 0;
+                    vertical-align: top;
                 }
-                &>span:nth-child(1){
-                    background:rgba(21,116,246,0.1);
-                    color:#1574F6;
+                .s1{
+                    font-size: 24px;
+                    width: 120px;
                 }
-                &>span:nth-child(2){
-                    color:#4BD5AB;
-                    background:rgba(75,213,171,0.1);
-                }
-                &>span:nth-child(3){
-                    color:#FFDC3D;
-                    background:rgba(255,220,61,0.1);
+                .s2{
+                    font-size: 24px;
+                    width: 384px;
                 }
             }
+            .name{
+                height: 42px;
+                font-size: 28px;
+                font-weight: bold;
+                line-height: 40px;
+                color: #333333;
+            }
             .time{
-                font-size: r(20);
-                color:#999;
-                line-height: r(28);
-                text-align: right;
+                margin-top:8px;
+            }
+            .des{
+                margin-top: 4px;
+            }
+            .status{
+                margin-top: 24px;
             }
         }
     }

@@ -38,20 +38,23 @@ export default {
             }
         ],
         tmpList:[{
-            img:require('@static/images/list.png'),
-            title:'症状是强迫性重复的结果',
-            tags:['原因','思维','有效'],
-            time:'2020-04-24'
+            img:require('@static/images/userico.png'),
+            name:'张三',
+            booktime:'今天  13:00-15:00',
+            des:'个人描述个人描述个人描述个个人描述个人描述个人描述...',
+            status:'已就诊'
         },{
-            img:require('@static/images/list.png'),
-            title:'症状是强迫性重复的结果1',
-            tags:['原因','思维'],
-            time:'2020-04-24'
+            img:require('@static/images/userico.png'),
+            name:'张三',
+            booktime:'今天  13:00-15:00',
+            des:'个人描述个人描述个人描述个个人描述个人描述个人描述...',
+            status:'已就诊'
         },{
-            img:require('@static/images/list.png'),
-            title:'症状是强迫性重复的结果1',
-            tags:['原因'],
-            time:'2020-04-24'
+            img:require('@static/images/userico.png'),
+            name:'张三',
+            booktime:'今天  13:00-15:00',
+            des:'个人描述个人描述个人描述个个人描述个人描述个人描述...',
+            status:'已就诊'
         }],
         location: location,
         list: [] //列表数据
