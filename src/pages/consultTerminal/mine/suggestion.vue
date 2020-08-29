@@ -9,7 +9,7 @@
             <input :placeholder="item.placeholder"/>
         </div>
     </div>
-    <div class="sub-btn">提交</div>
+    <div class="sub-btn" @click="submit">提交</div>
   </div>
 </template>
 
@@ -42,7 +42,11 @@ export default {
     
   },
   methods: {
-    
+    submit(){
+        this.$router.push({
+            path:'/suggestsuccess'
+        })
+    }
   }
 };
 </script>
@@ -82,7 +86,7 @@ export default {
         }
     }
      .steps{
-        margin-top:r(20);
+        padding-top:r(20);
         .txt{
             font-size: 28px;
             color: #333;
