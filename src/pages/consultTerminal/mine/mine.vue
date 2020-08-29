@@ -10,7 +10,7 @@
     </div>
     <div class="center">
       <ul class="center-nav">
-        <li><div class="left-icon"><img src="@static/images/consult/timeset.png" alt=""></div><div class="dsc">出诊时间设置</div></li>
+        <li><div class="left-icon"><img src="@static/images/consult/timeset.png" alt=""></div><div @click="navTo('workTime')" class="dsc">出诊时间设置</div></li>
         <li><div class="left-icon"><img src="@static/images/consult/publish.png" alt=""></div><div @click="navTo('mypublish')" class="dsc">我的发表</div></li>
         <li><div class="left-icon"><img src="@static/images/consult/feedback.png" alt=""></div><div @click="navTo('suggestion')" class="dsc">意见反馈</div></li>
       </ul>

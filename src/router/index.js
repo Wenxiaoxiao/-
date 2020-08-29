@@ -317,6 +317,36 @@ const routes = [
       keepAlive: true,
       isBack: false
     },
+  },
+  {
+    path:'/workTime',
+    name:'workTime',
+    component: () => import('../pages/consultTerminal/mine/workTime.vue'),
+    meta: {
+      title: '出诊时间设置',
+      keepAlive: true,
+      isBack: false
+    },
+  },
+  {
+    path:'/workCycle',
+    name:'workCycle',
+    component: () => import('../pages/consultTerminal/mine/workCycle.vue'),
+    meta: {
+      title: '出诊周期',
+      keepAlive: true,
+      isBack: false
+    },
+  },
+  {
+    path:'/workPeroid',
+    name:'workPeroid',
+    component: () => import('../pages/consultTerminal/mine/workPeroid.vue'),
+    meta: {
+      title: '出诊时间段',
+      keepAlive: true,
+      isBack: false
+    },
   }
 ]
 
