@@ -1,6 +1,14 @@
 <template>
   <div class="index-page">
-    <van-search v-model="searchValue" shape="round" background="#fff" placeholder="请输入搜索关键词" />
+    <!-- <div class="center-search"></div> -->
+    <van-search
+      v-model="searchValue"
+      class="center-search"
+      shape="round"
+      input-align="center"
+      background="#fff"
+      placeholder="请输入搜索关键词"
+    />
     <van-tabs class="lists-tabs" animated @click="tabChange">
       <van-tab title="待就诊">
         <van-divider :style="{ color: '#ccc', borderColor: '#ccc', padding: '0 30px' }">
@@ -130,6 +138,17 @@ export default {
 .index-page {
   min-height: 100vh;
   background: #fff;
+  .center-search {
+    .van-field__left-icon {
+      display: none;
+    }
+    .van-cell {
+      background-image: url("../../static/images/search.png");
+      background-repeat: no-repeat;
+      background-position: 180px center;
+      background-size: 29px 29px;
+    }
+  }
   .van-tabs__wrap {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
   }
