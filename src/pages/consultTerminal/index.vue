@@ -1,24 +1,34 @@
 <template>
   <div class="index-page">
-    <van-search
-    v-model="searchValue"
-    shape="round"
-    background="#fff"
-    placeholder="请输入搜索关键词"
-    />
+    <van-search v-model="searchValue" shape="round" background="#fff" placeholder="请输入搜索关键词" />
     <van-tabs class="lists-tabs" animated @click="tabChange">
-    <van-tab title="待就诊">
-        <van-divider :style="{ color: '#ccc', borderColor: '#ccc', padding: '0 30px' }"><div class="daytime">2020年07月13日<br/>今天</div></van-divider>
+      <van-tab title="待就诊">
+        <van-divider :style="{ color: '#ccc', borderColor: '#ccc', padding: '0 30px' }">
+          <div class="daytime">
+            2020年07月13日
+            <br />今天
+          </div>
+        </van-divider>
         <app-list :listData="tmpList"></app-list>
-    </van-tab>
-    <van-tab title="已就诊">
-        <van-divider :style="{ color: '#ccc', borderColor: '#ccc', padding: '0 30px' }"><div class="daytime">2020年07月13日<br/>今天</div></van-divider>
+      </van-tab>
+      <van-tab title="已就诊">
+        <van-divider :style="{ color: '#ccc', borderColor: '#ccc', padding: '0 30px' }">
+          <div class="daytime">
+            2020年07月13日
+            <br />今天
+          </div>
+        </van-divider>
         <app-list :listData="tmpList1"></app-list>
-    </van-tab>
-    <van-tab title="已取消">
-        <van-divider :style="{ color: '#ccc', borderColor: '#ccc', padding: '0 30px' }"><div class="daytime">2020年07月13日<br/>今天</div></van-divider>
+      </van-tab>
+      <van-tab title="已取消">
+        <van-divider :style="{ color: '#ccc', borderColor: '#ccc', padding: '0 30px' }">
+          <div class="daytime">
+            2020年07月13日
+            <br />今天
+          </div>
+        </van-divider>
         <app-list :listData="tmpList2"></app-list>
-    </van-tab>
+      </van-tab>
     </van-tabs>
     <app-nav nav="0"></app-nav>
   </div>
@@ -30,102 +40,111 @@ import list from "@/components/consultList.vue";
 export default {
   components: {
     "app-nav": nav,
-    "app-list":list
+    "app-list": list
   },
   data() {
     return {
-        searchValue:"",
-        tabs:[
-            {
-                name:'待就诊'
-            },
-            {
-                name:'已就诊'
-            },
-            {
-                name:'已取消'
-            }
-        ],
-        tmpList:[{
-            img:require('@static/images/userico.png'),
-            name:'张三',
-            booktime:'今天  13:00-15:00',
-            des:'个人描述个人描述个人描述个个人描述个人描述个人描述...',
-            status:'待就诊',
-            type:1
-        },{
-            img:require('@static/images/userico.png'),
-            name:'张三',
-            booktime:'今天  13:00-15:00',
-            des:'个人描述个人描述个人描述个个人描述个人描述个人描述...',
-            status:'待就诊',
-            type:1
-        }],
-        tmpList1:[{
-            img:require('@static/images/userico.png'),
-            name:'张三',
-            booktime:'今天  13:00-15:00',
-            des:'个人描述个人描述个人描述个个人描述个人描述个人描述...',
-            status:'已就诊',
-            type:0
-        },{
-            img:require('@static/images/userico.png'),
-            name:'张三',
-            booktime:'今天  13:00-15:00',
-            des:'个人描述个人描述个人描述个个人描述个人描述个人描述...',
-            status:'已就诊',
-            type:0
-        }],
-        tmpList2:[{
-            img:require('@static/images/userico.png'),
-            name:'张三',
-            booktime:'今天  13:00-15:00',
-            des:'个人描述个人描述个人描述个个人描述个人描述个人描述...',
-            status:'已取消',
-            type:2
-        },{
-            img:require('@static/images/userico.png'),
-            name:'张三',
-            booktime:'今天  13:00-15:00',
-            des:'个人描述个人描述个人描述个个人描述个人描述个人描述...',
-            status:'已取消',
-            type:2
-        }],
-        location: location,
-        list: [] //列表数据
+      searchValue: "",
+      tabs: [
+        {
+          name: "待就诊"
+        },
+        {
+          name: "已就诊"
+        },
+        {
+          name: "已取消"
+        }
+      ],
+      tmpList: [
+        {
+          img: require("@static/images/userico.png"),
+          name: "张三",
+          booktime: "今天  13:00-15:00",
+          des: "个人描述个人描述个人描述个个人描述个人描述个人描述...",
+          status: "待就诊",
+          type: 1
+        },
+        {
+          img: require("@static/images/userico.png"),
+          name: "张三",
+          booktime: "今天  13:00-15:00",
+          des: "个人描述个人描述个人描述个个人描述个人描述个人描述...",
+          status: "待就诊",
+          type: 1
+        }
+      ],
+      tmpList1: [
+        {
+          img: require("@static/images/userico.png"),
+          name: "张三",
+          booktime: "今天  13:00-15:00",
+          des: "个人描述个人描述个人描述个个人描述个人描述个人描述...",
+          status: "已就诊",
+          type: 0
+        },
+        {
+          img: require("@static/images/userico.png"),
+          name: "张三",
+          booktime: "今天  13:00-15:00",
+          des: "个人描述个人描述个人描述个个人描述个人描述个人描述...",
+          status: "已就诊",
+          type: 0
+        }
+      ],
+      tmpList2: [
+        {
+          img: require("@static/images/userico.png"),
+          name: "张三",
+          booktime: "今天  13:00-15:00",
+          des: "个人描述个人描述个人描述个个人描述个人描述个人描述...",
+          status: "已取消",
+          type: 2
+        },
+        {
+          img: require("@static/images/userico.png"),
+          name: "张三",
+          booktime: "今天  13:00-15:00",
+          des: "个人描述个人描述个人描述个个人描述个人描述个人描述...",
+          status: "已取消",
+          type: 2
+        }
+      ],
+      location: location,
+      list: [] //列表数据
     };
   },
-  mounted() {
-
-    
-  },
+  mounted() {},
   methods: {
-    tabChange(index){
-        
-    },
-    goUrl(path){
-        this.$router.push({
-            path:path
-        })
+    tabChange(index) {},
+    goUrl(path) {
+      this.$router.push({
+        path: path
+      });
     }
   }
 };
 </script>
 
 <style lang="scss">
-.index-page{
-    min-height: 100vh;
-    background: #fff;
-    .van-tabs__wrap{
-        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+.index-page {
+  min-height: 100vh;
+  background: #fff;
+  .van-tabs__wrap {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+  }
+  .van-tab--active {
+    color: #1574f6;
+  }
+  .lists-tabs {
+    .van-tabs__line {
+      background: #1574f6;
+      height: r(5);
+      width: 100px !important;
     }
-    .lists-tabs{
-        .van-tabs__line{
-            background: #1574F6;
-        }
-    }
-    .daytime{
-        text-align: center;
-    }
+  }
+  .daytime {
+    text-align: center;
+  }
 }
 </style>

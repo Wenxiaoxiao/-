@@ -6,8 +6,7 @@ import replyDetail from '../pages/userTerminal/replyDetail.vue';
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
+const routes = [{
     path: '/userLogin',
     name: 'userLogin',
     component: () => import('../pages/login.vue'),
@@ -18,11 +17,11 @@ const routes = [
     },
   },
   {
-    path:'/userIndex',
-    name:'userIndex',
-    component:Index,
-    meta:{
-      title:'首页',
+    path: '/userIndex',
+    name: 'userIndex',
+    component: Index,
+    meta: {
+      title: '首页',
       keepAlive: true,
       isBack: false
     }
@@ -38,13 +37,13 @@ const routes = [
     },
   },
   {
-    path:'/replyDetail',
-    name:'replyDetail',
-    component:replyDetail,
-    meta:{
-      title:'回复详情',
-      keepAlive:true,
-      isBack:false
+    path: '/replyDetail',
+    name: 'replyDetail',
+    component: replyDetail,
+    meta: {
+      title: '回复详情',
+      keepAlive: true,
+      isBack: false
     }
   },
   {
@@ -58,41 +57,41 @@ const routes = [
     },
   },
   {
-    path:'/subscribeDetail',
-    name:'subscribeDetail',
-    component:()=>import('../pages/userTerminal/subscribe/subscribeDetail.vue'),
-    meta:{
-      title:'咨询师详情',
+    path: '/subscribeDetail',
+    name: 'subscribeDetail',
+    component: () => import('../pages/userTerminal/subscribe/subscribeDetail.vue'),
+    meta: {
+      title: '咨询师详情',
       keepAlive: true,
       isBack: false
     }
   },
   {
-    path:'/subscribeApply',
-    name:'subscribeApply',
-    component:()=>import('../pages/userTerminal/subscribe/subscribeApply.vue'),
-    meta:{
-      title:'预约申请',
+    path: '/subscribeApply',
+    name: 'subscribeApply',
+    component: () => import('../pages/userTerminal/subscribe/subscribeApply.vue'),
+    meta: {
+      title: '预约申请',
       keepAlive: true,
       isBack: false
     }
   },
   {
-    path:'/subSuccess',
-    name:'subSuccess',
-    component:()=>import('../pages/userTerminal/subscribe/subSuccess.vue'),
-    meta:{
-      title:'预约成功',
+    path: '/subSuccess',
+    name: 'subSuccess',
+    component: () => import('../pages/userTerminal/subscribe/subSuccess.vue'),
+    meta: {
+      title: '预约成功',
       keepAlive: true,
       isBack: false
     }
   },
   {
-    path:'/subYourInfo',
-    name:'subYourInfo',
-    component:()=>import('../pages/userTerminal/subscribe/subYourInfo.vue'),
-    meta:{
-      title:'就诊信息',
+    path: '/subYourInfo',
+    name: 'subYourInfo',
+    component: () => import('../pages/userTerminal/subscribe/subYourInfo.vue'),
+    meta: {
+      title: '就诊信息',
       keepAlive: true,
       isBack: false
     }
@@ -103,6 +102,16 @@ const routes = [
     component: () => import('../pages/needToKnow.vue'),
     meta: {
       title: '会员须知',
+      keepAlive: true,
+      isBack: false
+    }
+  },
+  {
+    path: '/needToKnow1',
+    name: 'NeedToKnow1',
+    component: () => import('../pages/needToKnow.vue'),
+    meta: {
+      title: '咨询师须知',
       keepAlive: true,
       isBack: false
     }
@@ -249,8 +258,8 @@ const routes = [
     },
   },
   {
-    path:'/home',
-    name:'home',
+    path: '/home',
+    name: 'home',
     component: () => import('../pages/consultTerminal/mine/mine.vue'),
     meta: {
       title: '我的',
@@ -259,8 +268,8 @@ const routes = [
     },
   },
   {
-    path:'/consultDetail',
-    name:'consultDetail',
+    path: '/consultDetail',
+    name: 'consultDetail',
     component: () => import('../pages/consultTerminal/indexDetail.vue'),
     meta: {
       title: '客户详情',
@@ -269,8 +278,8 @@ const routes = [
     },
   },
   {
-    path:'/suggestion',
-    name:'suggestion',
+    path: '/suggestion',
+    name: 'suggestion',
     component: () => import('../pages/consultTerminal/mine/suggestion.vue'),
     meta: {
       title: '意见反馈',
@@ -279,8 +288,8 @@ const routes = [
     },
   },
   {
-    path:'/suggestsuccess',
-    name:'suggestsuccess',
+    path: '/suggestsuccess',
+    name: 'suggestsuccess',
     component: () => import('../pages/consultTerminal/mine/suggestsuccess.vue'),
     meta: {
       title: '意见反馈',
@@ -289,8 +298,8 @@ const routes = [
     },
   },
   {
-    path:'/mypublish',
-    name:'mypublish',
+    path: '/mypublish',
+    name: 'mypublish',
     component: () => import('../pages/consultTerminal/mine/mypublish.vue'),
     meta: {
       title: '我的发表',
@@ -299,8 +308,8 @@ const routes = [
     },
   },
   {
-    path:'/publishDetail',
-    name:'publishDetail',
+    path: '/publishDetail',
+    name: 'publishDetail',
     component: () => import('../pages/consultTerminal/mine/publishDetail.vue'),
     meta: {
       title: '内容详情',
@@ -309,18 +318,18 @@ const routes = [
     },
   },
   {
-    path:'/publishArticle',
-    name:'publishArticle',
+    path: '/publishArticle',
+    name: 'publishArticle',
     component: () => import('../pages/consultTerminal/mine/publishArticle.vue'),
     meta: {
-      title: '发表文章',
+      title: '发表新锐观点',
       keepAlive: true,
       isBack: false
     },
   },
   {
-    path:'/workTime',
-    name:'workTime',
+    path: '/workTime',
+    name: 'workTime',
     component: () => import('../pages/consultTerminal/mine/workTime.vue'),
     meta: {
       title: '出诊时间设置',
@@ -329,8 +338,8 @@ const routes = [
     },
   },
   {
-    path:'/workCycle',
-    name:'workCycle',
+    path: '/workCycle',
+    name: 'workCycle',
     component: () => import('../pages/consultTerminal/mine/workCycle.vue'),
     meta: {
       title: '出诊周期',
@@ -339,8 +348,8 @@ const routes = [
     },
   },
   {
-    path:'/workPeroid',
-    name:'workPeroid',
+    path: '/workPeroid',
+    name: 'workPeroid',
     component: () => import('../pages/consultTerminal/mine/workPeroid.vue'),
     meta: {
       title: '出诊时间段',
@@ -349,8 +358,8 @@ const routes = [
     },
   },
   {
-    path:'/reportDetail',
-    name:'ReportDetail',
+    path: '/reportDetail',
+    name: 'ReportDetail',
     component: () => import('../pages/userTerminal/mine/reportDetail.vue'),
     meta: {
       title: '报告',
@@ -359,8 +368,8 @@ const routes = [
     },
   },
   {
-    path:'/myStory',
-    name:'MyStory',
+    path: '/myStory',
+    name: 'MyStory',
     component: () => import('../pages/userTerminal/mine/myStory.vue'),
     meta: {
       title: '我的故事',
@@ -369,8 +378,8 @@ const routes = [
     },
   },
   {
-    path:'/questions',
-    name:'Questions',
+    path: '/questions',
+    name: 'Questions',
     component: () => import('../pages/userTerminal/mine/questions.vue'),
     meta: {
       title: '咨询问题',
@@ -379,8 +388,8 @@ const routes = [
     },
   },
   {
-    path:'/personalInfo',
-    name:'personalInfo',
+    path: '/personalInfo',
+    name: 'personalInfo',
     component: () => import('../pages/consultTerminal/mine/personalInfo.vue'),
     meta: {
       title: '个人资料',
