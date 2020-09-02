@@ -3,6 +3,7 @@
     <label class="label" for>{{label}}</label>
     <div class="input">
       <slot></slot>
+      <van-icon v-if="link" name="arrow-down" />
     </div>
   </div>
 </template>
@@ -13,7 +14,11 @@ export default {
   props: {
     label: {
       type: String,
-      value: ""
+      default: ""
+    },
+    link: {
+      type: Boolean,
+      default: false
     }
   }
 };
@@ -22,7 +27,7 @@ export default {
 <style lang="scss" scoped>
 .common-filed {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   font-size: 32px;
   color: #999;
   .label {
@@ -31,6 +36,8 @@ export default {
   .input {
     width: calc(100% - 170px);
     border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
   }
 }
 </style>

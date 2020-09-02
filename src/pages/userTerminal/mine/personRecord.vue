@@ -4,19 +4,19 @@
       <common-field label="姓名">
         <van-field v-model="nickname" />
       </common-field>
-      <common-field label="年龄">
-        <van-field v-model="age" arrow-direction="down" />
+      <common-field label="年龄" link>
+        <van-field v-model="age" />
       </common-field>
-      <common-field label="性别">
+      <common-field label="性别" link>
         <van-field v-model="sex" />
       </common-field>
       <common-field label="职业">
         <van-field v-model="title" />
       </common-field>
-      <common-field label="学历">
+      <common-field label="学历" link>
         <van-field v-model="education" />
       </common-field>
-      <common-field label="婚姻">
+      <common-field label="婚姻" link>
         <van-field v-model="marrage" />
       </common-field>
       <common-field label="手机号">
