@@ -67,6 +67,16 @@ const routes = [{
     }
   },
   {
+    path: '/storyDetail',
+    name: 'storyDetail',
+    component: () => import('../pages/userTerminal/storyDetail.vue'),
+    meta: {
+      title: '会员故事',
+      keepAlive: true,
+      isBack: false
+    }
+  },
+  {
     path: '/HomeDetail',
     name: 'HomeDetail',
     component: HomeDetail,

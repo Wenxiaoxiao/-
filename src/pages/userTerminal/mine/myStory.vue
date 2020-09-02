@@ -1,7 +1,7 @@
 <template>
   <div class="myStory full-page">
     <div class="list">
-      <div class="list-item">
+      <div class="list-item" @click="storyDetail">
         <img src="@static/images/teacher_icon.png" alt />
         <div class="content">
           <div class="item-title">孩子厌学自闭，拒绝沟通怎么办</div>
@@ -33,6 +33,11 @@ export default {
     publishStory() {
       this.$router.push({
         path: "/publishStory"
+      });
+    },
+    storyDetail() {
+      this.$router.push({
+        path: "/storyDetail"
       });
     }
   }
