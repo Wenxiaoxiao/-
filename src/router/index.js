@@ -27,6 +27,16 @@ const routes = [{
     },
   },
   {
+    path: '/resetSuccess',
+    name: 'resetSuccess',
+    component: () => import('../pages/resetSuccess.vue'),
+    meta: {
+      title: '重置密码',
+      keepAlive: true,
+      isBack: false
+    },
+  },
+  {
     path: '/userIndex',
     name: 'userIndex',
     component: Index,

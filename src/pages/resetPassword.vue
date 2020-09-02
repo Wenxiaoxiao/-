@@ -1,11 +1,17 @@
 <template>
   <div class="reset-container">
     <van-form @submit="onSubmit">
-      <van-field v-model="firstinput" type="password" name="新密码" label="新密码" placeholder="请输入新密码" />
+      <van-field
+        v-model="firstinput"
+        type="password"
+        name="firstinput"
+        label="新密码"
+        placeholder="请输入新密码"
+      />
       <van-field
         v-model="secondinput"
         type="password"
-        name="确认密码"
+        name="secondinput"
         label="确认密码"
         placeholder="请输入密码"
       />
@@ -17,22 +23,34 @@
 </template>
 
 <script>
-let vm;
+import { Toast } from "vant";
 export default {
   data() {
     return {
       firstinput: "",
-      secondinput: ""
+      secondinput: "",
+      contentMap: {
+        firstinput: "请输入密码",
+        secondinput: "请再次输入密码"
+      }
     };
   },
   methods: {
     onSubmit(values) {
       console.log("submit", values);
+      let that = this;
+      for (let m in values) {
+        if (values[m] == "") {
+          let rel = that.contentMap[m];
+          return Toast(rel);
+        }
+      }
+      this.$router.push({
+        path: "/resetSuccess"
+      });
     }
   },
-  created() {
-    vm = this;
-  }
+  created() {}
 };
 </script>
 <style lang="scss" scoped>
