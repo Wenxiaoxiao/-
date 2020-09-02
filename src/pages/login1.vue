@@ -9,7 +9,7 @@
         </template>
       </van-field>
       <div style="margin: 16px;">
-        <van-button round block type="info" native-type="submit">登录</van-button>
+        <van-button round block class="design-sub-btn" native-type="submit">登录</van-button>
       </div>
     </van-form>
     <div class="login-tips">
@@ -77,6 +77,11 @@ export default {
   background: #fff;
   padding-top: r(80);
   font-size: r(32);
+  .van-form {
+    .van-cell {
+      height: r(98);
+    }
+  }
   .company {
     height: r(164);
     margin: 0 auto;
@@ -86,6 +91,16 @@ export default {
   .receive-code-img {
     width: r(223);
     height: r(62);
+  }
+  .design-sub-btn {
+    width: 654px;
+    height: 88px;
+    background: #1574f6;
+    box-shadow: 0px 4px 40px rgba(21, 116, 246, 0.35);
+    border-radius: 44px;
+    color: #fff;
+    font-size: 32px;
+    margin: 0 auto;
   }
   .login-tips {
     height: r(40);

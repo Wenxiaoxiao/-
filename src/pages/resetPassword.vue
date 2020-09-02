@@ -1,35 +1,18 @@
 <template>
-  <div class="login-container">
+  <div class="reset-container">
     <van-form @submit="onSubmit">
-      <van-field
-        v-model="firstinput"
-        type="password"
-        name="新密码"
-        label="新密码"
-        placeholder="请输入新密码"
-      />
+      <van-field v-model="firstinput" type="password" name="新密码" label="新密码" placeholder="请输入新密码" />
       <van-field
         v-model="secondinput"
         type="password"
         name="确认密码"
         label="确认密码"
-        placeholder="请输入验证码"
+        placeholder="请输入密码"
       />
-      <div style="margin: 16px;">
-        <van-button round block type="info" native-type="submit">
-          登录
-        </van-button>
+      <div>
+        <van-button round block class="design-sub-btn" native-type="submit">确认修改</van-button>
       </div>
     </van-form>
-    <div class="login-tips">
-      <div class="left">
-        <van-icon name="checked" :class="konwn?'l-ico active':'l-ico'" @click="konwn=!konwn"/>
-        <span @click="needKnow">会员须知</span>
-      </div>
-      <div class="right">
-        忘记密码？
-      </div>
-    </div>
   </div>
 </template>
 
@@ -38,21 +21,14 @@ let vm;
 export default {
   data() {
     return {
-      username: '',
-      password: '',
-      code:'',
-      konwn:false
+      firstinput: "",
+      secondinput: ""
     };
   },
   methods: {
-    needKnow(){
-      this.$router.push({
-        path:'/needToKnow'
-      })
-    },
     onSubmit(values) {
-      console.log('submit', values);
-    },
+      console.log("submit", values);
+    }
   },
   created() {
     vm = this;
@@ -60,48 +36,65 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.login-container{
-  min-height:100vh;
-  width:r(750);
+.reset-container {
+  min-height: 100vh;
+  width: r(750);
   background: #fff;
-  padding-top:r(80);
   font-size: r(32);
-  .company{
-    height:r(164);
-    margin:0 auto;
-    display: block;
-    margin-bottom:r(100);
+  .van-form {
+    .van-cell {
+      height: r(98);
+    }
   }
-  .receive-code-img{
-    width:r(223);
+  .company {
+    height: r(164);
+    margin: 0 auto;
+    display: block;
+    margin-bottom: r(100);
+  }
+  .receive-code-img {
+    width: r(223);
     height: r(62);
   }
-  .login-tips{
-    height:r(40);
-    padding:r(0) r(48);
+  .design-sub-btn {
+    width: 654px;
+    height: 88px;
+    background: #1574f6;
+    box-shadow: 0px 4px 40px rgba(21, 116, 246, 0.35);
+    border-radius: 44px;
+    color: #fff;
+    font-size: 32px;
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .login-tips {
+    height: r(40);
+    padding: r(0) r(48);
     line-height: r(40);
     overflow: hidden;
-    .left{
+    .left {
       float: left;
-      color:#999;
-      .l-ico{
+      color: #999;
+      .l-ico {
         display: inline-block;
         vertical-align: middle;
-        width:r(34);
+        width: r(34);
         margin-right: r(12);
       }
-      .l-ico.active{
-        color: #1574F6;
+      .l-ico.active {
+        color: #1574f6;
       }
-      span{
+      span {
         display: inline-block;
         vertical-align: middle;
         font-size: r(28);
       }
     }
-    .right{
+    .right {
       float: right;
-      color: #0079FE;
+      color: #0079fe;
     }
   }
 }
