@@ -47,6 +47,16 @@ const routes = [{
     }
   },
   {
+    path: '/seeMoreList',
+    name: 'seeMoreList',
+    component: () => import('../pages/userTerminal/seeMoreList.vue'),
+    meta: {
+      title: '查看更多',
+      keepAlive: true,
+      isBack: false
+    }
+  },
+  {
     path: '/HomeDetail',
     name: 'HomeDetail',
     component: HomeDetail,

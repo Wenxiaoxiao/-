@@ -1,73 +1,17 @@
 <template>
-  <div class="index">
-    <div class="index-contains">
-      <div class="top-header">
-        <img src="@static/images/bg.png" />
-      </div>
-      <div class="top-nav">
-        <div @click="goUrl('/knowledge')">
-          <img src="@static/images/icon3.png" />
-          <div>知识</div>
-        </div>
-        <div @click="goUrl('/exercise')">
-          <img src="@static/images/icon2.png" />
-          <div>实操</div>
-        </div>
-        <div @click="goUrl('/subscribe')">
-          <img src="@static/images/icon1.png" />
-          <div>咨询</div>
-        </div>
-      </div>
-      <div class="sub-title">#顺其自然、为所当为#</div>
-      <van-tabs class="lists-tabs" animated @click="tabChange">
-        <van-tab v-for="(tab,index) in tabs" :title="tab.name" :key="index">
-          <div v-show="index==0" class="see-more-btn">
-            <span @click="goUrl('/seeMoreList')">查看更多 ></span>
-          </div>
-          <app-list :listData="tmpList"></app-list>
-        </van-tab>
-      </van-tabs>
-    </div>
-    <app-nav nav="0"></app-nav>
+  <div class="see-more-page">
+    <app-list :listData="tmpList"></app-list>
   </div>
 </template>
 
 <script>
-import nav from "@/components/nav/nav.vue";
 import list from "@/components/indexList.vue";
 export default {
   components: {
-    "app-nav": nav,
     "app-list": list
   },
   data() {
     return {
-      tabs: [
-        {
-          name: "最新"
-        },
-        {
-          name: "系统理念"
-        },
-        {
-          name: "重置理念"
-        },
-        {
-          name: "森田疗法实操"
-        },
-        {
-          name: "现象分析"
-        },
-        {
-          name: "学员故事"
-        },
-        {
-          name: "家长须知"
-        },
-        {
-          name: "公益活动"
-        }
-      ],
       tmpList: [
         {
           img: require("@static/images/list.png"),
@@ -86,6 +30,12 @@ export default {
           title: "症状是强迫性重复的结果1",
           tags: ["原因"],
           time: "2020-04-24"
+        },
+        {
+          img: require("@static/images/list.png"),
+          title: "症状是强迫性重复的结果",
+          tags: ["原因", "思维", "有效"],
+          time: "2020-04-24"
         }
       ],
       location: location,
@@ -93,14 +43,7 @@ export default {
     };
   },
   mounted() {},
-  methods: {
-    tabChange() {},
-    goUrl(path) {
-      this.$router.push({
-        path: path
-      });
-    }
-  }
+  methods: {}
 };
 </script>
 
