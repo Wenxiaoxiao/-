@@ -24,7 +24,7 @@
           <div v-show="index==0" class="see-more-btn">
             <span @click="goUrl('/seeMoreList')">查看更多 ></span>
           </div>
-          <app-list :listData="tmpList"></app-list>
+          <app-list :listData="tmpList" :detailPage="detailPageName"></app-list>
           <div class="xinde-wrapper">
             <div class="xinde">
               <div class="xinde-top">
@@ -61,6 +61,7 @@ export default {
   },
   data() {
     return {
+      detailPageName: "最新",
       tabs: [
         {
           name: "最新"
@@ -113,7 +114,9 @@ export default {
   },
   mounted() {},
   methods: {
-    tabChange() {},
+    tabChange(val) {
+      this.detailPageName = this.tabs[val].name;
+    },
     goUrl(path) {
       this.$router.push({
         path: path

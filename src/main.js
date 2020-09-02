@@ -6,7 +6,9 @@ import http from '@/api/http.js' //ajax请求
 import 'lib-flexible/flexible'
 import Vant from 'vant';
 import 'vant/lib/index.css';
-import { regulars } from '@/static/js/wtsTools.esm.min.js' //弹窗
+import {
+  regulars
+} from '@/static/js/wtsTools.esm.min.js' //弹窗
 import tools from '@/api/tools' //弹窗
 import notice from '@/api/notice.js' //弹窗
 // import weixin from './extend/weixin' //微信方法
@@ -23,6 +25,7 @@ Vue.component('noDate', noDate)
 Vue.config.productionTip = false
 console.log("API_CONFIG.LOCAL==" + API_CONFIG.LOCAL);
 init();
+
 function init() {
   Vue.use(BaiduMap, {
     ak: 'lDU5YGNQdf54zsqeO8V4uM2FciTc8uo4'
@@ -70,5 +73,11 @@ function init() {
     error: require('./static/images/reload.gif'),
     loading: require('./static/images/timg.gif')
   })
+  router.beforeEach((to, from, next) => {
+    /* 路由发生变化修改页面title */
+    if (to.meta.title) {
+      document.title = to.meta.title
+    }
+    next()
+  })
 }
-

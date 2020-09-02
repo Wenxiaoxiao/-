@@ -18,7 +18,8 @@
 <script>
 export default {
   props: {
-    listData: Array
+    listData: Array,
+    detailPage: String
   },
   mounted() {},
   methods: {
@@ -26,6 +27,7 @@ export default {
       this.$router.push({
         path: "/HomeDetail"
       });
+      this.$route.meta.title = this.detailPage;
     }
   }
 };

@@ -1,6 +1,6 @@
 <template>
   <div class="see-more-page">
-    <app-list :listData="tmpList"></app-list>
+    <app-list :listData="tmpList" :detailPage="detailPageName"></app-list>
   </div>
 </template>
 
@@ -12,6 +12,7 @@ export default {
   },
   data() {
     return {
+      detailPageName: "最新",
       tmpList: [
         {
           img: require("@static/images/list.png"),
