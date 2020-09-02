@@ -17,7 +17,7 @@
         <van-icon name="checked" :class="konwn?'l-ico active':'l-ico'" @click="konwn=!konwn" />
         <span @click="needKnow">咨询师须知</span>
       </div>
-      <div class="right">忘记密码？</div>
+      <!-- <div class="right">忘记密码？</div> -->
     </div>
   </div>
 </template>

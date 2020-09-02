@@ -29,7 +29,7 @@
       <div class="login-tips">
         <div class="left">
           <van-icon name="checked" :class="know?'l-ico active':'l-ico'" @click="know=!know" />
-          <span @click="needKnow">会员须知</span>
+          <span @click="needKnow">咨询须知</span>
         </div>
         <div class="right">忘记密码？</div>
       </div>
@@ -45,18 +45,32 @@
       <div class="right-paybtn" @click="showModal=true">支付并预约</div>
     </div>
     <van-overlay :show="showModal">
-        <div class="pay-style-chosed">
-            <div class="content">
-                <div class="c-top">
-                    <div class="ct-1">请选择支付方式</div>
-                    <div :class="payType==0?'ct-2 active':'ct-2'" @click="payType=0">微信支付(¥ 2650.00) <span><van-icon name="checked" v-if="payType==0"/><van-icon name="circle" v-else/></span></div>
-                    <div :class="payType==1?'ct-3 active':'ct-3'" @click="payType=1">积分支付(共2345积分) <span><van-icon name="checked" v-if="payType==1"/><van-icon name="circle" v-else/></span></div>
-                    <div class="ct-4">*抵扣后还需微信支付￥2000.00元</div>
-                    <div class="ct-5" @click="applySure">确认</div>
-                </div>
-                <div class="c-bottom"><van-icon name="clear" @click="showModal=false"/></div>
+      <div class="pay-style-chosed">
+        <div class="content">
+          <div class="c-top">
+            <div class="ct-1">请选择支付方式</div>
+            <div :class="payType==0?'ct-2 active':'ct-2'" @click="payType=0">
+              微信支付(¥ 2650.00)
+              <span>
+                <van-icon name="checked" v-if="payType==0" />
+                <van-icon name="circle" v-else />
+              </span>
             </div>
+            <div :class="payType==1?'ct-3 active':'ct-3'" @click="payType=1">
+              积分支付(共2345积分)
+              <span>
+                <van-icon name="checked" v-if="payType==1" />
+                <van-icon name="circle" v-else />
+              </span>
+            </div>
+            <div class="ct-4">*抵扣后还需微信支付￥2000.00元</div>
+            <div class="ct-5" @click="applySure">确认</div>
+          </div>
+          <div class="c-bottom">
+            <van-icon name="clear" @click="showModal=false" />
+          </div>
         </div>
+      </div>
     </van-overlay>
   </div>
 </template>
@@ -67,8 +81,8 @@ export default {
   components: {},
   data() {
     return {
-      payType:0,//0微信 1积分
-      showModal:false,
+      payType: 0, //0微信 1积分
+      showModal: false,
       know: false,
       date: null,
       show: false,
@@ -86,7 +100,7 @@ export default {
     this.date = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
   },
   methods: {
-    applySure(){
+    applySure() {
       this.$router.push({
         path: "/subSuccess"
       });
@@ -287,95 +301,98 @@ export default {
       line-height: 88px;
     }
   }
-  .pay-style-chosed{
-      width:100%;
-      height: 100vh;
-      display: flex;
-        align-items: center;
-        justify-content: center;
-    .content{
-        width:670px;
-        height: 788px;
-        .c-top{
-            width: 670px;
-            height: 640px;
-            background: #fff;
-            border-radius: 20px;
-            padding:r(56) r(30) r(48);
-            .ct-1{
-              width: 238px;
-              height: 48px;
-              font-size: 34px;
-              line-height: 48px;
-              color: #333333;
-            }
-            .ct-2,.ct-3{
-              width: 610px;
-              height: 106px;
-              background: #FFFFFF;
-              border: 2px solid #ebedf0CCC;
-              opacity: 1;
-              border-radius: r(50);
-              margin-top:40px;
-              line-height: 106px;
-              color: #666666;
-              font-size: 28px;
-              position: relative;
-              padding-left: 91px;
-              &>span{
-                font-size: 44px;
-                position: absolute;
-                right: 30px;
-                width: 50px;
-                height: 50px;
-                line-height: 50px;
-                text-align: center;
-                top:30px;
-              }
-              &.active{
-                border: 2px solid #1574F6;
-                &>span{
-                  color: #1574F6;
-                }
-              }
-            }
-            .ct-2{
-              background:url('../../../static/images/wechat.png') r(30) center no-repeat;
-              background-size: 42px 37px;
-            }
-            .ct-3{
-              background:url('../../../static/images/jifen.png') r(30) center no-repeat;
-              background-size: 37px 37px;
-            }
-            .ct-4{
-              height: 30px;
-              font-size: 22px;
-              line-height: 30px;
-              color: #FB3E3E;
-              margin-top: 16px;
-            }
-            .ct-5{
-              width: 610px;
-              height: 88px;
-              background: #1574F6;
-              box-shadow: 0px 4px 40px rgba(21, 116, 246, 0.35);
-              border-radius: 44px;
-              font-size: 32px;
-              text-align: center;
-              color: #fff;
-              line-height: 88px;
-              margin-top: 62px;
-            }
+  .pay-style-chosed {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .content {
+      width: 670px;
+      height: 788px;
+      .c-top {
+        width: 670px;
+        height: 640px;
+        background: #fff;
+        border-radius: 20px;
+        padding: r(56) r(30) r(48);
+        .ct-1 {
+          width: 238px;
+          height: 48px;
+          font-size: 34px;
+          line-height: 48px;
+          color: #333333;
         }
-        .c-bottom{
-          font-size: 88px;
-          margin-top: 60px;
-          color:rgba(0,0,0,0.6);
-          text-align: center;
-          .van-icon{
-            color: #fff;
+        .ct-2,
+        .ct-3 {
+          width: 610px;
+          height: 106px;
+          background: #ffffff;
+          border: 2px solid #ebedf0CCC;
+          opacity: 1;
+          border-radius: r(50);
+          margin-top: 40px;
+          line-height: 106px;
+          color: #666666;
+          font-size: 28px;
+          position: relative;
+          padding-left: 91px;
+          & > span {
+            font-size: 44px;
+            position: absolute;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            top: 30px;
+          }
+          &.active {
+            border: 2px solid #1574f6;
+            & > span {
+              color: #1574f6;
+            }
           }
         }
+        .ct-2 {
+          background: url("../../../static/images/wechat.png") r(30) center
+            no-repeat;
+          background-size: 42px 37px;
+        }
+        .ct-3 {
+          background: url("../../../static/images/jifen.png") r(30) center
+            no-repeat;
+          background-size: 37px 37px;
+        }
+        .ct-4 {
+          height: 30px;
+          font-size: 22px;
+          line-height: 30px;
+          color: #fb3e3e;
+          margin-top: 16px;
+        }
+        .ct-5 {
+          width: 610px;
+          height: 88px;
+          background: #1574f6;
+          box-shadow: 0px 4px 40px rgba(21, 116, 246, 0.35);
+          border-radius: 44px;
+          font-size: 32px;
+          text-align: center;
+          color: #fff;
+          line-height: 88px;
+          margin-top: 62px;
+        }
+      }
+      .c-bottom {
+        font-size: 88px;
+        margin-top: 60px;
+        color: rgba(0, 0, 0, 0.6);
+        text-align: center;
+        .van-icon {
+          color: #fff;
+        }
+      }
     }
   }
 }

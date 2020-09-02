@@ -137,7 +137,8 @@ export default {
         display: inline-block;
         width: 100px;
         height: 40px;
-        line-height: 38px;
+        line-height: 40px;
+        // padding-top: 10px;
         border-radius: 21px;
         margin-right: 18px;
         margin-bottom: 20px;

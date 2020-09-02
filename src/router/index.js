@@ -418,6 +418,16 @@ const routes = [{
     },
   },
   {
+    path: '/publishStory',
+    name: 'publishStory',
+    component: () => import('../pages/userTerminal/mine/publishStory.vue'),
+    meta: {
+      title: '发表故事',
+      keepAlive: true,
+      isBack: false
+    },
+  },
+  {
     path: '/questions',
     name: 'Questions',
     component: () => import('../pages/userTerminal/mine/questions.vue'),
