@@ -257,6 +257,26 @@ const routes = [{
     }
   },
   {
+    path: '/serviceDetail',
+    name: 'serviceDetail',
+    component: () => import('../pages/userTerminal/serviceDetail.vue'),
+    meta: {
+      title: '实操详情',
+      keepAlive: true,
+      isBack: false
+    }
+  },
+  {
+    path: '/yourProblem',
+    name: 'yourProblem',
+    component: () => import('../pages/userTerminal/exercise/yourProblem.vue'),
+    meta: {
+      title: '上传问题',
+      keepAlive: true,
+      isBack: false
+    }
+  },
+  {
     path: '/setting',
     name: 'Setting',
     component: () => import('../pages/userTerminal/mine/setting.vue'),

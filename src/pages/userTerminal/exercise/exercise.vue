@@ -17,7 +17,8 @@
       </van-swipe>
       <van-tabs class="lists-tabs" animated @click="tabChange" :ellipsis="false">
         <van-tab v-for="(tab,index) in tabs" :title="tab.name" :key="index">
-          <app-list :listData="tmpList"></app-list>
+          <app-list :listData="tmpList" :detail="'/serviceDetail'" :detailPage="detailPageName"></app-list>
+          <van-button class="publish-btn" icon="plus" type="info" round @click="yourProblem" />
         </van-tab>
       </van-tabs>
     </div>
@@ -35,6 +36,7 @@ export default {
   },
   data() {
     return {
+      detailPageName: "森田疗法实操",
       tabs: [
         {
           name: "森田疗法实操"
@@ -52,7 +54,7 @@ export default {
       tmpList: [
         {
           img: require("@static/images/list3.png"),
-          title:"发展心理学——心理睡眠公开课",
+          title: "发展心理学——心理睡眠公开课",
           time: "2020-04-24"
         },
         {
@@ -76,7 +78,14 @@ export default {
     };
   },
   methods: {
-    tabChange() {}
+    tabChange(val) {
+      this.detailPageName = this.tabs[val].name;
+    },
+    yourProblem() {
+      this.$router.push({
+        path: "/yourProblem"
+      });
+    }
   }
 };
 </script>
@@ -93,20 +102,30 @@ export default {
       object-fit: fill;
     }
   }
-  .aboutus-page{
-      padding: 70px r(30) r(30);
-      img{
-          width: 290px;
-          margin: 0 auto;
-          display: block;
-      }
-      .txt{
-        margin-top: 60px;
-        width: 690px;
-        font-size: 28px;
-        line-height: 42px;
-        color: #333333;
-      }
+  .publish-btn {
+    // width: 220px;
+    height: 88px;
+    width: 88px;
+    position: fixed;
+    background: #1574f6;
+    bottom: 100px;
+    right: 30px;
+    box-shadow: 0px 4px 20px rgba(21, 116, 246, 0.35);
+  }
+  .aboutus-page {
+    padding: 70px r(30) r(30);
+    img {
+      width: 290px;
+      margin: 0 auto;
+      display: block;
+    }
+    .txt {
+      margin-top: 60px;
+      width: 690px;
+      font-size: 28px;
+      line-height: 42px;
+      color: #333333;
+    }
   }
 }
 </style>
