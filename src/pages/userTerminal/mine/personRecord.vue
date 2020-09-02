@@ -5,7 +5,7 @@
         <van-field v-model="nickname" />
       </common-field>
       <common-field label="年龄">
-        <van-field v-model="age" />
+        <van-field v-model="age" arrow-direction="down" />
       </common-field>
       <common-field label="性别">
         <van-field v-model="sex" />
