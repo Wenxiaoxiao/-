@@ -25,6 +25,25 @@
             <span @click="goUrl('/seeMoreList')">查看更多 ></span>
           </div>
           <app-list :listData="tmpList"></app-list>
+          <div class="xinde-wrapper">
+            <div class="xinde">
+              <div class="xinde-top">
+                <div class="xinde-left">
+                  <img src="@static/images/userico.png" />
+                  <span>学员大锤</span>
+                </div>
+                <div class="xinde-right">2020-04-24</div>
+              </div>
+              <div class="xinde-tit">学员心得详情</div>
+              <div class="xinde-detail">“如果你对周围的任何事物感到不舒服，那是你的感受所造成的的，并非事物本身如此，借着感受的调整.......</div>
+              <div class="xinde-like">
+                <img src="@static/images/comments.png" />
+                <span style="margin-right:10px;">28</span>
+                <img src="@static/images/unlike.png" />
+                <span>52</span>
+              </div>
+            </div>
+          </div>
         </van-tab>
       </van-tabs>
     </div>
@@ -170,6 +189,69 @@ export default {
         rgba(21, 116, 246, 0.24) 100%
       );
       border-radius: r(2);
+    }
+  }
+  .xinde-wrapper {
+    width: r(750);
+    padding: 30px;
+  }
+  .xinde {
+    width: 690px;
+    height: 260px;
+    background: #f8f8f8;
+    padding: 24px 30px;
+    border-radius: 16px;
+    &-top {
+      height: 44px;
+      font-size: 20px;
+      color: #999999;
+      overflow: hidden;
+      & > .xinde-left {
+        float: left;
+        & > img {
+          width: 44px;
+          border-radius: 50%;
+          vertical-align: middle;
+          margin-right: 10px;
+        }
+        & > span {
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+      & > .xinde-right {
+        float: right;
+      }
+    }
+    &-tit {
+      height: 40px;
+      color: #333333;
+      line-height: 40px;
+      font-size: 28px;
+      margin-top: 20px;
+    }
+    &-detail {
+      font-size: 20px;
+      line-height: 28px;
+      color: #666666;
+      margin-top: 16px;
+    }
+    &-like {
+      text-align: right;
+      margin-top: 20px;
+      height: 30px;
+      font-size: 20px;
+      color: #999999;
+      line-height: 30px;
+      & > img {
+        height: 30px;
+        vertical-align: middle;
+        margin-right: 8px;
+      }
+      & > span {
+        display: inline-block;
+        vertical-align: middle;
+      }
     }
   }
 }
