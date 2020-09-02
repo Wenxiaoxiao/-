@@ -57,6 +57,16 @@ const routes = [{
     }
   },
   {
+    path: '/conceptDetail',
+    name: 'conceptDetail',
+    component: () => import('../pages/userTerminal/conceptDetail.vue'),
+    meta: {
+      title: '理念详情',
+      keepAlive: true,
+      isBack: false
+    }
+  },
+  {
     path: '/HomeDetail',
     name: 'HomeDetail',
     component: HomeDetail,

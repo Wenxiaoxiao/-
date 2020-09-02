@@ -18,7 +18,7 @@
           <div>咨询</div>
         </div>
       </div>
-      <div class="sub-title">#顺其自然、为所当为#</div>
+      <div class="sub-title" @click="goUrl('/conceptDetail')">#顺其自然、为所当为#</div>
       <van-tabs class="lists-tabs" animated @click="tabChange">
         <van-tab v-for="(tab,index) in tabs" :title="tab.name" :key="index">
           <div v-show="index==0" class="see-more-btn">
