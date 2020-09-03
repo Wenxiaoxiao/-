@@ -44,9 +44,10 @@ export default {
   mounted() {},
   methods: {
     submit() {
-      this.$router.push({
-        path: "/exercise"
-      });
+      history.go(-1);
+      // this.$router.push({
+      //   path: "/exercise"
+      // });
     }
   }
 };
