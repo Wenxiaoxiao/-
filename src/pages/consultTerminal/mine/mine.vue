@@ -150,7 +150,7 @@ export default {
           flex: 1;
           display: flex;
           justify-content: space-between;
-          font-size: 32px;
+          font-size: r(28);
           color: #333;
           height: 100%;
           line-height: 101px;

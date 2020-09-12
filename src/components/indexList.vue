@@ -36,6 +36,7 @@ export default {
 <style lang="scss" scoped>
 .lists {
   padding: 0 r(30);
+  width: r(750);
   .item {
     padding: r(41) r(0) r(39);
     overflow: hidden;

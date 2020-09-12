@@ -27,44 +27,44 @@
       </div>
     </div>
     <div class="reply-list">
-        <div class="top-header">
-          <div class="left">
-            <img src="@static/images/logo.png" />
+      <div class="top-header">
+        <div class="left">
+          <img src="@static/images/logo.png" />
+        </div>
+        <div class="right">
+          <div class="d-1">
+            <div class="d-l">学员孙丽</div>
+            <div class="d-r">2020-04-24</div>
           </div>
-          <div class="right">
-            <div class="d-1">
-              <div class="d-l">学员孙丽</div>
-              <div class="d-r">2020-04-24</div>
-            </div>
-            <div class="d-2">
-              <div class="d-l">深有感受深有感受深有感受.......</div>
-              <div class="d-r">
-                <img src="@static/images/unlike.png" />
-                <span>17</span>
-                <i>...</i>
-              </div>
+          <div class="d-2">
+            <div class="d-l">深有感受深有感受深有感受.......</div>
+            <div class="d-r">
+              <img src="@static/images/unlike.png" />
+              <span>17</span>
+              <i>...</i>
             </div>
           </div>
         </div>
-        <div class="top-header">
-          <div class="left">
-            <img src="@static/images/logo.png" />
+      </div>
+      <div class="top-header">
+        <div class="left">
+          <img src="@static/images/logo.png" />
+        </div>
+        <div class="right">
+          <div class="d-1">
+            <div class="d-l">学员孙丽</div>
+            <div class="d-r">2020-04-24</div>
           </div>
-          <div class="right">
-            <div class="d-1">
-              <div class="d-l">学员孙丽</div>
-              <div class="d-r">2020-04-24</div>
-            </div>
-            <div class="d-2">
-              <div class="d-l">深有感受深有感受深有感受.......</div>
-              <div class="d-r">
-                <img src="@static/images/unlike.png" />
-                <span>17</span>
-                <i>...</i>
-              </div>
+          <div class="d-2">
+            <div class="d-l">深有感受深有感受深有感受.......</div>
+            <div class="d-r">
+              <img src="@static/images/unlike.png" />
+              <span>17</span>
+              <i>...</i>
             </div>
           </div>
         </div>
+      </div>
     </div>
     <reply-box></reply-box>
   </div>
@@ -74,7 +74,7 @@ import replyBox from "@/components/replyBox.vue";
 var vm;
 export default {
   components: {
-      "reply-box":replyBox
+    "reply-box": replyBox
   },
   data() {
     return {};
@@ -87,6 +87,7 @@ export default {
 </script>
 <style lang="scss">
 .reply-container {
+  width: r(750);
   height: 100vh;
   background: #fff;
   .top-header {

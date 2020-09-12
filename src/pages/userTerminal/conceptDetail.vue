@@ -32,6 +32,7 @@ export default {
 
 <style lang="scss" scoped>
 .conceptDetail {
+  width: r(750);
   padding: 40px 30px;
   font-size: 28px;
   color: #333333;
