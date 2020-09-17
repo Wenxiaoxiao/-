@@ -6,12 +6,8 @@ import http from '@/api/http.js' //ajax请求
 import 'lib-flexible/flexible'
 import Vant from 'vant';
 import 'vant/lib/index.css';
-import {
-  regulars
-} from '@/static/js/wtsTools.esm.min.js' //弹窗
 import tools from '@/api/tools' //弹窗
 import notice from '@/api/notice.js' //弹窗
-// import weixin from './extend/weixin' //微信方法
 import title from 'vue-wechat-title' //标题更新
 import filter from '@/api/filter.js' //公共过滤器
 import VueLazyload from 'vue-lazyload' //图片懒加载
@@ -33,7 +29,6 @@ function init() {
   Vue.use(config)
   Vue.use(http.request)
   Vue.use(tools)
-  Vue.use(regulars)
   Vue.use(Vant);
   Vue.use(notice)
   Vue.use(filter)
@@ -59,7 +54,6 @@ function init() {
   Vue.prototype.$config = config;
   Vue.prototype.$http = http.request;
   Vue.prototype.$tools = tools;
-  Vue.prototype.$regulars = regulars;
   Vue.prototype.$notice = notice;
   // Vue.prototype.$weixin = weixin;
 

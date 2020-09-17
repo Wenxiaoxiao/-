@@ -5,7 +5,10 @@
     </div>
     <div class="top-tit">
       <div class="line-1">孩子厌学自闭，拒绝沟通怎么办？</div>
-      <div class="line-2">发布时间：2019-12-30</div>
+      <div class="line-2">
+        <span class="publish-time">发布时间：2019-12-30</span>
+        <span>作者：小棉袄</span>
+      </div>
       <div class="line-3">
         <img src="@static/images/share.png" />
         <img src="@static/images/collect.png" />
@@ -122,6 +125,7 @@ export default {
   height: 100vh;
   background: #fff;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: r(0) r(30);
   .top-img {
     padding: r(30) 0;
@@ -144,6 +148,9 @@ export default {
       line-height: r(33);
       font-size: r(24);
       color: #999999;
+      & > span {
+        display: block;
+      }
     }
     .line-3 {
       width: r(108);

@@ -25,7 +25,7 @@
             <span @click="goUrl('/seeMoreList')">查看更多 ></span>
           </div>
           <app-list :listData="tmpList" :detailPage="detailPageName"></app-list>
-          <div class="xinde-wrapper">
+          <div class="xinde-wrapper" v-show="index==0">
             <div class="xinde">
               <div class="xinde-top">
                 <div class="xinde-left">
