@@ -17,7 +17,18 @@
       </van-swipe>
       <van-tabs class="lists-tabs" animated @click="tabChange" :ellipsis="false">
         <van-tab v-for="(tab,index) in tabs" :title="tab.name" :key="index">
-          <app-list :listData="tmpList" :detail="'/serviceDetail'" :detailPage="detailPageName"></app-list>
+          <app-list
+            v-show="tab.name!='在线答疑'"
+            :listData="tmpList"
+            :detail="'/serviceDetail'"
+            :detailPage="detailPageName"
+          ></app-list>
+          <app-list
+            v-show="tab.name=='在线答疑'"
+            :listData="tmpList1"
+            :detail="'/serviceDetail'"
+            :detailPage="detailPageName"
+          ></app-list>
           <van-button class="publish-btn" icon="plus" type="info" round @click="yourProblem" />
         </van-tab>
       </van-tabs>
@@ -48,6 +59,9 @@ export default {
           name: "游戏练习"
         },
         {
+          name: "在线答疑"
+        },
+        {
           name: "会员故事"
         }
       ],
@@ -71,6 +85,28 @@ export default {
           img: require("@static/images/list3.png"),
           title: "发展心理学——少年的个性和社会行发展",
           time: "2020-04-24"
+        }
+      ],
+      tmpList1: [
+        {
+          img: require("@static/images/list3.png"),
+          title: "早上吃饭了吗？",
+          time: "吃了，吃的包子，喝了豆浆"
+        },
+        {
+          img: require("@static/images/list3.png"),
+          title: "早上吃饭了吗？",
+          time: "吃了，吃的包子，喝了豆浆"
+        },
+        {
+          img: require("@static/images/list3.png"),
+          title: "早上吃饭了吗？",
+          time: "吃了，吃的包子，喝了豆浆"
+        },
+        {
+          img: require("@static/images/list3.png"),
+          title: "早上吃饭了吗？",
+          time: "吃了，吃的包子，喝了豆浆"
         }
       ],
       location: location,

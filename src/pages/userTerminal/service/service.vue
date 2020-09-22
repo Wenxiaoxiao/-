@@ -32,6 +32,12 @@
             </div>
           </div>
           <app-list
+            :listData="tmpList1"
+            :detail="'/serviceDetail'"
+            :detailPage="detailPageName"
+            v-if="tab.name=='意见反馈'"
+          ></app-list>
+          <app-list
             :listData="tmpList"
             :detail="'/serviceDetail'"
             :detailPage="detailPageName"
@@ -70,6 +76,9 @@ export default {
           name: "资质荣誉"
         },
         {
+          name: "意见反馈"
+        },
+        {
           name: "关于我们",
           aboutus: true
         }
@@ -95,6 +104,28 @@ export default {
           img: require("@static/images/list4.png"),
           title: "“爱润心田”心理咨询公益项目",
           time: "2020-04-24"
+        }
+      ],
+      tmpList1: [
+        {
+          img: require("@static/images/list3.png"),
+          title: "早上吃饭了吗？",
+          time: "吃了，吃的包子，喝了豆浆"
+        },
+        {
+          img: require("@static/images/list3.png"),
+          title: "早上吃饭了吗？",
+          time: "吃了，吃的包子，喝了豆浆"
+        },
+        {
+          img: require("@static/images/list3.png"),
+          title: "早上吃饭了吗？",
+          time: "吃了，吃的包子，喝了豆浆"
+        },
+        {
+          img: require("@static/images/list3.png"),
+          title: "早上吃饭了吗？",
+          time: "吃了，吃的包子，喝了豆浆"
         }
       ],
       location: location,

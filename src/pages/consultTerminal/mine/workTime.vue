@@ -2,6 +2,12 @@
   <div class="work-time-page">
     <div class="design-title">
       <i></i>
+      <span>当月出诊时间选择</span>
+    </div>
+    <van-cell title="选择多个日期" :value="text" @click="show = true" />
+    <van-calendar v-model="show" type="multiple" @confirm="onConfirm" />
+    <div class="design-title">
+      <i></i>
       <span>出诊周期</span>
     </div>
     <van-cell title="每周三，周六，周日" is-link to="workCycle" />
@@ -18,8 +24,16 @@ export default {
   data() {
     return {
       cycle: [3, 6, 7],
-      times: 6
+      times: 6,
+      text: "",
+      show: false
     };
+  },
+  methods: {
+    onConfirm(date) {
+      this.show = false;
+      this.text = `选择了 ${date.length} 个日期`;
+    }
   }
 };
 </script>

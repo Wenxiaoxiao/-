@@ -87,7 +87,7 @@ export default {
           img: require("@static/images/userico.png"),
           name: "张三",
           booktime: "今天  13:00-15:00",
-          des: "个人描述个人描述个人描述个个人描述个人描述个人描述...",
+          des: "我是诊断报告我是诊断报告我是诊断报告我是诊断报告...",
           status: "已就诊",
           type: 0
         },
@@ -95,7 +95,7 @@ export default {
           img: require("@static/images/userico.png"),
           name: "张三",
           booktime: "今天  13:00-15:00",
-          des: "个人描述个人描述个人描述个个人描述个人描述个人描述...",
+          des: "我是诊断报告我是诊断报告我是诊断报告我是诊断报告...",
           status: "已就诊",
           type: 0
         }

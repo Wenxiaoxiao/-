@@ -12,7 +12,7 @@
           <span class="s2">{{item.booktime}}</span>
         </div>
         <div class="des">
-          <span class="s1">个人描述：</span>
+          <span class="s1">{{item.status=='已就诊'?'诊断报告：':'个人描述：'}}</span>
           <span class="s2">{{item.des}}</span>
         </div>
         <div class="status">
