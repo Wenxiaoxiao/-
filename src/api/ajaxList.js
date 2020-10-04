@@ -65,6 +65,18 @@ let ajaxList = {
     },
     //编辑个人资料
     //我的积分
+    myScore: function (params, callback) {
+        ajax({
+            url: "/api/user/score/myScore",
+            type: "POST",
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
     //服务文章详情
     //服务文章列表
     //服务栏目
@@ -73,6 +85,17 @@ let ajaxList = {
     //文章详情
     //文章列表
     //轮播图
+    getBanner: function (params, callback) {
+        ajax({
+            url: "/api/banner/banner",
+            type: "POST",
+            data: params,
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
     //会员权益
     //会员须知
     //咨询师须知

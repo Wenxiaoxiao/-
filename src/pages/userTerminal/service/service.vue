@@ -2,17 +2,8 @@
   <div class="service-page">
     <div class="index-contains">
       <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-        <van-swipe-item>
-          <img src="@static/images/service.png" alt />
-        </van-swipe-item>
-        <van-swipe-item>
-          <img src="@static/images/service.png" alt />
-        </van-swipe-item>
-        <van-swipe-item>
-          <img src="@static/images/service.png" alt />
-        </van-swipe-item>
-        <van-swipe-item>
-          <img src="@static/images/service.png" alt />
+        <van-swipe-item v-for="(item,m) in swiperList" :key="m">
+          <img :src="item.image" alt />
         </van-swipe-item>
       </van-swipe>
       <van-tabs class="lists-tabs" animated @click="tabChange" :ellipsis="false">
@@ -129,10 +120,25 @@ export default {
         }
       ],
       location: location,
-      list: [] //列表数据
+      list: [], //列表数据
+      swiperList: []
     };
   },
+  mounted() {
+    this.getBanner();
+  },
   methods: {
+    //获取banner
+    getBanner() {
+      //轮播位置（index首页 | yue预约 | ser 服务）
+      let that = this;
+      let params = {
+        site: "ser"
+      };
+      this.$ajaxList.getBanner(params, function(res) {
+        that.swiperList = res;
+      });
+    },
     tabChange(val) {
       this.detailPageName = this.tabs[val].name;
     }
