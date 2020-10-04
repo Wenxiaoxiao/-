@@ -21,14 +21,13 @@ export default {
   data() {
     return {
       fileList: [],
-      subFiles: [],
       res: null,
       title: null,
       content: null
     };
   },
   methods: {
-    imgUploadOne(file) {
+    imgUploadOne(file, callback) {
       let that = this;
       let formdata = new FormData();
       console.log(file);
@@ -39,23 +38,26 @@ export default {
           "Content-Type": "multipart/form-data"
         }
       };
-      let subFiles = that.subFiles;
       axios.post(url, formdata, config).then(function(res) {
-        console.log(res.data.data);
-        that.subFiles = subFiles.push(res.data.data);
+        if (callback) {
+          callback(res.data.data);
+        }
       });
     },
     submit() {
       //校验
       let thumb_images = [];
       let that = this;
+      let tmpArr = [];
       this.fileList.map(item => {
-        this.imgUploadOne(item);
+        this.imgUploadOne(item, function(res) {
+          tmpArr.push(res);
+        });
       });
       let params = {
         token: JSON.parse(sessionStorage.getItem("USER_INFO")).token,
         title: this.title,
-        thumb_images: this.subFiles,
+        thumb_images: tmpArr,
         content: this.content
       };
       this.$ajaxList.publishArticle(params, function(res) {

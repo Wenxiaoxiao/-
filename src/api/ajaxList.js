@@ -39,7 +39,17 @@ let ajaxList = {
         });
     },
     //个人档案信息
-
+    getRecords: function (params, callback) {
+        ajax({
+            url: "/api/user/user/getRecords",
+            type: "POST",
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
     //填写个人档案
     //编辑个人资料
     //我的积分
