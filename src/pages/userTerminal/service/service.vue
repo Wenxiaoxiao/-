@@ -8,7 +8,7 @@
       </van-swipe>
       <van-tabs class="lists-tabs" animated @click="tabChange" :ellipsis="false">
         <van-tab v-for="(tab,index) in tabs" :title="tab.name" :key="index">
-          <div v-if="tab.aboutus" class="aboutus-page">
+          <div v-if="tab.type==2" class="aboutus-page">
             <img src="@static/images/company.png" class="img" />
             <div class="txt">
               中山市暖阳阳心理咨询有限公司成立于2020年3月；公司位置坐落在美丽的园林城市——中山市，是经国家工商部门审核并注册的一家正规的心理咨询公司，是一个值得依赖的咨询服务平台；本公司主要开展的是专业的心理咨询服务和企业培训服务；
@@ -23,6 +23,13 @@
             </div>
           </div>
           <app-list
+            :listData="tmpList"
+            :detail="'/serviceDetail'"
+            :detailPage="detailPageName"
+            v-else-if="tmpList&&tmpList.length>0"
+          ></app-list>
+          <div class="no-data" v-else>无更多数据</div>
+          <!-- <app-list
             :listData="tmpList1"
             :detail="'/serviceDetail'"
             :detailPage="detailPageName"
@@ -33,7 +40,7 @@
             :detail="'/serviceDetail'"
             :detailPage="detailPageName"
             v-else
-          ></app-list>
+          ></app-list>-->
         </van-tab>
       </van-tabs>
     </div>
@@ -54,45 +61,8 @@ export default {
     return {
       detailPageName: "公益活动",
       tabs: [],
-      tmpList: [
-        {
-          img: require("@static/images/list4.png"),
-          title:
-            "“同心益百分”智囊团开展线上心理咨询公益活动“同心益百分”智囊团开展线上心理咨询公益活动",
-          time: "2020-04-24"
-        },
-        {
-          img: require("@static/images/list4.png"),
-          title: "525心理健康公益行动",
-          time: "2020-04-24"
-        },
-        {
-          img: require("@static/images/list4.png"),
-          title: "“爱润心田”心理咨询公益项目",
-          time: "2020-04-24"
-        },
-        {
-          img: require("@static/images/list4.png"),
-          title: "“爱润心田”心理咨询公益项目",
-          time: "2020-04-24"
-        }
-      ],
+      tmpList: [],
       tmpList1: [
-        {
-          img: require("@static/images/list3.png"),
-          title: "早上吃饭了吗？",
-          time: "吃了，吃的包子，喝了豆浆"
-        },
-        {
-          img: require("@static/images/list3.png"),
-          title: "早上吃饭了吗？",
-          time: "吃了，吃的包子，喝了豆浆"
-        },
-        {
-          img: require("@static/images/list3.png"),
-          title: "早上吃饭了吗？",
-          time: "吃了，吃的包子，喝了豆浆"
-        },
         {
           img: require("@static/images/list3.png"),
           title: "早上吃饭了吗？",
@@ -107,8 +77,8 @@ export default {
   mounted() {
     this.getBanner();
     this.$ajaxList.serCate(res => {
-      console.log(res);
       this.tabs = res;
+      this.getList(0);
     });
   },
   methods: {
@@ -123,14 +93,25 @@ export default {
         that.swiperList = res;
       });
     },
+    getList(index) {
+      let params = {
+        cate_id: this.tabs[index].id,
+        type: this.tabs[index].type,
+        p: 1
+      };
+      this.$ajaxList.serviceList(params, res => {
+        this.tmpList = res;
+      });
+    },
     tabChange(val) {
       this.detailPageName = this.tabs[val].name;
+      this.getList(val);
     }
   }
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .service-page {
   min-height: 100vh;
   background: #fff;
@@ -155,6 +136,17 @@ export default {
       font-size: 28px;
       line-height: 42px;
       color: #333333;
+    }
+  }
+  .lists-tabs {
+    .van-tabs__content {
+      .no-data {
+        height: 200px;
+        font-size: 32px;
+        text-align: center;
+        color: #999;
+        line-height: 200px;
+      }
     }
   }
 }
