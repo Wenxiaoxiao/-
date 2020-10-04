@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <img src="@static/images/company.png" class="company" />
-    <van-form @submit="onSubmit">
+    <!-- <van-form @submit="onSubmit">
       <van-field v-model="username" name="username" type="tel" label="账号" placeholder="请输入手机号" />
       <van-field v-model="password" type="password" name="password" label="密码" placeholder="请输入密码" />
       <van-field v-model="code" clearable name="code" label="验证码" placeholder="请输入验证码">
@@ -12,16 +12,16 @@
       <div style="margin: 16px;">
         <van-button round block class="design-sub-btn" native-type="submit">登录</van-button>
       </div>
-    </van-form>
+    </van-form>-->
     <div class="login-tips">
-      <div class="left">
+      <!-- <div class="left">
         <van-icon name="checked" :class="konwn?'l-ico active':'l-ico'" @click="konwn=!konwn" />
         <span @click="needKnow">会员须知</span>
-      </div>
-      <div class="right" @click="resetPassword">忘记密码？</div>
+      </div>-->
+      <!-- <div class="right" @click="resetPassword">忘记密码？</div> -->
     </div>
-    <van-divider :style="{ color: '#999999', borderColor: '#E5E5E5', padding: '0 50px' }">其他登陆方式</van-divider>
-    <div class="wechat-login">
+    <!-- <van-divider :style="{ color: '#999999', borderColor: '#E5E5E5', padding: '0 50px' }">其他登陆方式</van-divider> -->
+    <div class="wechat-login" @click="wechatLogin">
       <img src="@static/images/register.png" class="logo" />
       <div>微信号登陆</div>
     </div>
@@ -45,6 +45,21 @@ export default {
     };
   },
   methods: {
+    wechatLogin() {
+      //判断是否登录状态
+      if (sessionStorage.getItem("USER_INFO")) {
+        this.$router.push({
+          path: "/userIndex"
+        });
+        return;
+      }
+      var REDIRECT_URI = encodeURI("http://yygzh.majiangyun.cn/docs");
+      var designUrl =
+        "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx56d31560b5085147&redirect_uri=" +
+        REDIRECT_URI +
+        "&response_type=code&scope=snsapi_userinfo&state=snsapi_userinfo#wechat_redirect";
+      location.replace(designUrl);
+    },
     needKnow() {
       this.$router.push({
         path: "/needToKnow"

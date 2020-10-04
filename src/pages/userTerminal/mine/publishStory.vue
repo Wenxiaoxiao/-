@@ -5,24 +5,63 @@
       <span>学员大锤</span>
     </div>
     <div class="content">
-      <textarea placeholder="请输入发布内容"></textarea>
+      <input placeholder="标题" v-model="title" />
     </div>
-    <van-uploader v-model="fileList" multiple upload-icon="plus" />
+    <div class="content">
+      <textarea placeholder="请输入发布内容" v-model="content"></textarea>
+    </div>
+    <van-uploader v-model="fileList" upload-icon="plus" />
     <div class="sub-btn" @click="submit">发表</div>
   </div>
 </template>
 
 <script>
+var axios = require("axios");
 export default {
   data() {
     return {
-      fileList: [{ url: "https://img.yzcdn.cn/vant/leaf.jpg" }]
+      fileList: [],
+      subFiles: [],
+      res: null,
+      title: null,
+      content: null
     };
   },
   methods: {
+    imgUploadOne(file) {
+      let that = this;
+      let formdata = new FormData();
+      console.log(file);
+      formdata.append("img", file.file);
+      let url = "http://yygzh.majiangyun.cn/api/upload/imgUploadOne";
+      let config = {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      };
+      let subFiles = that.subFiles;
+      axios.post(url, formdata, config).then(function(res) {
+        console.log(res.data.data);
+        that.subFiles = subFiles.push(res.data.data);
+      });
+    },
     submit() {
-      this.$router.push({
-        path: "/myStory"
+      //校验
+      let thumb_images = [];
+      let that = this;
+      this.fileList.map(item => {
+        this.imgUploadOne(item);
+      });
+      let params = {
+        token: JSON.parse(sessionStorage.getItem("USER_INFO")).token,
+        title: this.title,
+        thumb_images: this.subFiles,
+        content: this.content
+      };
+      this.$ajaxList.publishArticle(params, function(res) {
+        that.$router.push({
+          path: "/myStory"
+        });
       });
     }
   },
@@ -57,6 +96,15 @@ export default {
       resize: none;
       border-radius: 16px;
       padding: 30px;
+      font-size: 28px;
+    }
+    & > input {
+      width: 690px;
+      height: 78px;
+      background: #f5f5f5;
+      resize: none;
+      border-radius: 16px;
+      padding: r(24) r(30);
       font-size: 28px;
     }
   }

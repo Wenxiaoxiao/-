@@ -1,10 +1,10 @@
 // vue.config.js
 const path = require('path');
 module.exports = {
-  publicPath:'./',
+  publicPath: './',
   outputDir: 'docs',
   assetsDir: "static",
-  filenameHashing:true,
+  filenameHashing: true,
   chainWebpack: config => {
     config
       .plugin('define')
@@ -23,9 +23,9 @@ module.exports = {
     config.resolve.alias
       .set('@static', path.join(__dirname, 'src/static'))
   },
-  devServer:{
+  devServer: {
     port: 7150,
-    proxy: 'http://devoutact.top/'
+    proxy: 'http://yygzh.majiangyun.cn'
   },
   css: {
     loaderOptions: {
@@ -41,7 +41,7 @@ module.exports = {
       postcss: {
         plugins: [require('postcss-plugin-px2rem')({
           rootValue: 75,
-          minPixelValue:1,
+          minPixelValue: 1,
           exclude: /(node_module|static)/
         })]
       }

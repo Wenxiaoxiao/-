@@ -6,7 +6,18 @@ import replyDetail from '../pages/userTerminal/replyDetail.vue';
 
 Vue.use(VueRouter)
 
-const routes = [{
+const routes = [
+  {
+    path: '/',
+    name: 'userLogin',
+    component: () => import('../pages/index.vue'),
+    meta: {
+      title: '登录',
+      keepAlive: true,
+      isBack: false
+    },
+  },
+  {
     path: '/userLogin',
     name: 'userLogin',
     component: () => import('../pages/login.vue'),
@@ -159,7 +170,7 @@ const routes = [{
   {
     path: '/needToKnow1',
     name: 'NeedToKnow1',
-    component: () => import('../pages/needToKnow.vue'),
+    component: () => import('../pages/needToKnow1.vue'),
     meta: {
       title: '咨询师须知',
       keepAlive: true,

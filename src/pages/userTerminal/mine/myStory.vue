@@ -1,19 +1,19 @@
 <template>
   <div class="myStory full-page">
-    <div class="list">
-      <div class="list-item" @click="storyDetail">
-        <img src="@static/images/teacher_icon.png" alt />
+    <div class="list" v-if="JsonData&&JsonData.length>0">
+      <div class="list-item" @click="storyDetail" v-for="(item,m) in JsonData" :key="m">
+        <img :src="item.thumb_images" alt />
         <div class="content">
-          <div class="item-title">孩子厌学自闭，拒绝沟通怎么办</div>
+          <div class="item-title">{{item.title}}</div>
           <div class="item-user">
             <img class="user-icon" src="@static/images/teacher_icon.png" alt />
             <div>XX用户</div>
           </div>
           <div class="dateAndTalk">
-            <span>2020-04-24</span>
+            <span>{{item.createtime}}</span>
             <div class="comment">
               <img class="comment-icon" src="@static/images/comments.png" alt />
-              <span>28</span>
+              <span>{{item.comment_num}}</span>
               <div class="points">
                 <van-icon name="ellipsis" />
               </div>
@@ -23,12 +23,31 @@
       </div>
       <van-button class="publish-btn" icon="plus" type="info" round @click="publishStory">新的故事</van-button>
     </div>
+    <div v-else class="list">
+      <div class="no-data">没有更多了</div>
+      <van-button class="publish-btn" icon="plus" type="info" round @click="publishStory">新的故事</van-button>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "myStory",
+  data() {
+    return {
+      JsonData: []
+    };
+  },
+  mounted() {
+    let that = this;
+    let params = {
+      token: JSON.parse(sessionStorage.getItem("USER_INFO")).token,
+      p: 1
+    };
+    this.$ajaxList.myStory(params, function(res) {
+      that.JsonData = res;
+    });
+  },
   methods: {
     publishStory() {
       this.$router.push({
@@ -57,6 +76,12 @@ export default {
       left: 50%;
       transform: translateX(-50%);
       box-shadow: 0px 4px 40px rgba(21, 116, 246, 0.35);
+    }
+    .no-data {
+      font-size: r(32);
+      color: #999;
+      text-align: center;
+      margin-top: r(200);
     }
   }
   .list-item {

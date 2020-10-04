@@ -2,7 +2,7 @@ import notice from "./notice"
 import Qs from 'qs'
 import axios from 'axios';
 import config from './common';
-
+axios.defaults.headers.common['Authentication-Token'] = JSON.parse(sessionStorage.getItem("USER_INFO")).token;
 
 function request(params) {
     if (!params.url && !params.href) return;
@@ -18,17 +18,17 @@ function request(params) {
             params.url = params.href
         }
         return axios({
-                method: method,
-                url: params.url,
-                data: method === 'POST' || method === 'PUT' ? data : null,
-                params: method === 'GET' || method === 'DELETE' ? data : null,
-                baseURL: root,
-                headers: {
-                    ...headers
-                },
-                /**end */
-                withCredentials: true
-            })
+            method: method,
+            url: params.url,
+            data: method === 'POST' || method === 'PUT' ? data : null,
+            params: method === 'GET' || method === 'DELETE' ? data : null,
+            baseURL: root,
+            headers: {
+                ...headers
+            },
+            /**end */
+            withCredentials: true
+        })
             .then(function (res) {
                 console.log(res)
                 let headerCheck = useHeader(res.headers);
@@ -116,20 +116,21 @@ function getParams(params) {
 }
 //公共错误处理
 function hasError(data) {
-    if (data.httpCode == 200 || data.httpCode == 1) {
+    if (data.code == 1000 || data.code == 1003) {
         return false
     }
-    // httpcode判断是否为注册
-    if (data.httpCode == 10000) {
-        //记录当前地址
-        sessionStorage.setItem('oldUrlName', location.href)
-        return location.href = "/userLogin"
-    }
-    if (data.httpCode > 300 && data.data) {
-        setLayer(data.data.msg)
-        return true;
-    } else {
-        setLayer(data.msg)
+    // code判断是否为注册
+    // if (data.httpCode == 10000) {
+    //     //记录当前地址
+    //     sessionStorage.setItem('oldUrlName', location.href)
+    //     return location.href = "/userLogin"
+    // }
+    // if (data.httpCode > 300 && data.data) {
+    //     setLayer(data.data.msg)
+    //     return true;
+    // } 
+    else {
+        setLayer(data.message)
         return true;
     }
     return false

@@ -8,6 +8,7 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 import tools from '@/api/tools' //弹窗
 import notice from '@/api/notice.js' //弹窗
+import ajaxList from '@/api/ajaxList.js'
 import title from 'vue-wechat-title' //标题更新
 import filter from '@/api/filter.js' //公共过滤器
 import VueLazyload from 'vue-lazyload' //图片懒加载
@@ -53,6 +54,7 @@ function init() {
   // 将API方法绑定到全局
   Vue.prototype.$config = config;
   Vue.prototype.$http = http.request;
+  Vue.prototype.$ajaxList = ajaxList;
   Vue.prototype.$tools = tools;
   Vue.prototype.$notice = notice;
   // Vue.prototype.$weixin = weixin;

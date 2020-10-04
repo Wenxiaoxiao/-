@@ -4,7 +4,7 @@
       <div class="top-header">
         <img src="@static/images/bg.png" />
       </div>
-      <div class="top-nav">
+      <!-- <div class="top-nav">
         <div @click="goUrl('/knowledge')">
           <img src="@static/images/icon3.png" />
           <div>知识</div>
@@ -16,6 +16,12 @@
         <div @click="goUrl('/subscribe')">
           <img src="@static/images/icon1.png" />
           <div>咨询</div>
+        </div>
+      </div>-->
+      <div class="top-nav">
+        <div v-for="(item,m) in topCate" :key="m">
+          <img :src="item.icon_image" />
+          <div>{{item.name}}</div>
         </div>
       </div>
       <div class="sub-title" @click="goUrl('/conceptDetail')">#顺其自然、为所当为#</div>
@@ -61,6 +67,7 @@ export default {
   },
   data() {
     return {
+      topCate: [],
       detailPageName: "最新",
       tabs: [
         {
@@ -112,7 +119,12 @@ export default {
       list: [] //列表数据
     };
   },
-  mounted() {},
+  mounted() {
+    let that = this;
+    this.$ajaxList.topCate(function(res) {
+      that.topCate = res;
+    });
+  },
   methods: {
     tabChange(val) {
       this.detailPageName = this.tabs[val].name;

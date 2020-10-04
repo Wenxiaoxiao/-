@@ -1,38 +1,23 @@
 <template>
-  <div class="needToKnow">
-    <p>
-      本须知对本会所有会员均有在会约束力，一经加入即被视为同意本会须知约束。
-      <br />
-      <br />会籍只适用于个人会员，且为18岁以上具备完全民事行为能力的个人。企业会员不归属于本会管辖范围。
-      <br />
-      <br />会籍属于会员本人，不得转让。
-      <br />
-      <br />会籍的首个有效期为五年，自会员确认领取会员卡之日起计。
-      <br />
-      <br />会员会籍到期时，本会将通过电子邮件、短信、电话等方式通知会员。会员如欲对会籍进行续期，须应本会要求，提供续会申请及相关材料，以供批核。
-      <br />
-      <br />会员对本会的组织、运作或管理有提出建议的权利，但对本会财产不享有任何所有权或追索权。
-    </p>
-    <img src="../static/images/konw.png" alt />
-    <p>
-      本须知对本会所有会员均有在会约束力，一经加入即被视为同意本会须知约束。
-      <br />
-      <br />会籍只适用于个人会员，且为18岁以上具备完全民事行为能力的个人。企业会员不归属于本会管辖范围。
-      <br />
-      <br />会籍属于会员本人，不得转让。
-      <br />
-      <br />会籍的首个有效期为五年，自会员确认领取会员卡之日起计。
-      <br />
-      <br />会员会籍到期时，本会将通过电子邮件、短信、电话等方式通知会员。会员如欲对会籍进行续期，须应本会要求，提供续会申请及相关材料，以供批核。
-      <br />
-      <br />会员对本会的组织、运作或管理有提出建议的权利，但对本会财产不享有任何所有权或追索权。
-    </p>
-  </div>
+  <div class="needToKnow" v-html="JsonData"></div>
 </template>
 
 <script>
 export default {
-  name: "needToKnow"
+  name: "needToKnow",
+  data() {
+    return {
+      JsonData: null
+    };
+  },
+  mounted() {
+    let that = this;
+    this.$ajaxList.doctorNotice(function(res) {
+      that.JsonData = res;
+    });
+  },
+  created() {},
+  methods: {}
 };
 </script>
 
