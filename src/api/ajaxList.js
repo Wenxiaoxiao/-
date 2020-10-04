@@ -51,6 +51,18 @@ let ajaxList = {
         });
     },
     //填写个人档案
+    setRecords: function (params, callback) {
+        ajax({
+            url: "/api/user/user/setRecords",
+            type: "POST",
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
     //编辑个人资料
     //我的积分
     //服务文章详情
