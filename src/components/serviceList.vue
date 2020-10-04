@@ -1,6 +1,6 @@
 <template>
   <div class="lists">
-    <div v-for="(item,i) in listData" :key="i" class="item" @click="goDetail">
+    <div v-for="(item,i) in listData" :key="i" class="item" @click="goDetail(item.id)">
       <div class="left">
         <div class="tit">{{item.title}}</div>
         <div class="tags" v-html="item.content">
@@ -24,9 +24,10 @@ export default {
   },
   mounted() {},
   methods: {
-    goDetail() {
+    goDetail(id) {
       this.$router.push({
-        path: this.detail || "/HomeDetail"
+        path: this.detail || "/HomeDetail",
+        query: { id: id }
       });
       this.$route.meta.title = this.detailPage;
     }

@@ -1,29 +1,22 @@
 <template>
   <div class="service-detail">
     <div class="top-tit">
-      <div class="line-1">孩子厌学自闭，拒绝沟通怎么办？</div>
+      <div class="line-1">{{detailObj.title}}</div>
       <div class="line-tags">
         <span>失眠</span>
         <span>心理</span>
         <span>神经</span>
       </div>
-      <div class="line-2">发布时间：2019-12-30</div>
+      <div class="line-2">发布时间：{{detailObj.createtime}}</div>
       <div class="line-3">
         <img src="@static/images/share.png" />
         <img src="@static/images/collect.png" />
       </div>
     </div>
-    <!-- <div class="design-title">
-      <i></i>
-      <span>系统理论</span>
-    </div>-->
     <div class="detailContent">
       <div class="main-content">
-        我今年39岁，有个儿子，今年上初二，由于是独子，所以从小我和他爸比较疼爱他，他爸爸更是当宝贝样宠着，孩子是我们唯一的希望，我孩子小学的时候学还好，可是不知道为什么，我孩子上了初一以后，成绩大幅下滑，我找他们老师了解情况才知道，我孩子不爱学
-        <img
-          src="@static/images/detail.png"
-        />
-        习了，爱玩电脑了，经常在电脑上玩游戏，甚至还会跟些混混在一起抽烟，整天无所事事，即使在教室里也经常心不在焉，根本不想学习的事，做为家长看到孩子这样，真是心碎、心痛。
+        <img :src="detailObj.image" />
+        <div v-html="detailObj.content"></div>
       </div>
     </div>
   </div>
@@ -37,6 +30,12 @@ export default {
   },
   data() {
     return {
+      detailObj: {
+        content: null,
+        createtime: null,
+        image: null,
+        title: null
+      },
       inputText: null,
       commentLists: [
         {
@@ -78,7 +77,14 @@ export default {
       ]
     };
   },
-  mounted() {},
+  mounted() {
+    let params = {
+      id: this.$route.query.id
+    };
+    this.$ajaxList.serDetail(params, res => {
+      this.detailObj = res;
+    });
+  },
   methods: {
     goReplyDetail() {
       this.$router.push({

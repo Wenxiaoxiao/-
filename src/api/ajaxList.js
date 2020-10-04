@@ -90,6 +90,17 @@ let ajaxList = {
         });
     },
     //服务文章详情
+    serDetail: function (params, callback) {
+        ajax({
+            url: "/api/user/Service/serDetail",
+            type: "POST",
+            data: params
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
     //服务文章列表
     serviceList: function (params, callback) {
         ajax({
