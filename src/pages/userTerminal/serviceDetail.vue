@@ -35,46 +35,7 @@ export default {
         createtime: null,
         image: null,
         title: null
-      },
-      inputText: null,
-      commentLists: [
-        {
-          icon: require("@static/images/logo.png"),
-          name: "学员孙丽",
-          time: "2020-04-24",
-          des: "深有感受深有感受深有感受深有感受深有感受深有感受.......",
-          like: true,
-          likeNum: 28,
-          reply: [
-            {
-              name: "张三",
-              des: "喜欢这么坦率的你"
-            },
-            {
-              name: "李四",
-              des: "喜欢这么坦率的你"
-            }
-          ]
-        },
-        {
-          icon: require("@static/images/logo.png"),
-          name: "学员憨憨",
-          time: "2020-04-24",
-          des: "我太难了.......",
-          like: false,
-          likeNum: 18,
-          reply: [
-            {
-              name: "张三",
-              des: "喜欢这么坦率的你"
-            },
-            {
-              name: "李四",
-              des: "喜欢这么坦率的你"
-            }
-          ]
-        }
-      ]
+      }
     };
   },
   mounted() {

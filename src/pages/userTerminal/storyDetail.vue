@@ -1,51 +1,48 @@
 <template>
   <div class="story-detail">
     <div class="top-tit">
-      <div class="line-1">孩子厌学自闭，拒绝沟通怎么办？</div>
+      <div class="line-1">{{detailObj.title}}</div>
       <div class="line-2">
         <div class="left">
           <img src="@static/images/userico.png" />
           <span>学员大锤</span>
         </div>
-        <div class="right">发布时间：2019-12-30</div>
+        <div class="right">发布时间：{{detailObj.createtime}}</div>
       </div>
     </div>
     <div class="detailContent">
       <div class="main-content">
-        我今年39岁，有个儿子，今年上初二，由于是独子，所以从小我和他爸比较疼爱他，他爸爸更是当宝贝样宠着，孩子是我们唯一的希望，我孩子小学的时候学还好，可是不知道为什么，我孩子上了初一以后，成绩大幅下滑，我找他们老师了解情况才知道，我孩子不爱学
-        <img
-          src="@static/images/detail.png"
-        />
-        习了，爱玩电脑了，经常在电脑上玩游戏，甚至还会跟些混混在一起抽烟，整天无所事事，即使在教室里也经常心不在焉，根本不想学习的事，做为家长看到孩子这样，真是心碎、心痛。
+        <img :src="detailObj.thumb_images" />
+        <div v-html="detailObj.content"></div>
       </div>
       <div class="expand-bar" v-show="showExpandBar" @click="showExpandBar=false;">--展开内容--</div>
     </div>
     <div class="comment-list">
       <div class="comment-item" v-for="(item,i) in commentLists" :key="i">
-        <img class="left" :src="item.icon" />
+        <img class="left" :src="item.avatar" />
         <div class="right">
           <div class="d1">
-            <div class="le">{{item.name}}</div>
-            <div class="rig">{{item.time}}</div>
+            <div class="le">{{item.nickname}}</div>
+            <div class="rig">{{item.createtime}}</div>
           </div>
           <div class="d2">
-            <div class="des">{{item.des}}</div>
+            <div class="des">{{item.content}}</div>
             <div class="right">
               <div class="ico">
                 <img v-if="item.like" src="@static/images/like.png" />
                 <img v-else src="@static/images/unlike.png" />
               </div>
-              <div :class="item.like?'active likeNum':'likeNum'">{{item.likeNum}}</div>
+              <div :class="item.like?'active likeNum':'likeNum'">{{item.point_num}}</div>
             </div>
           </div>
           <div class="d3">
-            <div class="d_i" v-for="(d,m) in item.reply" :key="m">{{d.name}}：{{d.des}}</div>
-            <div class="moreReply" @click="goReplyDetail">共{{item.reply.length}}条回复></div>
+            <div class="d_i" v-for="(d,m) in item.child" :key="m">{{d.name}}：{{d.des}}</div>
+            <div class="moreReply" @click="goReplyDetail(item.id)">共{{item.reply_num}}条回复></div>
           </div>
         </div>
       </div>
     </div>
-    <reply-box></reply-box>
+    <reply-box :article_id="article_id" :comment_id="comment_id"></reply-box>
   </div>
 </template>
 
@@ -57,53 +54,64 @@ export default {
   },
   data() {
     return {
-      inputText: null,
+      article_id: null,
+      comment_id: null,
+      detailObj: {
+        audio_file: null,
+        base64_img: null,
+        cate_id: null,
+        cate_name: null,
+        comment_num: null,
+        content: null,
+        createtime: null,
+        forward_num: null,
+        id: null,
+        like_num: null,
+        pre_view: null,
+        tags: [],
+        thumb_images: null,
+        title: null,
+        user_id: null,
+        video_file: null
+      },
       showExpandBar: true,
-      commentLists: [
-        {
-          icon: require("@static/images/logo.png"),
-          name: "学员孙丽",
-          time: "2020-04-24",
-          des: "深有感受深有感受深有感受深有感受深有感受深有感受.......",
-          like: true,
-          likeNum: 28,
-          reply: [
-            {
-              name: "张三",
-              des: "喜欢这么坦率的你"
-            },
-            {
-              name: "李四",
-              des: "喜欢这么坦率的你"
-            }
-          ]
-        },
-        {
-          icon: require("@static/images/logo.png"),
-          name: "学员憨憨",
-          time: "2020-04-24",
-          des: "我太难了.......",
-          like: false,
-          likeNum: 18,
-          reply: [
-            {
-              name: "张三",
-              des: "喜欢这么坦率的你"
-            },
-            {
-              name: "李四",
-              des: "喜欢这么坦率的你"
-            }
-          ]
-        }
-      ]
+      commentLists: []
     };
   },
-  mounted() {},
+  mounted() {
+    let id = this.$route.query.id;
+    this.article_id = Number(id);
+    this.getDetail(id);
+    this.getComment(id);
+  },
   methods: {
-    goReplyDetail() {
+    getDetail(id) {
+      let params = {
+        token: JSON.parse(sessionStorage.getItem("USER_INFO")).token,
+        id: id
+      };
+      this.$ajaxList.articleOne(params, res => {
+        this.detailObj = res;
+      });
+    },
+    getComment(id) {
+      let params = {
+        token: JSON.parse(sessionStorage.getItem("USER_INFO")).token,
+        article_id: id
+      };
+      this.$ajaxList.commentList(params, res => {
+        // this.detailObj = res;
+        this.commentLists = res;
+      });
+    },
+    goReplyDetail(comment_id) {
+      let article_id = this.article_id;
       this.$router.push({
-        path: "/replyDetail"
+        path: "/replyDetail",
+        query: {
+          article_id: article_id,
+          comment_id: comment_id
+        }
       });
     },
     tabChange() {}

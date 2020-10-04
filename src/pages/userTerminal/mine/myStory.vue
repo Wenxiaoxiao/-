@@ -1,7 +1,7 @@
 <template>
   <div class="myStory full-page">
     <div class="list" v-if="JsonData&&JsonData.length>0">
-      <div class="list-item" @click="storyDetail" v-for="(item,m) in JsonData" :key="m">
+      <div class="list-item" @click="storyDetail(item.id)" v-for="(item,m) in JsonData" :key="m">
         <img :src="item.thumb_images" alt />
         <div class="content">
           <div class="item-title">{{item.title}}</div>
@@ -54,9 +54,10 @@ export default {
         path: "/publishStory"
       });
     },
-    storyDetail() {
+    storyDetail(id) {
       this.$router.push({
-        path: "/storyDetail"
+        path: "/storyDetail",
+        query: { id: id }
       });
     }
   }

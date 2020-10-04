@@ -125,8 +125,44 @@ let ajaxList = {
         });
     },
     //发表评论
+    subComment: function (params, callback) {
+        ajax({
+            url: "/api/comment/subComment",
+            type: "POST",
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
     //评论列表
+    commentList: function (params, callback) {
+        ajax({
+            url: "/api/comment/commentList",
+            type: "POST",
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
     //文章详情
+    articleOne: function (params, callback) {
+        ajax({
+            url: "/api/article/articleOne",
+            type: "POST",
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
     //文章列表
     //轮播图
     getBanner: function (params, callback) {
