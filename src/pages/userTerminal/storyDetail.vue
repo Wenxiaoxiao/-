@@ -36,7 +36,7 @@
             </div>
           </div>
           <div class="d3">
-            <div class="d_i" v-for="(d,m) in item.child" :key="m">{{d.name}}：{{d.des}}</div>
+            <div class="d_i" v-for="(d,m) in item.child" :key="m">{{d.nickname}}：{{d.content}}</div>
             <div class="moreReply" @click="goReplyDetail(item.id)">共{{item.reply_num}}条回复></div>
           </div>
         </div>

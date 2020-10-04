@@ -2,18 +2,18 @@
   <div class="reply-container">
     <div class="top-header">
       <div class="left">
-        <img src="@static/images/logo.png" />
+        <img :src="commentObj.avatar" />
       </div>
       <div class="right">
         <div class="d-1">
-          <div class="d-l">学员孙丽</div>
-          <div class="d-r">2020-04-24</div>
+          <div class="d-l">{{commentObj.nickname}}</div>
+          <div class="d-r">{{commentObj.createtime}}</div>
         </div>
         <div class="d-2">
-          <div class="d-l">深有感受深有感受深有感受.......</div>
+          <div class="d-l">{{commentObj.content}}</div>
           <div class="d-r">
             <img src="@static/images/unlike.png" />
-            <span>17</span>
+            <span>{{commentObj.point_num}}</span>
             <i>...</i>
           </div>
         </div>
@@ -27,46 +27,27 @@
       </div>
     </div>
     <div class="reply-list">
-      <div class="top-header">
+      <div class="top-header" v-for="(item,m) in commentObj.child" :key="'child_'+m">
         <div class="left">
-          <img src="@static/images/logo.png" />
+          <img :src="item.avatar" />
         </div>
         <div class="right">
           <div class="d-1">
-            <div class="d-l">学员孙丽</div>
-            <div class="d-r">2020-04-24</div>
+            <div class="d-l">{{item.nickname}}</div>
+            <div class="d-r">{{item.createtime}}</div>
           </div>
           <div class="d-2">
-            <div class="d-l">深有感受深有感受深有感受.......</div>
+            <div class="d-l">{{item.content}}</div>
             <div class="d-r">
               <img src="@static/images/unlike.png" />
-              <span>17</span>
-              <i>...</i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="top-header">
-        <div class="left">
-          <img src="@static/images/logo.png" />
-        </div>
-        <div class="right">
-          <div class="d-1">
-            <div class="d-l">学员孙丽</div>
-            <div class="d-r">2020-04-24</div>
-          </div>
-          <div class="d-2">
-            <div class="d-l">深有感受深有感受深有感受.......</div>
-            <div class="d-r">
-              <img src="@static/images/unlike.png" />
-              <span>17</span>
+              <span>{{item.point_num}}</span>
               <i>...</i>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <reply-box></reply-box>
+    <reply-box :article_id="article_id" :comment_id="comment_id"></reply-box>
   </div>
 </template>
 <script>
@@ -77,12 +58,42 @@ export default {
     "reply-box": replyBox
   },
   data() {
-    return {};
+    return {
+      article_id: null,
+      comment_id: null,
+      commentObj: {
+        avatar: null,
+        child: [],
+        content: null,
+        createtime: null,
+        nickname: null,
+        point_num: null,
+        reply_num: null
+      }
+    };
   },
   mounted() {
-    vm = this;
+    this.comment_id = Number(this.$route.query.comment_id);
+    this.article_id = Number(this.$route.query.article_id);
+    this.getComment(this.article_id, this.comment_id);
   },
-  methods: {}
+  methods: {
+    getComment(id, comment_id) {
+      let params = {
+        token: JSON.parse(sessionStorage.getItem("USER_INFO")).token,
+        article_id: id
+      };
+      this.$ajaxList.commentList(params, res => {
+        res.map(item => {
+          if (item.id == comment_id) {
+            this.commentObj = item;
+          }
+        });
+        // this.detailObj = res;
+        // this.commentLists = res;
+      });
+    }
+  }
 };
 </script>
 <style lang="scss">
