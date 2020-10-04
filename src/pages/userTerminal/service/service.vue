@@ -53,27 +53,7 @@ export default {
   data() {
     return {
       detailPageName: "公益活动",
-      tabs: [
-        {
-          name: "公益活动"
-        },
-        {
-          name: "咨询师招聘"
-        },
-        {
-          name: "商业合作"
-        },
-        {
-          name: "资质荣誉"
-        },
-        {
-          name: "意见反馈"
-        },
-        {
-          name: "关于我们",
-          aboutus: true
-        }
-      ],
+      tabs: [],
       tmpList: [
         {
           img: require("@static/images/list4.png"),
@@ -126,6 +106,10 @@ export default {
   },
   mounted() {
     this.getBanner();
+    this.$ajaxList.serCate(res => {
+      console.log(res);
+      this.tabs = res;
+    });
   },
   methods: {
     //获取banner

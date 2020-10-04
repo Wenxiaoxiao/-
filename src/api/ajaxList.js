@@ -92,6 +92,16 @@ let ajaxList = {
     //服务文章详情
     //服务文章列表
     //服务栏目
+    serCate: function (callback) {
+        ajax({
+            url: "/api/cate/serCate",
+            type: "POST"
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
     //发表评论
     //评论列表
     //文章详情
