@@ -64,6 +64,18 @@ let ajaxList = {
         });
     },
     //编辑个人资料
+    editInfo: function (params, callback) {
+        ajax({
+            url: "/api/user/user/editInfo",
+            type: "POST",
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
     //我的积分
     myScore: function (params, callback) {
         ajax({
