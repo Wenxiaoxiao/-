@@ -109,6 +109,16 @@ let ajaxList = {
         });
     },
     //会员权益
+    vipPolicy: function (callback) {
+        ajax({
+            url: "/api/data/vipPolicy",
+            type: "GET"
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
     //会员须知
     //咨询师须知
     doctorNotice: function (callback) {
