@@ -3,10 +3,10 @@
     <div class="top">
       <a href="javascript:;" @click="navTo('setting')">设置</a>
       <div class="user">
-        <img @click="navTo('personInfo')" src="@static/images/mineLogo.png" alt />
-        <div class="user-name">Ellison</div>
-        <div class="user-title">#世界大得不可以去拥抱#</div>
-        <div @click="navTo('memberCenter')" class="user-type">普通用户</div>
+        <img @click="navTo('personInfo')" :src="avatar" alt />
+        <div class="user-name">{{nickname}}</div>
+        <div class="user-title">#{{bio}}#</div>
+        <div @click="navTo('memberCenter')" class="user-type">{{is_vip?'vip用户':'普通用户'}}</div>
       </div>
     </div>
     <div class="center">
@@ -75,9 +75,30 @@ export default {
     "app-nav": nav
   },
   data() {
-    return {};
+    return {
+      nickname: null,
+      avatar: null,
+      is_vip: null,
+      bio: null
+    };
+  },
+  mounted() {
+    this.getUserInfo();
   },
   methods: {
+    //获取个人信息
+    getUserInfo() {
+      let that = this;
+      let params = {
+        token: JSON.parse(sessionStorage.getItem("USER_INFO")).token
+      };
+      this.$ajaxList.userInfo(params, function(res) {
+        that.nickname = res.nickname;
+        that.avatar = res.avatar;
+        that.is_vip = res.is_vip;
+        that.bio = res.bio;
+      });
+    },
     memberCenter() {
       this.$router.push({
         path: "/memberCenter"
@@ -127,6 +148,7 @@ export default {
       & > img {
         height: 134px;
         width: 134px;
+        border-radius: 50%;
       }
       .user-name {
         height: 50px;

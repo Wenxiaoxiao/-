@@ -2,9 +2,9 @@
   <div class="mine">
     <div class="top">
       <div class="user">
-        <img src="@static/images/mineLogo.png" alt />
-        <div class="user-name">Ellison</div>
-        <div class="user-title">#世界大得不可以去拥抱#</div>
+        <img :src="avatar" alt />
+        <div class="user-name">{{nickname}}</div>
+        <div class="user-title">#{{signature}}#</div>
         <div @click="navTo('personalInfo')" class="user-type">咨询师</div>
       </div>
     </div>
@@ -46,7 +46,25 @@ export default {
     "app-nav": nav
   },
   data() {
-    return {};
+    return {
+      avatar: null,
+      nickname: null,
+      intro_text: null,
+      signature: null
+    };
+  },
+  mounted() {
+    //获取个人信息
+    let that = this;
+    let params = {
+      token: JSON.parse(sessionStorage.getItem("DOCTOR_INFO")).token
+    };
+    this.$ajaxList.doctorInfo(params, function(res) {
+      that.avatar = res.avatar;
+      that.intro_text = res.intro_text;
+      that.nickname = res.nickname;
+      that.signature = res.signature;
+    });
   },
   methods: {
     navTo(type) {
@@ -88,6 +106,7 @@ export default {
       & > img {
         height: 134px;
         width: 134px;
+        border-radius: 50%;
       }
       .user-name {
         height: 50px;

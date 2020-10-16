@@ -23,6 +23,7 @@
 
 <script>
 var axios = require("axios");
+import { Toast } from "vant";
 export default {
   name: "personInfo",
   components: {
@@ -36,16 +37,33 @@ export default {
     };
   },
   mounted() {
-    this.fileList = [
-      {
-        url: JSON.parse(sessionStorage.getItem("USER_INFO")).avatar,
-        isImage: true
-      }
-    ];
-    this.nickname = JSON.parse(sessionStorage.getItem("USER_INFO")).nickname;
+    this.getUserInfo();
   },
   methods: {
-    editInfo() {},
+    //获取个人信息
+    getUserInfo() {
+      let that = this;
+      let params = {
+        token: JSON.parse(sessionStorage.getItem("USER_INFO")).token
+      };
+      this.$ajaxList.userInfo(params, function(res) {
+        that.nickname = res.nickname;
+        that.fileList = [{ url: res.avatar, isImage: true }];
+        that.bio = res.bio;
+      });
+    },
+    editInfo() {
+      let that = this;
+      let params = {
+        avatar: this.fileList[0].url,
+        nickname: this.nickname,
+        bio: this.bio,
+        token: JSON.parse(sessionStorage.getItem("USER_INFO")).token
+      };
+      this.$ajaxList.editInfo(params, function(res) {
+        Toast("修改成功！");
+      });
+    },
     afterRead(file) {
       let that = this;
       let formdata = new FormData();
@@ -58,7 +76,6 @@ export default {
         }
       };
       axios.post(url, formdata, config).then(function(res) {
-        debugger;
         let tmpArr = [];
         tmpArr.push({ url: res.data.data, isImage: true });
         that.fileList = tmpArr;
@@ -91,6 +108,7 @@ export default {
     .logo_upload {
       height: 200px;
       width: 200px;
+      border-radius: 50%;
       display: block;
       .van-uploader__wrapper,
       .van-uploader__upload {

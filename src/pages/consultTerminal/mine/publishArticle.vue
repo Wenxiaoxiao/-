@@ -122,7 +122,10 @@ export default {
           thumb_images: tmpArr
         };
         that.$ajaxList.doctorArticle(params, res => {
-          that.detailObj = res;
+          //跳转到列表页面
+          that.$router.push({
+            path: "/mypublish"
+          });
         });
       }, 1000);
     }

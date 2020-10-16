@@ -1,17 +1,17 @@
 <template>
   <div class="personalInfo">
-    <img src="@static/images/mineLogo.png" alt class="user-logo" />
+    <img :src="avatar" alt class="user-logo" />
     <common-field label="咨询师名">
-      <van-field v-model="name" />
+      <van-field v-model="nickname" />
     </common-field>
     <common-field label="个性签名">
-      <van-field v-model="sign" />
+      <van-field v-model="signature" />
     </common-field>
     <div class="design-textarea">
       <label class="label" for>咨询师简介</label>
       <div class="text-area">
         <van-field
-          v-model="message"
+          v-model="intro_text"
           rows="4"
           style="padding-top:20px"
           type="textarea"
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { Toast } from "vant";
 export default {
   name: "personalInfo",
   components: {
@@ -32,13 +33,43 @@ export default {
   },
   data() {
     return {
-      name: "Ellison",
-      sign: "世界大得不可以去拥抱",
-      message: ""
+      avatar: null,
+      nickname: null,
+      signature: null,
+      intro_text: null
     };
   },
+  mounted() {
+    this.getDoctorInfo();
+  },
   methods: {
+    //获取个人信息
+    getDoctorInfo() {
+      let that = this;
+      let params = {
+        token: JSON.parse(sessionStorage.getItem("DOCTOR_INFO")).token
+      };
+      this.$ajaxList.doctorInfo(params, function(res) {
+        that.avatar = res.avatar;
+        that.intro_text = res.intro_text;
+        that.nickname = res.nickname;
+        that.signature = res.signature;
+      });
+    },
     submit() {
+      let that = this;
+      let params = {
+        avatar: this.avatar,
+        intro_text: this.intro_text,
+        nickname: this.nickname,
+        signature: this.signature,
+        token: JSON.parse(sessionStorage.getItem("DOCTOR_INFO")).token
+      };
+      this.$ajaxList.editDoctorInfo(params, function(res) {
+        Toast("保存成功！");
+      });
+
+      return;
       this.$router.push({
         path: "/home"
       });
@@ -55,6 +86,7 @@ export default {
   position: relative;
   .user-logo {
     width: 200px;
+    border-radius: 50%;
     margin: 0 auto;
     display: block;
     margin-bottom: 63px;

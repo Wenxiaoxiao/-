@@ -452,12 +452,51 @@ let ajaxList = {
             }
         });
     },
-    //获取标签 /api/data/tags
+    //获取标签
     getTags: function (params, callback) {
         ajax({
             url: '/api/data/tags',
             type: 'GET',
             data: params
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
+    //获取个人资料 咨询师
+    doctorInfo: function (params, callback) {
+        ajax({
+            url: '/api/doctor/doctor/doctorInfo',
+            type: 'POST',
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
+    //修改个人资料
+    editDoctorInfo: function (params, callback) {
+        ajax({
+            url: '/api/doctor/doctor/editInfo',
+            type: 'POST',
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
+    //获取个人资料 用户
+    userInfo: function (params, callback) {
+        ajax({
+            url: '/api/user/user/userInfo',
+            type: 'POST',
+            data: params,
+            headers: { 'token': params.token }
         }).then(res => {
             if (callback) {
                 callback(res.data);
