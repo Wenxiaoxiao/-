@@ -426,6 +426,19 @@ let ajaxList = {
             }
         });
     },
+    //列表接口
+    articleListDoctor: function (params, callback) {
+        ajax({
+            url: '/api/article/articleListDoctor',
+            type: 'POST',
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
 }
 
 export default ajaxList;
