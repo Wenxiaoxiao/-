@@ -198,7 +198,82 @@ let ajaxList = {
                 callback(res.data);
             }
         });
-    }
+    },
+    //预约记录，我的预约列表
+    orderList: function (params, callback) {
+        ajax({
+            url: '/api/user/order/orderList',
+            type: 'POST',
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
+    //咨询师列表
+    consultant: function (params, callback) {
+        ajax({
+            url: '/api/user/Yuyue/doctorList',
+            type: 'POST',
+            data: params
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
+    //咨询师详情 
+    consultantDetail: function (params, callback) {
+        ajax({
+            url: '/api/user/Yuyue/doctorDetail',
+            type: 'POST',
+            data: params
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
+    //文章列表
+    articleList: function (params, callback) {
+        ajax({
+            url: '/api/article/articleList',
+            type: 'POST',
+            data: params
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
+    //我的报告列表
+    reportList: function (params, callback) {
+        ajax({
+            url: '/api/user/report/reportList',
+            type: 'POST',
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
+    //我的就诊问答列表
+    questionList: function (params, callback) {
+        ajax({
+            url: '/api/user/Question/questionList',
+            type: 'POST',
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
 }
 
 export default ajaxList;

@@ -1,7 +1,7 @@
 <template>
   <div class="subscribeList full-page">
     <div class="list">
-      <div class="list-item">
+      <div class="list-item" v-for="(item,i) in List" :key="i">
         <div class="item-content">
           <img src="@static/images/teacher_icon.png" alt />
           <div class="item-dsc">
@@ -26,7 +26,7 @@
           </div>
         </div>
       </div>
-      <div class="list-item">
+      <!-- <div class="list-item">
         <div class="item-content">
           <img src="@static/images/teacher_icon.png" alt />
           <div class="item-dsc">
@@ -50,7 +50,7 @@
             <a href=":;">取消订单</a>
           </div>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>
@@ -60,8 +60,25 @@ export default {
   name: "subscribeList",
   data() {
     return {
+      List: [],
       status: "payed" //'unPay','finish'
     };
+  },
+  mounted() {
+    this.getList();
+  },
+  methods: {
+    //获取列表
+    getList() {
+      let that = this;
+      let params = {
+        token: JSON.parse(sessionStorage.getItem("USER_INFO")).token,
+        p: 1
+      };
+      this.$ajaxList.orderList(params, function(res) {
+        that.List = res;
+      });
+    }
   }
 };
 </script>

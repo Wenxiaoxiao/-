@@ -2,7 +2,7 @@ import notice from "./notice"
 import Qs from 'qs'
 import axios from 'axios';
 import config from './common';
-axios.defaults.headers.common['Authentication-Token'] = JSON.parse(sessionStorage.getItem("USER_INFO")).token;
+axios.defaults.headers.common['Authentication-Token'] = sessionStorage.getItem("USER_INFO") ? JSON.parse(sessionStorage.getItem("USER_INFO")).token : null;
 
 function request(params) {
     if (!params.url && !params.href) return;

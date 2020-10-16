@@ -7,13 +7,13 @@
     </van-swipe>
 
     <div class="sub-list">
-      <div class="sub-item" v-for="(item,index) in items" :key="index">
+      <div class="sub-item" v-for="(item,index) in Lists" :key="index">
         <img src="@static/images/teacher_icon.png" alt />
         <div class="content">
           <div>张老师</div>
           <div>荣誉证书/资质证书</div>
           <div>
-            <a href="javascript:void(0)" @click="goDetail">预约</a>
+            <a href="javascript:void(0)" @click="goDetail(item.id)">预约</a>
           </div>
         </div>
       </div>
@@ -30,12 +30,13 @@ export default {
   },
   data() {
     return {
-      items: 3,
+      Lists: [],
       swiperList: []
     };
   },
   mounted() {
     this.getBanner();
+    this.getList();
   },
   methods: {
     //获取banner
@@ -49,9 +50,19 @@ export default {
         that.swiperList = res;
       });
     },
-    goDetail() {
+    getList() {
+      let that = this;
+      let params = {
+        p: 1
+      };
+      this.$ajaxList.consultant(params, function(res) {
+        that.Lists = res;
+      });
+    },
+    goDetail(id) {
       this.$router.push({
-        path: "/subscribeDetail"
+        path: "/subscribeDetail",
+        query: { id: id }
       });
     }
   }
