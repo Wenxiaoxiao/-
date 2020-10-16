@@ -32,7 +32,8 @@ export default {
   data() {
     return {
       tabs: [],
-      tmpList: []
+      tmpList: [],
+      cate_id: null
     };
   },
   mounted() {
@@ -52,6 +53,7 @@ export default {
       this.$ajaxList.doctorCate(null, function(res) {
         that.tabs = res;
         that.getArticleList(res[0].id);
+        that.cate_id = res[0].id;
       });
     },
     //获取文章列表
@@ -68,10 +70,12 @@ export default {
     },
     tabChange(e) {
       this.getArticleList(this.tabs[e].id);
+      this.cate_id = this.tabs[e].id;
     },
     publishArticle() {
       this.$router.push({
-        path: "/publishArticle"
+        path: "/publishArticle",
+        query: { cate_id: this.cate_id }
       });
     }
   }

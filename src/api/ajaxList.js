@@ -439,6 +439,31 @@ let ajaxList = {
             }
         });
     },
+    //咨询师发表文章
+    doctorArticle: function (params, callback) {
+        ajax({
+            url: '/api/article/doctorArticle',
+            type: 'POST',
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
+    //获取标签 /api/data/tags
+    getTags: function (params, callback) {
+        ajax({
+            url: '/api/data/tags',
+            type: 'GET',
+            data: params
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
 }
 
 export default ajaxList;

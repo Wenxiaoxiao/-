@@ -7,11 +7,11 @@
         <b>{{item.subtitle}}</b>
       </div>
       <div class="txt" v-if="item.type==1">
-        <textarea :placeholder="item.placeholder"></textarea>
+        <textarea :placeholder="item.placeholder" v-model="content"></textarea>
       </div>
       <div class="txt" v-else-if="item.type==0">
         <span
-          @click="tag.chosed=!tag.chosed"
+          @click="choseTags(tag,m)"
           :class="tag.chosed?'active tag':'tag'"
           v-for="(tag,m) in item.list"
           :key="'tag_'+m"
@@ -21,21 +21,27 @@
         </span>
       </div>
       <div class="txt" v-else-if="item.type==2">
-        <input :placeholder="item.placeholder" />
+        <input :placeholder="item.placeholder" v-model="title" />
       </div>
     </div>
+    <van-uploader v-model="fileList" upload-icon="plus" />
     <div class="sub-btn" @click="submit">发表</div>
   </div>
 </template>
 
 <script>
 import replyBox from "@/components/replyBox.vue";
+var axios = require("axios");
 export default {
   components: {
     "reply-box": replyBox
   },
   data() {
     return {
+      title: null,
+      content: null,
+      tags: [],
+      fileList: [],
       type: null,
       showExpandBar: true,
       flexible: [
@@ -47,20 +53,7 @@ export default {
         {
           title: "标签",
           type: 0,
-          list: [
-            { name: "厌学", chosed: false },
-            { name: "自闭", chosed: false },
-            { name: "0沟通", chosed: false },
-            { name: "减压", chosed: false },
-            { name: "校园欺凌", chosed: false },
-            { name: "思维", chosed: false },
-            { name: "失眠", chosed: false },
-            { name: "心理", chosed: false },
-            { name: "神经", chosed: false },
-            { name: "咨询", chosed: false },
-            { name: "公益", chosed: false },
-            { name: "有效", chosed: false }
-          ]
+          list: []
         },
         {
           title: "文章内容",
@@ -70,9 +63,69 @@ export default {
       ]
     };
   },
-  mounted() {},
+  mounted() {
+    this.getTags();
+  },
   methods: {
-    submit() {}
+    choseTags(tag, m) {
+      let tags = this.tags;
+      if (this.flexible[1].list[m].chosed) {
+        tags.splice(tags.indexOf(tag.id), 1);
+        this.flexible[1].list[m].chosed = false;
+      } else {
+        tags.push(tag.id);
+        this.flexible[1].list[m].chosed = true;
+      }
+      this.$forceUpdate();
+      this.tags = tags;
+    },
+    //获取标签
+    getTags() {
+      let that = this;
+      this.$ajaxList.getTags(null, res => {
+        that.flexible[1].list = res;
+      });
+    },
+    imgUploadOne(file, callback) {
+      let that = this;
+      let formdata = new FormData();
+      console.log(file);
+      formdata.append("img", file.file);
+      let url = "/api/upload/imgUploadOne";
+      let config = {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      };
+      axios.post(url, formdata, config).then(function(res) {
+        if (callback) {
+          callback(res.data.data);
+        }
+      });
+    },
+    submit() {
+      let tmpArr = [];
+      this.fileList.map(item => {
+        this.imgUploadOne(item, function(res) {
+          tmpArr.push(res);
+        });
+      });
+      //咨询师发表文章 doctorArticle
+      let that = this;
+      setTimeout(function() {
+        let params = {
+          token: JSON.parse(sessionStorage.getItem("DOCTOR_INFO")).token,
+          title: that.title,
+          content: that.content,
+          cate_id: that.$route.query.cate_id,
+          tags: that.tags.join(","),
+          thumb_images: tmpArr
+        };
+        that.$ajaxList.doctorArticle(params, res => {
+          that.detailObj = res;
+        });
+      }, 1000);
+    }
   }
 };
 </script>
@@ -157,37 +210,43 @@ export default {
         }
       }
       .tag:nth-child(1),
-      .tag:nth-child(7) {
+      .tag:nth-child(7),
+      .tag:nth-child(13) {
         color: #ffdc3d;
         background: rgba(255, 220, 61, 0.1);
         border: r(1) solid rgba(255, 220, 61, 0.1);
       }
       .tag:nth-child(2),
-      .tag:nth-child(8) {
+      .tag:nth-child(8),
+      .tag:nth-child(14) {
         color: #4bd5ab;
         background: rgba(75, 213, 171, 0.1);
         border: r(1) solid rgba(75, 213, 171, 0.1);
       }
       .tag:nth-child(3),
-      .tag:nth-child(9) {
+      .tag:nth-child(9),
+      .tag:nth-child(15) {
         color: #fb3e3e;
         background: rgba(251, 62, 62, 0.1);
         border: r(1) solid rgba(251, 62, 62, 0.1);
       }
       .tag:nth-child(4),
-      .tag:nth-child(10) {
+      .tag:nth-child(10),
+      .tag:nth-child(16) {
         color: #d016ff;
         background: rgba(208, 22, 255, 0.1);
         border: r(1) solid rgba(208, 22, 255, 0.1);
       }
       .tag:nth-child(5),
-      .tag:nth-child(11) {
+      .tag:nth-child(11),
+      .tag:nth-child(17) {
         color: #1574f6;
         background: rgba(21, 116, 246, 0.1);
         border: r(1) solid rgba(21, 116, 246, 0.1);
       }
       .tag:nth-child(6),
-      .tag:nth-child(12) {
+      .tag:nth-child(12),
+      .tag:nth-child(18) {
         color: #1574f6;
         background: rgba(21, 116, 246, 0.1);
         border: r(1) solid rgba(21, 116, 246, 0.1);

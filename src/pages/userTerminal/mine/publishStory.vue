@@ -32,7 +32,7 @@ export default {
       let formdata = new FormData();
       console.log(file);
       formdata.append("img", file.file);
-      let url = "http://yygzh.majiangyun.cn/api/upload/imgUploadOne";
+      let url = "/api/upload/imgUploadOne";
       let config = {
         headers: {
           "Content-Type": "multipart/form-data"
