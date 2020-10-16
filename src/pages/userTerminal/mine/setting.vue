@@ -1,13 +1,25 @@
 <template>
   <div class="setting full-page">
-    <van-cell title="意见反馈" is-link to="/suggestion" />
+    <van-cell title="意见反馈" is-link @click="goSug" />
     <van-cell title="退出登录" is-link />
   </div>
 </template>
 
 <script>
 export default {
-  name: "setting"
+  name: "setting",
+  data() {
+    return {};
+  },
+  mounted() {},
+  methods: {
+    goSug() {
+      this.$router.push({
+        path: "/suggestion",
+        query: { type: "user" }
+      });
+    }
+  }
 };
 </script>
 <style lang="scss">

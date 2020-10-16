@@ -10,7 +10,7 @@
       <div class="line-2">发布时间：{{detailObj.createtime}}</div>
       <div class="line-3">
         <img src="@static/images/share.png" />
-        <img src="@static/images/collect.png" />
+        <img src="@static/images/collect.png" @click="collection" />
       </div>
     </div>
     <div class="detailContent">
@@ -51,6 +51,15 @@ export default {
       this.$router.push({
         path: "/replyDetail"
       });
+    },
+    //收藏文章
+    collection() {
+      let that = this;
+      let params = {
+        token: JSON.parse(sessionStorage.getItem("USER_INFO")).token,
+        article_id: this.$route.query.id
+      };
+      this.$ajaxList.collection(params, function(res) {});
     },
     tabChange() {}
   }

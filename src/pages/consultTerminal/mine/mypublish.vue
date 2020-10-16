@@ -18,34 +18,21 @@ export default {
   },
   data() {
     return {
-      tabs: [{ name: "学术论文" }, { name: "新锐观点" }, { name: "现象剖析" }],
-      tmpList: [
-        {
-          img: require("@static/images/list1.png"),
-          title: "孩子厌学自闭，拒绝沟通怎么办...",
-          time: "2020-04-24",
-          message: 28,
-          like: 52
-        },
-        {
-          img: require("@static/images/list1.png"),
-          title: "孩子厌学自闭，拒绝沟通怎么办...",
-          time: "2020-04-24"
-        },
-        {
-          img: require("@static/images/list1.png"),
-          title: "当孩子面对校园欺凌，家长该怎...",
-          time: "2020-04-24"
-        },
-        {
-          img: require("@static/images/list1.png"),
-          title: "让理智与情感、理论与实践更好...",
-          time: "2020-04-24"
-        }
-      ]
+      tabs: [],
+      tmpList: []
     };
   },
+  mounted() {
+    this.getDoctorCate();
+  },
   methods: {
+    // 咨询师文章栏目
+    getDoctorCate() {
+      let that = this;
+      this.$ajaxList.doctorCate(null, function(res) {
+        that.tabs = res;
+      });
+    },
     tabChange(e) {
       console.log(e);
     },

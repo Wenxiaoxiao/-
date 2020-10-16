@@ -5,7 +5,8 @@
       <van-field v-model="username" name="username" label="账号" placeholder="请输入手机号" />
       <van-field v-model="code" clearable name="code" label="验证码" placeholder="请输入验证码">
         <template #button>
-          <img src="@static/images/code.png" class="receive-code-img" />
+          <span class="receive-code-img" @click="getCode">获取验证码</span>
+          <!-- <img src="@static/images/code.png" class="receive-code-img" /> -->
         </template>
       </van-field>
       <div style="margin: 16px;">
@@ -44,6 +45,16 @@ export default {
         path: "/needToKnow1"
       });
     },
+    getCode() {
+      let that = this;
+      let params = {
+        mobile: this.username
+      };
+      this.$ajaxList.sendCode(params, function(res) {
+        //提示验证码已发送
+        Toast("验证码已发送！");
+      });
+    },
     onSubmit(values) {
       console.log("submit", values);
       let that = this;
@@ -53,8 +64,17 @@ export default {
           return Toast(rel);
         }
       }
-      this.$router.push({
-        path: "/Index"
+      //登录
+      let params = {
+        mobile: this.username,
+        auth_code: this.code
+      };
+      this.$ajaxList.doLogin(params, function(res) {
+        let DOCTOR_INFO = JSON.stringify(res);
+        sessionStorage.setItem("DOCTOR_INFO", DOCTOR_INFO);
+        that.$router.push({
+          path: "/Index"
+        });
       });
     }
   },

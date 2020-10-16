@@ -7,10 +7,10 @@
         <b>{{item.subtitle}}</b>
       </div>
       <div class="txt" v-if="item.type==1">
-        <textarea :placeholder="item.placeholder"></textarea>
+        <textarea :placeholder="item.placeholder" v-model="content"></textarea>
       </div>
       <div class="txt" v-if="item.type==2">
-        <input :placeholder="item.placeholder" />
+        <input :placeholder="item.placeholder" v-model="contacts" />
       </div>
     </div>
     <div class="sub-btn" @click="submit">提交</div>
@@ -27,6 +27,8 @@ export default {
     return {
       type: null,
       showExpandBar: true,
+      contacts: null,
+      content: null,
       flexible: [
         {
           title: "您的建议",
@@ -45,9 +47,27 @@ export default {
   mounted() {},
   methods: {
     submit() {
-      this.$router.push({
-        path: "/suggestsuccess"
-      });
+      //type 为 user 则是 用户端 意见反馈
+      let that = this;
+      let params = {
+        token: JSON.parse(sessionStorage.getItem("USER_INFO")).token,
+        content: this.content,
+        contacts: this.contacts
+      };
+      if (this.$route.query.type == "user") {
+        this.$ajaxList.Feedback(params, function(res) {
+          that.$router.push({
+            path: "/suggestsuccess",
+            query: { type: "user" }
+          });
+        });
+      } else {
+        this.$ajaxList.Feedback1(params, function(res) {
+          that.$router.push({
+            path: "/suggestsuccess"
+          });
+        });
+      }
     }
   }
 };

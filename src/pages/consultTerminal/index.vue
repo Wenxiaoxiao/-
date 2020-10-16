@@ -65,66 +65,65 @@ export default {
         }
       ],
       tmpList: [
-        {
-          img: require("@static/images/userico.png"),
-          name: "张三",
-          booktime: "今天  13:00-15:00",
-          des: "个人描述个人描述个人描述个个人描述个人描述个人描述...",
-          status: "待就诊",
-          type: 1
-        },
-        {
-          img: require("@static/images/userico.png"),
-          name: "张三",
-          booktime: "今天  13:00-15:00",
-          des: "个人描述个人描述个人描述个个人描述个人描述个人描述...",
-          status: "待就诊",
-          type: 1
-        }
+        // {
+        //   img: require("@static/images/userico.png"),
+        //   name: "张三",
+        //   booktime: "今天  13:00-15:00",
+        //   des: "个人描述个人描述个人描述个个人描述个人描述个人描述...",
+        //   status: "待就诊",
+        //   type: 1
+        // }
       ],
       tmpList1: [
-        {
-          img: require("@static/images/userico.png"),
-          name: "张三",
-          booktime: "今天  13:00-15:00",
-          des: "我是诊断报告我是诊断报告我是诊断报告我是诊断报告...",
-          status: "已就诊",
-          type: 0
-        },
-        {
-          img: require("@static/images/userico.png"),
-          name: "张三",
-          booktime: "今天  13:00-15:00",
-          des: "我是诊断报告我是诊断报告我是诊断报告我是诊断报告...",
-          status: "已就诊",
-          type: 0
-        }
+        // {
+        //   img: require("@static/images/userico.png"),
+        //   name: "张三",
+        //   booktime: "今天  13:00-15:00",
+        //   des: "我是诊断报告我是诊断报告我是诊断报告我是诊断报告...",
+        //   status: "已就诊",
+        //   type: 0
+        // }
       ],
       tmpList2: [
-        {
-          img: require("@static/images/userico.png"),
-          name: "张三",
-          booktime: "今天  13:00-15:00",
-          des: "个人描述个人描述个人描述个个人描述个人描述个人描述...",
-          status: "已取消",
-          type: 2
-        },
-        {
-          img: require("@static/images/userico.png"),
-          name: "张三",
-          booktime: "今天  13:00-15:00",
-          des: "个人描述个人描述个人描述个个人描述个人描述个人描述...",
-          status: "已取消",
-          type: 2
-        }
+        // {
+        //   img: require("@static/images/userico.png"),
+        //   name: "张三",
+        //   booktime: "今天  13:00-15:00",
+        //   des: "个人描述个人描述个人描述个个人描述个人描述个人描述...",
+        //   status: "已取消",
+        //   type: 2
+        // },
       ],
       location: location,
       list: [] //列表数据
     };
   },
-  mounted() {},
+  mounted() {
+    this.getList(0);
+  },
   methods: {
-    tabChange(index) {},
+    tabChange(index) {
+      this.getList(index);
+    },
+    getList(status) {
+      //0待就诊1已就诊2已取消
+      let that = this;
+      let params = {
+        token: JSON.parse(sessionStorage.getItem("DOCTOR_INFO")).token,
+        status: status,
+        p: 1,
+        keyword: this.searchValue
+      };
+      this.$ajaxList.indexList(params, function(res) {
+        if (status == 0) {
+          that.tmpList = res;
+        } else if (status == 1) {
+          that.tmpList1 = res;
+        } else if (status == 2) {
+          that.tmpList2 = res;
+        }
+      });
+    },
     goUrl(path) {
       this.$router.push({
         path: path

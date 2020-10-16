@@ -188,6 +188,16 @@ let ajaxList = {
         });
     },
     //会员须知
+    userNotice: function (callback) {
+        ajax({
+            url: "/api/data/userNotice",
+            type: "GET"
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
     //咨询师须知
     doctorNotice: function (callback) {
         ajax({
@@ -268,6 +278,148 @@ let ajaxList = {
             type: 'POST',
             data: params,
             headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
+    //开通vip
+    //文章收藏
+    collection: function (params, callback) {
+        ajax({
+            url: '/api/Article/collection',
+            type: 'POST',
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
+    //意见反馈 用户端
+    Feedback: function (params, callback) {
+        ajax({
+            url: '/api/user/Opinion/Feedback',
+            type: 'POST',
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
+    //意见反馈 咨询师端 
+    Feedback1: function (params, callback) {
+        ajax({
+            url: '/api/doctor/Opinion/Feedback',
+            type: 'POST',
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
+    //获取验证码
+    sendCode: function (params, callback) {
+        ajax({
+            url: '/api/doctor/login/sendCode',
+            type: 'POST',
+            data: params
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
+    //咨询师端===============
+    //咨询师登录
+    doLogin: function (params, callback) {
+        ajax({
+            url: '/api/doctor/login/doLogin',
+            type: 'POST',
+            data: params
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
+    //待就诊，已就诊，已取消
+    indexList: function (params, callback) {
+        ajax({
+            url: '/api/doctor/order/orderList',
+            type: 'POST',
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
+    //设置出诊日期
+    setDate: function (params, callback) {
+        ajax({
+            url: '/api/doctor/Setdate/setDate',
+            type: 'POST',
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
+    //出诊日期列表
+    dateList: function (params, callback) {
+        ajax({
+            url: '/api/doctor/Setdate/dateList',
+            type: 'POST',
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
+    //出诊时间段列表
+    timeslot: function (params, callback) {
+        ajax({
+            url: '/api/doctor/Setdate/timeslot',
+            type: 'POST',
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
+    //设置出诊时间
+    setTimeslot: function (params, callback) {
+        ajax({
+            url: '/api/doctor/Setdate/setTimeslot',
+            type: 'POST',
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
+    //咨询师文章栏目
+    doctorCate: function (params, callback) {
+        ajax({
+            url: '/api/Cate/doctorCate',
+            type: 'GET',
+            data: params,
         }).then(res => {
             if (callback) {
                 callback(res.data);

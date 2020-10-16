@@ -48,9 +48,9 @@ export default {
 
 <style lang="scss" scoped>
 .memberCenter {
-  height: 100vh;
+  min-height: 100vh;
   .content {
-    height: calc(100vh - 54px);
+    height: calc(100vh - 150px);
   }
   .content-text {
     padding: 120px 39px 0;
