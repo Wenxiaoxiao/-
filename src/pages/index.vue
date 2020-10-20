@@ -21,7 +21,7 @@
       <!-- <div class="right" @click="resetPassword">忘记密码？</div> -->
     </div>
     <!-- <van-divider :style="{ color: '#999999', borderColor: '#E5E5E5', padding: '0 50px' }">其他登陆方式</van-divider> -->
-    <div class="wechat-login">
+    <div class="wechat-login" @click="wechatLogin">
       <img src="@static/images/register.png" class="logo" />
       <div>微信号登陆</div>
     </div>
@@ -45,6 +45,21 @@ export default {
     };
   },
   methods: {
+    wechatLogin() {
+      //判断是否登录状态
+      if (sessionStorage.getItem("USER_INFO")) {
+        this.$router.push({
+          path: "/userIndex"
+        });
+        return;
+      }
+      var REDIRECT_URI = encodeURI("http://yygzh.majiangyun.cn/docs");
+      var designUrl =
+        "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx56d31560b5085147&redirect_uri=" +
+        REDIRECT_URI +
+        "&response_type=code&scope=snsapi_userinfo&state=snsapi_userinfo#wechat_redirect";
+      location.replace(designUrl);
+    },
     //login
     goLogin(code) {
       this.$http({
@@ -66,12 +81,14 @@ export default {
   created() {},
   mounted() {
     //获取路径code和state
-    let tmp = location.href.split("code=")[1].split("&state=");
-    let code = tmp[0];
-    let state = tmp[1];
-    console.log(code);
-    //根据code获取用户信息
-    this.goLogin(code);
+    if (location.href.split("code=")[1]) {
+      let tmp = location.href.split("code=")[1].split("&state=");
+      let code = tmp[0];
+      let state = tmp[1];
+      console.log(code);
+      //根据code获取用户信息
+      this.goLogin(code);
+    }
   }
 };
 </script>

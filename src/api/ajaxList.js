@@ -285,6 +285,18 @@ let ajaxList = {
         });
     },
     //开通vip
+    payVip: function (params, callback) {
+        ajax({
+            url: '/api/user/vip/payVip',
+            type: 'POST',
+            data: params,
+            headers: { 'token': params.token }
+        }).then(res => {
+            if (callback) {
+                callback(res.data);
+            }
+        });
+    },
     //文章收藏
     collection: function (params, callback) {
         ajax({
