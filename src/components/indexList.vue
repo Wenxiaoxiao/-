@@ -2,14 +2,14 @@
   <div class="lists">
     <div v-for="(item,i) in listData" :key="i" class="item" @click="goDetail">
       <div class="left">
-        <img :src="item.img" />
+        <img :src="item.thumb_images" />
       </div>
       <div class="right">
         <div class="tit">{{item.title}}</div>
         <div class="tags">
           <span v-for="(dot,i) in item.tags" :key="i">{{dot}}</span>
         </div>
-        <div class="time">{{item.time}}</div>
+        <div class="time">{{item.createtime}}</div>
       </div>
     </div>
   </div>

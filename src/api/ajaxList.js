@@ -163,7 +163,6 @@ let ajaxList = {
             }
         });
     },
-    //文章列表
     //轮播图
     getBanner: function (params, callback) {
         ajax({
@@ -251,7 +250,8 @@ let ajaxList = {
         ajax({
             url: '/api/article/articleList',
             type: 'POST',
-            data: params
+            data: params,
+            headers: { 'token': params.token }
         }).then(res => {
             if (callback) {
                 callback(res.data);

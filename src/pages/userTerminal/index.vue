@@ -124,8 +124,30 @@ export default {
     this.$ajaxList.topCate(function(res) {
       that.topCate = res;
     });
+    // let USER_INFO = {
+    //   id: 4,
+    //   nickname: "老鼠还是兔子吖",
+    //   avatar:
+    //     "http://yygzh.majiangyun.cn/uploads/avatar/2020/10-16/63f8b851c9205cf550450f54ab39f3ca.jpeg",
+    //   prevtime: 1603205684,
+    //   status: 1,
+    //   token: "cb95845adc839a8f7318e169613c6b4b"
+    // };
+    // sessionStorage.setItem("USER_INFO", JSON.stringify(USER_INFO));
+    this.getArticleList();
   },
   methods: {
+    //获取首页数据
+    getArticleList() {
+      let that = this;
+      let params = {
+        token: JSON.parse(sessionStorage.getItem("USER_INFO")).token,
+        p: 1
+      };
+      this.$ajaxList.articleList(params, function(res) {
+        that.tmpList = res;
+      });
+    },
     tabChange(val) {
       this.detailPageName = this.tabs[val].name;
     },
